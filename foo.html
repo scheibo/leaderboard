@@ -3,7 +3,7 @@
 <html class='logged-in  s-minifeed feed3p0 old-login strava-orion' dir='ltr' lang='en-US' xmlns:fb='http://www.facebook.com/2008/fbml' xmlns:og='http://opengraphprotocol.org/schema/' xmlns='http://www.w3.org/TR/html5'>
 <head>
 <meta charset='UTF-8'>
-<meta content='active_prod_appserver.ccae6584-6c1e-11e8-8cb3-0242a4cdf7f1' name='instance_id'>
+<meta content='active_prod_appserver.0c2c825a-6c7f-11e8-8cb3-0242a4cdf7f1' name='instance_id'>
 <meta content='yes' name='apple-mobile-web-app-capable'>
 <meta content='black' name='apple-mobile-web-app-status-bar-style'>
 <meta content='width = device-width, initial-scale = 1, maximum-scale = 2' name='viewport'>
@@ -97,7 +97,7 @@
 <link rel="stylesheet" media="screen" href="https://d3nn82uaxijpm6.cloudfront.net/assets/strava-orion-5f9c1d8535c8a2eea169c57f80debb8a08d0d5cb666fd0bf5c3225cc229873e7.css" />
 
 <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="lO8f95Nu/98SyWsAul0xtLcZ2xdBN1pZJb56G+7fmfO3oboTDiCvzXb+adSbSEIgjeSIdQNx43jtcBbEtiQlAg==" />
+<meta name="csrf-token" content="iQZsHUQQnlGaBSKTgGG8kaxH+R8tbKpgof3+9XbJBcZsGP6PdWCbcFqM0Qg/iuqR4x/qyZSPoUr9cRcpU/5QCQ==" />
 <script src="https://d3nn82uaxijpm6.cloudfront.net/packs/chunking_runtime-6168a99d79060e013f1b.js"></script>
 <script src="https://d3nn82uaxijpm6.cloudfront.net/packs/global-a91a59bd873bd568b249.js"></script>
 <script src="https://d3nn82uaxijpm6.cloudfront.net/assets/strava-head-d0f4c1f1472bbfd71048d6bbbe5e3b9041ec1330343ab67cfc3a6099b8fee09e.js"></script>
@@ -114,7 +114,7 @@
     window.Strava = window.Strava || {};
     var _enabled = true;
     var _options = options;
-
+  
     window.Strava.SegmentIO = window.Strava.SegmentIO || (
       {
         isEnabled: function() {
@@ -207,13 +207,13 @@
         };
         analytics.SNIPPET_VERSION = "4.0.0";
         analytics.load("4U9hx9LX3VDSlP3o5AoG4vHoGdJY340J");
-
+  
         if(Strava.SegmentIO.isDebug()) {
           analytics.debug();
         } else {
           analytics.debug(false);
         }
-
+  
         Strava.SegmentIO.page(null, null, null);
       }
     }
@@ -223,11 +223,11 @@
 <script>
   !function(debug){
     window.Strava = window.Strava || {};
-
+  
     var _enabled = true;
     var _debug = !!debug;
     var _branchData = null;
-
+  
     window.Strava.BranchIO = window.Strava.BranchIO || (
       {
         isEnabled: function() {
@@ -240,7 +240,7 @@
           if (!_branchData) {
             _branchData = new Strava.BranchAnalytics.BranchData();
           }
-
+  
           var d = this.data()
           var that = this;
           d.done(function(data) {
@@ -292,21 +292,21 @@
           var that = this;
           var c = function(message, meta_data) {
             var storedData = null;
-
+  
             if(message) {
               d.reject(message);
             } else {
               if (checkLocalStorage == true && (meta_data == null || meta_data.data == "" || meta_data.data == null)) {
                 storedData = that.dataFromLocalStorage();
                 that.clearLocalStorage();
-
+  
                 d.resolve(storedData);
               } else {
                 d.resolve(meta_data);
               }
             }
           };
-
+  
           if(this.isEnabled()) {
             branch.data(c);
             this.log('%cdata (branch enabled)');
@@ -386,7 +386,7 @@
 
 <header id='global-header'><!--
 deploy: 0aecf91b724eb97e8f3121f3497185040e657804
-instance: active_prod_appserver.ccae6584-6c1e-11e8-8cb3-0242a4cdf7f1
+instance: active_prod_appserver.0c2c825a-6c7f-11e8-8cb3-0242a4cdf7f1
 env: 'ec2'
 -->
 <nav class='nav-bar container' role='navigation'>
@@ -920,7 +920,7 @@ Woodside, California
 <li><div class="stat"><b class="stat-text">498<abbr class='unit' title='meters'>m</abbr></b> <span class="stat-subtext">Highest Elev</span></div></li>
 <li><div class="stat"><b class="stat-text">390<abbr class='unit' title='meters'>m</abbr></b> <span class="stat-subtext">Elev Difference</span></div></li>
 <li><div class="stat climb-category"><b class="stat-text">2</b> <span class="stat-subtext">Climb Category</span></div></li>
-<li><div class="stat attempts"><b class="stat-text"></b> <span class="stat-subtext">216,948 Attempts By 21,599 People</span></div></li>
+<li><div class="stat attempts"><b class="stat-text"></b> <span class="stat-subtext">217,252 Attempts By 21,599 People</span></div></li>
 </ul>
 
 </div>
@@ -1125,7 +1125,7 @@ Show Less
 <h5 class='topless text-uppercase'>My Current Place</h5>
 <strong>
 -
- / 3329
+ / 3333
 </strong>
 </td>
 <td class='time text-nowrap'>
@@ -1172,502 +1172,15 @@ Show Less
 <tbody>
 <tr class=''>
 <td class='text-center'>
-899
+200
 </td>
 <td class='athlete'>
-<a href="/athletes/971251">sue kayser</a>
+<a href="/athletes/21953551">Nicole Ticea</a>
 </td>
 <td>
-<a href="/segment_efforts/4531939358">Nov 23, 2013</a>
+<a href="/segment_efforts/40056589988">May 27, 2018</a>
 </td>
-<td>10.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-151<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
--
-</td>
-<td>
-865.4
-</td>
-<td class='last-child'>27:04</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-899
-</td>
-<td class='athlete'>
-<a href="/athletes/105728">Megumi Nakamura</a>
-</td>
-<td>
-<a href="/segment_efforts/5813677372">Jan 29, 2015</a>
-</td>
-<td>10.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-156<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-192<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-865.4
-</td>
-<td class='last-child'>27:04</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-899
-</td>
-<td class='athlete'>
-<a href="/athletes/20150155">Heike Brendemühl</a>
-</td>
-<td>
-<a href="/segment_efforts/34553646133">Feb 4, 2018</a>
-</td>
-<td>10.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-164<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-237<abbr class='unit' title='watts'>W</abbr>
-<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
-</td>
-<td>
-865.4
-</td>
-<td class='last-child'>27:04</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-904
-</td>
-<td class='athlete'>
-<a href="/athletes/463444">Clare Abram</a>
-</td>
-<td>
-<a href="/segment_efforts/4530342341">Sep 6, 2014</a>
-</td>
-<td>10.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-209<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-864.9
-</td>
-<td class='last-child'>27:05</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-904
-</td>
-<td class='athlete'>
-<a href="/athletes/3222464">Sandra Tucher</a>
-</td>
-<td>
-<a href="/segment_efforts/4531976243">Nov 12, 2013</a>
-</td>
-<td>10.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-197<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-864.9
-</td>
-<td class='last-child'>27:05</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-904
-</td>
-<td class='athlete'>
-<a href="/athletes/121379">Lizzie Hammerman</a>
-</td>
-<td>
-<a href="/segment_efforts/4532093997">Oct 6, 2013</a>
-</td>
-<td>10.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-147<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
--
-</td>
-<td>
-864.9
-</td>
-<td class='last-child'>27:05</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-904
-</td>
-<td class='athlete'>
-<a href="/athletes/1080729">Haam-Baak Shin</a>
-</td>
-<td>
-<a href="/segment_efforts/4532111901">Sep 17, 2013</a>
-</td>
-<td>10.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-171<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-161<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-864.9
-</td>
-<td class='last-child'>27:05</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-904
-</td>
-<td class='athlete'>
-<a href="/athletes/3968843">Buff Wendt</a>
-</td>
-<td>
-<a href="/segment_efforts/8383141310">Jul 23, 2015</a>
-</td>
-<td>10.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-224<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-864.9
-</td>
-<td class='last-child'>27:05</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-904
-</td>
-<td class='athlete'>
-<a href="/athletes/524295">Joe Huber</a>
-</td>
-<td>
-<a href="/segment_efforts/9340556659">Sep 11, 2015</a>
-</td>
-<td>10.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-237<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-864.9
-</td>
-<td class='last-child'>27:05</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-904
-</td>
-<td class='athlete'>
-<a href="/athletes/10351481">Steeezzy D</a>
-</td>
-<td>
-<a href="/segment_efforts/12131704014">Feb 28, 2016</a>
-</td>
-<td>10.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-173<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-150<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-864.9
-</td>
-<td class='last-child'>27:05</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-904
-</td>
-<td class='athlete'>
-<a href="/athletes/12428812">Christa Porcaro</a>
-</td>
-<td>
-<a href="/segment_efforts/26145944112">Jun 5, 2016</a>
-</td>
-<td>10.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-198<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-864.9
-</td>
-<td class='last-child'>27:05</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-912
-</td>
-<td class='athlete'>
-<a href="/athletes/557867">Candice Hansen</a>
-</td>
-<td>
-<a href="/segment_efforts/4530643521">Jul 11, 2014</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-227<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-864.4
-</td>
-<td class='last-child'>27:06</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-912
-</td>
-<td class='athlete'>
-<a href="/athletes/3566159">Lesley Butler</a>
-</td>
-<td>
-<a href="/segment_efforts/5939854933">Feb 11, 2015</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-175<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-864.4
-</td>
-<td class='last-child'>27:06</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-912
-</td>
-<td class='athlete'>
-<a href="/athletes/8763729">Colleen Chew</a>
-</td>
-<td>
-<a href="/segment_efforts/29258124958">Sep 16, 2017</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-175<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-156<abbr class='unit' title='watts'>W</abbr>
-<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
-</td>
-<td>
-864.4
-</td>
-<td class='last-child'>27:06</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-912
-</td>
-<td class='athlete'>
-<a href="/athletes/22882593">Lora M</a>
-</td>
-<td>
-<a href="/segment_efforts/32400002662">Dec 10, 2017</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-180<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-864.4
-</td>
-<td class='last-child'>27:06</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-916
-</td>
-<td class='athlete'>
-<a href="/athletes/263046">Laura Spano</a>
-</td>
-<td>
-<a href="/segment_efforts/7227116452">May 17, 2015</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-117<abbr class='unit' title='watts'>W</abbr>
-<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
-</td>
-<td>
-863.8
-</td>
-<td class='last-child'>27:07</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-916
-</td>
-<td class='athlete'>
-<a href="/athletes/141828">Ali Mac</a>
-</td>
-<td>
-<a href="/segment_efforts/9075850613">Aug 28, 2015</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-161<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-863.8
-</td>
-<td class='last-child'>27:07</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-918
-</td>
-<td class='athlete'>
-<a href="/athletes/8379">Lori Fabris</a>
-</td>
-<td>
-<a href="/segment_efforts/4532786132">May 27, 2011</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-165<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-863.3
-</td>
-<td class='last-child'>27:08</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-918
-</td>
-<td class='athlete'>
-<a href="/athletes/3476610">Lisa Beilke</a>
-</td>
-<td>
-<a href="/segment_efforts/8047183817">Jul 4, 2015</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-155<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
--
-</td>
-<td>
-863.3
-</td>
-<td class='last-child'>27:08</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-918
-</td>
-<td class='athlete'>
-<a href="/athletes/15167932">Nicola McElroy</a>
-</td>
-<td>
-<a href="/segment_efforts/28421121592">Aug 26, 2017</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-170<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-863.3
-</td>
-<td class='last-child'>27:08</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-918
-</td>
-<td class='athlete'>
-<a href="/athletes/15918722">Anna Yam</a>
-</td>
-<td>
-<a href="/segment_efforts/29591220638">Sep 17, 2017</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-173<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-151<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-863.3
-</td>
-<td class='last-child'>27:08</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-922
-</td>
-<td class='athlete'>
-<a href="/athletes/412062">jessica runyon</a>
-</td>
-<td>
-<a href="/segment_efforts/4532723285">Jun 2, 2012</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-255<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-862.8
-</td>
-<td class='last-child'>27:09</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-922
-</td>
-<td class='athlete'>
-<a href="/athletes/12366890">Danielle Mammolite</a>
-</td>
-<td>
-<a href="/segment_efforts/29727619766">Sep 28, 2017</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
@@ -1675,87 +1188,43 @@ Show Less
 -
 </td>
 <td>
-862.8
+1,041.8
 </td>
-<td class='last-child'>27:09</td>
+<td class='last-child'>22:29</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-924
+202
 </td>
 <td class='athlete'>
-<a href="/athletes/1295531">Carla Mott</a>
+<a href="/athletes/13853224">Lizzy Danhakl</a>
 </td>
 <td>
-<a href="/segment_efforts/12205652378">May 3, 2014</a>
+<a href="/segment_efforts/17788409873">Sep 25, 2016</a>
 </td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-166<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-96<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-862.2
-</td>
-<td class='last-child'>27:10</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-925
-</td>
-<td class='athlete'>
-<a href="/athletes/12464">Josie Douglas</a>
-</td>
-<td>
-<a href="/segment_efforts/4532438435">Apr 29, 2013</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
 <td class='power text-nowrap'>
-142<abbr class='unit' title='watts'>W</abbr>
+242<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-861.7
+1,041.1
 </td>
-<td class='last-child'>27:11</td>
+<td class='last-child'>22:30</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-925
+203
 </td>
 <td class='athlete'>
-<a href="/athletes/101179">Alayna Lim</a>
+<a href="/athletes/102012">Leslie  Oley</a>
 </td>
 <td>
-<a href="/segment_efforts/4532657071">Sep 23, 2012</a>
+<a href="/segment_efforts/4530637931">Jul 13, 2014</a>
 </td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-185<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-189<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-861.7
-</td>
-<td class='last-child'>27:11</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-925
-</td>
-<td class='athlete'>
-<a href="/athletes/4506">Ashley Watts</a>
-</td>
-<td>
-<a href="/segment_efforts/4532793872">Nov 13, 2010</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
@@ -1763,926 +1232,1394 @@ Show Less
 236<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-861.7
+1,040.3
 </td>
-<td class='last-child'>27:11</td>
+<td class='last-child'>22:31</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-925
+203
 </td>
 <td class='athlete'>
-<a href="/athletes/1541933">Kristy Stokes</a>
+<a href="/athletes/1662813">Rachel Chibidakis</a>
 </td>
 <td>
-<a href="/segment_efforts/4801600379">Oct 5, 2014</a>
+<a href="/segment_efforts/4530942043">May 18, 2014</a>
 </td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+178<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+221<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,040.3
+</td>
+<td class='last-child'>22:31</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+203
+</td>
+<td class='athlete'>
+<a href="/athletes/168800">Johanna Trueblood</a>
+</td>
+<td>
+<a href="/segment_efforts/4532210195">Aug 3, 2013</a>
+</td>
+<td>12.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
 <td class='power text-nowrap'>
-197<abbr class='unit' title='watts'>W</abbr>
+217<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-861.7
+1,040.3
 </td>
-<td class='last-child'>27:11</td>
+<td class='last-child'>22:31</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-929
+206
 </td>
 <td class='athlete'>
-<a href="/athletes/748379">Anna Huynh</a>
+<a href="/athletes/195574">Tania Satchwell</a>
 </td>
 <td>
-<a href="/segment_efforts/4532508420">Mar 9, 2013</a>
+<a href="/segment_efforts/4532468183">Apr 7, 2013</a>
 </td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-170<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-331<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-861.2
-</td>
-<td class='last-child'>27:12</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-929
-</td>
-<td class='athlete'>
-<a href="/athletes/878833">Elisabeth H.</a>
-</td>
-<td>
-<a href="/segment_efforts/22359138817">Mar 25, 2017</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
 <td class='power text-nowrap'>
-228<abbr class='unit' title='watts'>W</abbr>
+413<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,039.5
+</td>
+<td class='last-child'>22:32</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+207
+</td>
+<td class='athlete'>
+<a href="/athletes/1803483">Valina Sintal</a>
+</td>
+<td>
+<a href="/segment_efforts/16432543150">Aug 9, 2016</a>
+</td>
+<td>12.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+168<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+248<abbr class='unit' title='watts'>W</abbr>
 <img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
 </td>
 <td>
-861.2
+1,038.8
 </td>
-<td class='last-child'>27:12</td>
+<td class='last-child'>22:33</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-929
+207
 </td>
 <td class='athlete'>
-<a href="/athletes/23411619">Alex Porter</a>
+<a href="/athletes/1147289">Caroline Koch</a>
 </td>
 <td>
-<a href="/segment_efforts/34217296229">Jan 27, 2018</a>
+<a href="/segment_efforts/28554710667">Aug 29, 2017</a>
 </td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-171<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
--
-</td>
-<td>
-861.2
-</td>
-<td class='last-child'>27:12</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-932
-</td>
-<td class='athlete'>
-<a href="/athletes/4370254">jocelyn chapman</a>
-</td>
-<td>
-<a href="/segment_efforts/4530922560">May 24, 2014</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
 <td class='power text-nowrap'>
-192<abbr class='unit' title='watts'>W</abbr>
+209<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-860.6
+1,038.8
 </td>
-<td class='last-child'>27:13</td>
+<td class='last-child'>22:33</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-932
+207
 </td>
 <td class='athlete'>
-<a href="/athletes/11128011">Yuwen W</a>
+<a href="/athletes/5814172">Emily Kraus</a>
 </td>
 <td>
-<a href="/segment_efforts/18479167806">Oct 23, 2016</a>
+<a href="/segment_efforts/28841036167">Sep 5, 2017</a>
 </td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
 <td class='power text-nowrap'>
-157<abbr class='unit' title='watts'>W</abbr>
+182<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,038.8
+</td>
+<td class='last-child'>22:33</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+210
+</td>
+<td class='athlete'>
+<a href="/athletes/5342">Amy Bruski</a>
+</td>
+<td>
+<a href="/segment_efforts/4532104272">Sep 29, 2013</a>
+</td>
+<td>12.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+185<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+221<abbr class='unit' title='watts'>W</abbr>
 <img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
 </td>
 <td>
-860.6
+1,037.2
 </td>
-<td class='last-child'>27:13</td>
+<td class='last-child'>22:35</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-932
+210
 </td>
 <td class='athlete'>
-<a href="/athletes/13074531">Amy Cater</a>
+<a href="/athletes/11271007">Meghan Hession</a>
 </td>
 <td>
-<a href="/segment_efforts/18957178382">Nov 13, 2016</a>
+<a href="/segment_efforts/31417800342">Nov 11, 2017</a>
 </td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
 <td class='power text-nowrap'>
-184<abbr class='unit' title='watts'>W</abbr>
+201<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-860.6
+1,037.2
 </td>
-<td class='last-child'>27:13</td>
+<td class='last-child'>22:35</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-932
+210
 </td>
 <td class='athlete'>
-<a href="/athletes/17530985">Naomi R</a>
+<a href="/athletes/1366659">anna guzman</a>
 </td>
 <td>
-<a href="/segment_efforts/22121782570">Mar 19, 2017</a>
+<a href="/segment_efforts/34552537280">Feb 4, 2018</a>
 </td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
--
-</td>
-<td class='power text-nowrap'>
-151<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-860.6
-</td>
-<td class='last-child'>27:13</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-932
-</td>
-<td class='athlete'>
-<a href="/athletes/4192">laura schu</a>
-</td>
-<td>
-<a href="/segment_efforts/29585412884">Sep 24, 2017</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-197<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-860.6
-</td>
-<td class='last-child'>27:13</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-932
-</td>
-<td class='athlete'>
-<a href="/athletes/802642">Sophie Mittelstadt</a>
-</td>
-<td>
-<a href="/segment_efforts/33155921349">Jan 2, 2018</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-161<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-860.6
-</td>
-<td class='last-child'>27:13</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-938
-</td>
-<td class='athlete'>
-<a href="/athletes/603880">LORA Murray</a>
-</td>
-<td>
-<a href="/segment_efforts/4532637531">Oct 28, 2012</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-193<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-860.1
-</td>
-<td class='last-child'>27:14</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-938
-</td>
-<td class='athlete'>
-<a href="/athletes/2397590">Ballinda B</a>
-</td>
-<td>
-<a href="/segment_efforts/6667208436">Apr 12, 2015</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-222<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-860.1
-</td>
-<td class='last-child'>27:14</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-938
-</td>
-<td class='athlete'>
-<a href="/athletes/57404">Grace Jehan</a>
-</td>
-<td>
-<a href="/segment_efforts/6764400950">Apr 18, 2015</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-166<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-860.1
-</td>
-<td class='last-child'>27:14</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-938
-</td>
-<td class='athlete'>
-<a href="/athletes/283305">Annemieke Jordan</a>
-</td>
-<td>
-<a href="/segment_efforts/10727729604">Dec 7, 2015</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-199<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-860.1
-</td>
-<td class='last-child'>27:14</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-938
-</td>
-<td class='athlete'>
-<a href="/athletes/3938160">Jenna Boren</a>
-</td>
-<td>
-<a href="/segment_efforts/18116726635">Oct 8, 2016</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
--
-</td>
-<td>
-860.1
-</td>
-<td class='last-child'>27:14</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-938
-</td>
-<td class='athlete'>
-<a href="/athletes/6192">Tami Taylor</a>
-</td>
-<td>
-<a href="/segment_efforts/39708845928">May 21, 2018</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-158<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-167<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-860.1
-</td>
-<td class='last-child'>27:14</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-944
-</td>
-<td class='athlete'>
-<a href="/athletes/8563370">Kelly Hoose</a>
-</td>
-<td>
-<a href="/segment_efforts/6598215129">Mar 15, 2015</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
--
-</td>
-<td>
-859.6
-</td>
-<td class='last-child'>27:15</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-944
-</td>
-<td class='athlete'>
-<a href="/athletes/4374065">Tora DM</a>
-</td>
-<td>
-<a href="/segment_efforts/7556805642">Jun 6, 2015</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-180<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-137<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-859.6
-</td>
-<td class='last-child'>27:15</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-946
-</td>
-<td class='athlete'>
-<a href="/athletes/13180">natalia gardiol</a>
-</td>
-<td>
-<a href="/segment_efforts/4532634827">Nov 3, 2012</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-166<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-0<abbr class='unit' title='watts'>W</abbr>
-<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
-</td>
-<td>
-859.1
-</td>
-<td class='last-child'>27:16</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-946
-</td>
-<td class='athlete'>
-<a href="/athletes/116711">Kristin Nelson</a>
-</td>
-<td>
-<a href="/segment_efforts/4532771066">Oct 29, 2011</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-157<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-169<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-859.1
-</td>
-<td class='last-child'>27:16</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-946
-</td>
-<td class='athlete'>
-<a href="/athletes/6710928">jeana rose</a>
-</td>
-<td>
-<a href="/segment_efforts/14049459062">Apr 13, 2016</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-166<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-207<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-859.1
-</td>
-<td class='last-child'>27:16</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-946
-</td>
-<td class='athlete'>
-<a href="/athletes/280770">Alia S</a>
-</td>
-<td>
-<a href="/segment_efforts/19181659524">Nov 24, 2016</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-193<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-859.1
-</td>
-<td class='last-child'>27:16</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-946
-</td>
-<td class='athlete'>
-<a href="/athletes/19956266">Jenny Wang</a>
-</td>
-<td>
-<a href="/segment_efforts/31654242924">Nov 18, 2017</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-152<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-155<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-859.1
-</td>
-<td class='last-child'>27:16</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-951
-</td>
-<td class='athlete'>
-<a href="/athletes/999337">Judy Foster</a>
-</td>
-<td>
-<a href="/segment_efforts/4532654986">Sep 29, 2012</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-218<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-858.0
-</td>
-<td class='last-child'>27:18</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-951
-</td>
-<td class='athlete'>
-<a href="/athletes/1709647">Stephanie Klitgord</a>
-</td>
-<td>
-<a href="/segment_efforts/9603029214">Sep 26, 2015</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
+165<abbr class='unit' title='beats per minute'>bpm</abbr>
 </td>
 <td class='power text-nowrap'>
 223<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-858.0
+1,037.2
 </td>
-<td class='last-child'>27:18</td>
+<td class='last-child'>22:35</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-951
+213
 </td>
 <td class='athlete'>
-<a href="/athletes/2659368">Jeanette Haggas</a>
+<a href="/athletes/2292660">kimberley Boester</a>
 </td>
 <td>
-<a href="/segment_efforts/18955955427">Nov 13, 2016</a>
+<a href="/segment_efforts/4530673345">Jul 3, 2014</a>
 </td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
 <td class='power text-nowrap'>
-233<abbr class='unit' title='watts'>W</abbr>
+214<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-858.0
+1,033.4
 </td>
-<td class='last-child'>27:18</td>
+<td class='last-child'>22:40</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-954
+213
 </td>
 <td class='athlete'>
-<a href="/athletes/150363">Meve Savard</a>
+<a href="/athletes/71245">Addie Levinsky</a>
 </td>
 <td>
-<a href="/segment_efforts/4532367098">May 28, 2013</a>
+<a href="/segment_efforts/13595479399">Apr 30, 2016</a>
 </td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+172<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+218<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,033.4
+</td>
+<td class='last-child'>22:40</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+215
+</td>
+<td class='athlete'>
+<a href="/athletes/3665116">Allison Crow</a>
+</td>
+<td>
+<a href="/segment_efforts/11438000396">Jan 23, 2016</a>
+</td>
+<td>12.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+189<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+99<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,031.1
+</td>
+<td class='last-child'>22:43</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+215
+</td>
+<td class='athlete'>
+<a href="/athletes/15459564">Samantha Quijano</a>
+</td>
+<td>
+<a href="/segment_efforts/35094709718">Feb 17, 2018</a>
+</td>
+<td>12.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+190<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+214<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+1,031.1
+</td>
+<td class='last-child'>22:43</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+217
+</td>
+<td class='athlete'>
+<a href="/athletes/1462543">Joanna Dahl</a>
+</td>
+<td>
+<a href="/segment_efforts/4531939668">Nov 24, 2013</a>
+</td>
+<td>12.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
 <td class='power text-nowrap'>
--
+236<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-857.5
+1,029.6
 </td>
-<td class='last-child'>27:19</td>
+<td class='last-child'>22:45</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-954
+217
 </td>
 <td class='athlete'>
-<a href="/athletes/5441863">Lynda Moyer</a>
+<a href="/athletes/715571">Annie Grella</a>
 </td>
 <td>
-<a href="/segment_efforts/4575232635">Sep 14, 2014</a>
+<a href="/segment_efforts/4532697545">Jul 21, 2012</a>
 </td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
--
-</td>
-<td class='power text-nowrap'>
--
-</td>
-<td>
-857.5
-</td>
-<td class='last-child'>27:19</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-954
-</td>
-<td class='athlete'>
-<a href="/athletes/1651719">Jen Revelli</a>
-</td>
-<td>
-<a href="/segment_efforts/15338650116">Jul 2, 2016</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-155<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-165<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-857.5
-</td>
-<td class='last-child'>27:19</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-954
-</td>
-<td class='athlete'>
-<a href="/athletes/10615668">Julie Bruzi-David</a>
-</td>
-<td>
-<a href="/segment_efforts/32133590529">Dec 2, 2017</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-185<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-857.5
-</td>
-<td class='last-child'>27:19</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-954
-</td>
-<td class='athlete'>
-<a href="/athletes/26692399">Hollis Crowder</a>
-</td>
-<td>
-<a href="/segment_efforts/34697141831">Feb 7, 2018</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
--
-</td>
-<td>
-857.5
-</td>
-<td class='last-child'>27:19</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-959
-</td>
-<td class='athlete'>
-<a href="/athletes/479880">lucius seneca</a>
-</td>
-<td>
-<a href="/segment_efforts/8423216592">Jul 19, 2015</a>
-</td>
-<td>10.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-156<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-154<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-857.0
-</td>
-<td class='last-child'>27:20</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-960
-</td>
-<td class='athlete'>
-<a href="/athletes/2659417">Silke Nelson</a>
-</td>
-<td>
-<a href="/segment_efforts/4531625431">Jan 29, 2014</a>
-</td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-176<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-856.5
-</td>
-<td class='last-child'>27:21</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-960
-</td>
-<td class='athlete'>
-<a href="/athletes/127417">Mariska Vodegel</a>
-</td>
-<td>
-<a href="/segment_efforts/4532779175">Aug 14, 2011</a>
-</td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-177<abbr class='unit' title='beats per minute'>bpm</abbr>
+165<abbr class='unit' title='beats per minute'>bpm</abbr>
 </td>
 <td class='power text-nowrap'>
 -
 </td>
 <td>
-856.5
+1,029.6
 </td>
-<td class='last-child'>27:21</td>
+<td class='last-child'>22:45</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-960
+217
 </td>
 <td class='athlete'>
-<a href="/athletes/247753">Alexis Baird</a>
+<a href="/athletes/4035655">Smaish 🍑 Ketchum</a>
 </td>
 <td>
-<a href="/segment_efforts/6554115312">Apr 4, 2015</a>
+<a href="/segment_efforts/23686731035">Mar 7, 2017</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+159<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+228<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,029.6
+</td>
+<td class='last-child'>22:45</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+220
+</td>
+<td class='athlete'>
+<a href="/athletes/746346">Michelle Miller</a>
+</td>
+<td>
+<a href="/segment_efforts/4532697047">Jul 21, 2012</a>
+</td>
+<td>12.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
 <td class='power text-nowrap'>
-166<abbr class='unit' title='watts'>W</abbr>
+258<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-856.5
+1,028.9
 </td>
-<td class='last-child'>27:21</td>
+<td class='last-child'>22:46</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-960
+221
 </td>
 <td class='athlete'>
-<a href="/athletes/8227940">Andrea Lodzieski</a>
+<a href="/athletes/881423">Victoria Bastide</a>
 </td>
 <td>
-<a href="/segment_efforts/8653304907">Aug 6, 2015</a>
+<a href="/segment_efforts/4532688105">Aug 7, 2012</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
 <td class='power text-nowrap'>
-210<abbr class='unit' title='watts'>W</abbr>
+207<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-856.5
+1,028.1
 </td>
-<td class='last-child'>27:21</td>
+<td class='last-child'>22:47</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-960
+221
 </td>
 <td class='athlete'>
-<a href="/athletes/265224">Angela Strange</a>
+<a href="/athletes/108288">❤ Wingnut</a>
 </td>
 <td>
-<a href="/segment_efforts/14327416246">May 24, 2016</a>
+<a href="/segment_efforts/9923181522">Oct 14, 2015</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
 <td class='power text-nowrap'>
-368<abbr class='unit' title='watts'>W</abbr>
+217<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-856.5
+1,028.1
 </td>
-<td class='last-child'>27:21</td>
+<td class='last-child'>22:47</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-960
+221
 </td>
 <td class='athlete'>
-<a href="/athletes/815343">Mei Yan Peters</a>
+<a href="/athletes/16060619">Emily Cleary</a>
 </td>
 <td>
-<a href="/segment_efforts/24484614998">May 21, 2017</a>
+<a href="/segment_efforts/38186160696">Apr 24, 2018</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
-158<abbr class='unit' title='beats per minute'>bpm</abbr>
+-
 </td>
 <td class='power text-nowrap'>
 195<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-856.5
+1,028.1
 </td>
-<td class='last-child'>27:21</td>
+<td class='last-child'>22:47</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-960
+221
 </td>
 <td class='athlete'>
-<a href="/athletes/8941333">Megan Gardner</a>
+<a href="/athletes/1361259">Katrin Tobin</a>
 </td>
 <td>
-<a href="/segment_efforts/34788287583">Feb 10, 2018</a>
+<a href="/segment_efforts/38467009174">Apr 29, 2018</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
-172<abbr class='unit' title='beats per minute'>bpm</abbr>
+-
 </td>
 <td class='power text-nowrap'>
-157<abbr class='unit' title='watts'>W</abbr>
+204<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-856.5
+1,028.1
 </td>
-<td class='last-child'>27:21</td>
+<td class='last-child'>22:47</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-967
+225
 </td>
 <td class='athlete'>
-<a href="/athletes/556800">Courtney Fox</a>
+<a href="/athletes/418892">kelly kruse</a>
 </td>
 <td>
-<a href="/segment_efforts/4531657861">Jan 25, 2014</a>
+<a href="/segment_efforts/4532661948">Sep 19, 2012</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+245<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,027.4
+</td>
+<td class='last-child'>22:48</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+226
+</td>
+<td class='athlete'>
+<a href="/athletes/1748438">Cheryl Becker</a>
+</td>
+<td>
+<a href="/segment_efforts/4531115838">Apr 12, 2014</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+241<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,025.1
+</td>
+<td class='last-child'>22:51</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+227
+</td>
+<td class='athlete'>
+<a href="/athletes/196210">Aisha Chow</a>
+</td>
+<td>
+<a href="/segment_efforts/4532568372">Jan 12, 2013</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+171<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+241<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,024.4
+</td>
+<td class='last-child'>22:52</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+227
+</td>
+<td class='athlete'>
+<a href="/athletes/197881">Jo Fogolin</a>
+</td>
+<td>
+<a href="/segment_efforts/16476675146">Aug 11, 2016</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+201<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,024.4
+</td>
+<td class='last-child'>22:52</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+229
+</td>
+<td class='athlete'>
+<a href="/athletes/613333">LisaB Gordon</a>
+</td>
+<td>
+<a href="/segment_efforts/4532204860">Aug 7, 2013</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+220<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,022.9
+</td>
+<td class='last-child'>22:54</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+229
+</td>
+<td class='athlete'>
+<a href="/athletes/7948">Kasey McJunkin</a>
+</td>
+<td>
+<a href="/segment_efforts/4532647469">Oct 10, 2012</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+175<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,022.9
+</td>
+<td class='last-child'>22:54</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+231
+</td>
+<td class='athlete'>
+<a href="/athletes/261816">Sarah Bear</a>
+</td>
+<td>
+<a href="/segment_efforts/4530363648">Aug 30, 2014</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+212<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,022.1
+</td>
+<td class='last-child'>22:55</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+231
+</td>
+<td class='athlete'>
+<a href="/athletes/1659703">Pan Pan Fan</a>
+</td>
+<td>
+<a href="/segment_efforts/4530873320">Jun 3, 2014</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+3<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+1,022.1
+</td>
+<td class='last-child'>22:55</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+233
+</td>
+<td class='athlete'>
+<a href="/athletes/128499">ED D</a>
+</td>
+<td>
+<a href="/segment_efforts/4532795291">Nov 5, 2010</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+175<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+1,021.4
+</td>
+<td class='last-child'>22:56</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+234
+</td>
+<td class='athlete'>
+<a href="/athletes/122368">Andria Jones</a>
+</td>
+<td>
+<a href="/segment_efforts/4530615616">Jul 18, 2014</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+237<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+1,020.7
+</td>
+<td class='last-child'>22:57</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+234
+</td>
+<td class='athlete'>
+<a href="/athletes/1522173">Tracey Fuller</a>
+</td>
+<td>
+<a href="/segment_efforts/4530841273">Jun 7, 2014</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+1,020.7
+</td>
+<td class='last-child'>22:57</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+234
+</td>
+<td class='athlete'>
+<a href="/athletes/1881">Heather McDonald</a>
+</td>
+<td>
+<a href="/segment_efforts/4532738091">Apr 14, 2012</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 177<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+1,020.7
+</td>
+<td class='last-child'>22:57</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+234
+</td>
+<td class='athlete'>
+<a href="/athletes/18923372">Lisa Norris</a>
+</td>
+<td>
+<a href="/segment_efforts/25311988574">Jun 10, 2017</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+159<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+184<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,020.7
+</td>
+<td class='last-child'>22:57</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+238
+</td>
+<td class='athlete'>
+<a href="/athletes/4810286">Liz Bills</a>
+</td>
+<td>
+<a href="/segment_efforts/4530528691">Aug 3, 2014</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+209<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,019.9
+</td>
+<td class='last-child'>22:58</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+238
+</td>
+<td class='athlete'>
+<a href="/athletes/8201">Emilie Cole</a>
+</td>
+<td>
+<a href="/segment_efforts/4531116983">Apr 12, 2014</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+177<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+234<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+1,019.9
+</td>
+<td class='last-child'>22:58</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+238
+</td>
+<td class='athlete'>
+<a href="/athletes/2658456">Abby Sanford</a>
+</td>
+<td>
+<a href="/segment_efforts/8048363231">Jul 4, 2015</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+261<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,019.9
+</td>
+<td class='last-child'>22:58</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+238
+</td>
+<td class='athlete'>
+<a href="/athletes/3975313">Jenesse Mellican</a>
+</td>
+<td>
+<a href="/segment_efforts/12531402094">Mar 19, 2016</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+260<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,019.9
+</td>
+<td class='last-child'>22:58</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+238
+</td>
+<td class='athlete'>
+<a href="/athletes/23237909">Lauren Harrison</a>
+</td>
+<td>
+<a href="/segment_efforts/26701892139">Jul 15, 2017</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+1,019.9
+</td>
+<td class='last-child'>22:58</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+238
+</td>
+<td class='athlete'>
+<a href="/athletes/615051">Dawn Andres</a>
+</td>
+<td>
+<a href="/segment_efforts/35419169854">Feb 24, 2018</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+169<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+245<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,019.9
+</td>
+<td class='last-child'>22:58</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+244
+</td>
+<td class='athlete'>
+<a href="/athletes/137364">Annie Fulton</a>
+</td>
+<td>
+<a href="/segment_efforts/4532093677">Oct 6, 2013</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+203<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,019.2
+</td>
+<td class='last-child'>22:59</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+244
+</td>
+<td class='athlete'>
+<a href="/athletes/9269">Melissa Paris</a>
+</td>
+<td>
+<a href="/segment_efforts/4532389664">May 9, 2013</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+180<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+214<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+1,019.2
+</td>
+<td class='last-child'>22:59</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+244
+</td>
+<td class='athlete'>
+<a href="/athletes/10772393">Liz Whiteley</a>
+</td>
+<td>
+<a href="/segment_efforts/8826769961">Aug 14, 2015</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+1,019.2
+</td>
+<td class='last-child'>22:59</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+244
+</td>
+<td class='athlete'>
+<a href="/athletes/1779365">Kristiina Niemistö</a>
+</td>
+<td>
+<a href="/segment_efforts/9267180578">Sep 7, 2015</a>
+</td>
+<td>12.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+235<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,019.2
+</td>
+<td class='last-child'>22:59</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+248
+</td>
+<td class='athlete'>
+<a href="/athletes/1835416">Patricia Gonzales</a>
+</td>
+<td>
+<a href="/segment_efforts/15368601126">Jul 3, 2016</a>
+</td>
+<td>12.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+183<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+198<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,018.4
+</td>
+<td class='last-child'>23:00</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+248
+</td>
+<td class='athlete'>
+<a href="/athletes/203820">carrie beers</a>
+</td>
+<td>
+<a href="/segment_efforts/23547652165">Sep 5, 2015</a>
+</td>
+<td>12.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+204<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,018.4
+</td>
+<td class='last-child'>23:00</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+250
+</td>
+<td class='athlete'>
+<a href="/athletes/186352">Sunshine Townsend</a>
+</td>
+<td>
+<a href="/segment_efforts/4532743073">Mar 29, 2012</a>
+</td>
+<td>12.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+175<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+1,017.7
+</td>
+<td class='last-child'>23:01</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+251
+</td>
+<td class='athlete'>
+<a href="/athletes/4143276">laura shane</a>
+</td>
+<td>
+<a href="/segment_efforts/15694407977">Jul 15, 2016</a>
+</td>
+<td>12.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+239<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,017.0
+</td>
+<td class='last-child'>23:02</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+251
+</td>
+<td class='athlete'>
+<a href="/athletes/157016">Mary Kathryn Lynch</a>
+</td>
+<td>
+<a href="/segment_efforts/17217750941">Sep 5, 2016</a>
+</td>
+<td>12.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+147<abbr class='unit' title='beats per minute'>bpm</abbr>
 </td>
 <td class='power text-nowrap'>
 189<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-855.9
+1,017.0
 </td>
-<td class='last-child'>27:22</td>
+<td class='last-child'>23:02</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-967
+253
 </td>
 <td class='athlete'>
-<a href="/athletes/2114975">😸 ☀️</a>
+<a href="/athletes/374520">kate bergeron</a>
 </td>
 <td>
-<a href="/segment_efforts/10369974430">Nov 11, 2015</a>
+<a href="/segment_efforts/4532681199">Aug 22, 2012</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+169<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+199<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,016.2
+</td>
+<td class='last-child'>23:03</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+254
+</td>
+<td class='athlete'>
+<a href="/athletes/118214">Shelley Hagan</a>
+</td>
+<td>
+<a href="/segment_efforts/4532779139">Aug 14, 2011</a>
+</td>
+<td>12.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+174<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+237<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+1,014.8
+</td>
+<td class='last-child'>23:05</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+255
+</td>
+<td class='athlete'>
+<a href="/athletes/2945728">allie bollella</a>
+</td>
+<td>
+<a href="/segment_efforts/6453704534">Mar 28, 2015</a>
+</td>
+<td>12.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
 <td class='power text-nowrap'>
-216<abbr class='unit' title='watts'>W</abbr>
+247<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-855.9
+1,014.0
 </td>
-<td class='last-child'>27:22</td>
+<td class='last-child'>23:06</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-967
+256
 </td>
 <td class='athlete'>
-<a href="/athletes/3568268">AJ  Johnson</a>
+<a href="/athletes/1881630">Sasha Gollish</a>
 </td>
 <td>
-<a href="/segment_efforts/28992963919">Sep 9, 2017</a>
+<a href="/segment_efforts/7001047049">May 3, 2015</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+209<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,013.3
+</td>
+<td class='last-child'>23:07</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+256
+</td>
+<td class='athlete'>
+<a href="/athletes/5119310">Kristen Howell</a>
+</td>
+<td>
+<a href="/segment_efforts/7358319098">May 25, 2015</a>
+</td>
+<td>12.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+182<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,013.3
+</td>
+<td class='last-child'>23:07</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+258
+</td>
+<td class='athlete'>
+<a href="/athletes/321233">Christen Dybenko</a>
+</td>
+<td>
+<a href="/segment_efforts/4532658327">Sep 22, 2012</a>
+</td>
+<td>12.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+175<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+181<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,012.6
+</td>
+<td class='last-child'>23:08</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+258
+</td>
+<td class='athlete'>
+<a href="/athletes/1288366">Kate McShane Urban</a>
+</td>
+<td>
+<a href="/segment_efforts/6822394983">Apr 22, 2015</a>
+</td>
+<td>12.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+208<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,012.6
+</td>
+<td class='last-child'>23:08</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+258
+</td>
+<td class='athlete'>
+<a href="/pros/elleanderson">Elle Anderson</a>
+</td>
+<td>
+<a href="/segment_efforts/7584806992">Jun 7, 2015</a>
+</td>
+<td>12.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+176<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+238<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+1,012.6
+</td>
+<td class='last-child'>23:08</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+261
+</td>
+<td class='athlete'>
+<a href="/athletes/135031">Daniela Mehech</a>
+</td>
+<td>
+<a href="/segment_efforts/4532725657">May 27, 2012</a>
+</td>
+<td>12.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+186<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+206<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,011.8
+</td>
+<td class='last-child'>23:09</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+261
+</td>
+<td class='athlete'>
+<a href="/athletes/12873462">Sophie Lohmann</a>
+</td>
+<td>
+<a href="/segment_efforts/20877744915">Feb 5, 2017</a>
+</td>
+<td>12.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+168<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+178<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,011.8
+</td>
+<td class='last-child'>23:09</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+263
+</td>
+<td class='athlete'>
+<a href="/athletes/1159248">Heather Peck</a>
+</td>
+<td>
+<a href="/segment_efforts/28415903764">Aug 26, 2017</a>
+</td>
+<td>12.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+167<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+188<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,011.1
+</td>
+<td class='last-child'>23:10</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+264
+</td>
+<td class='athlete'>
+<a href="/athletes/551013">lentine alexis</a>
+</td>
+<td>
+<a href="/segment_efforts/4531107865">Apr 18, 2014</a>
+</td>
+<td>12.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+202<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,010.4
+</td>
+<td class='last-child'>23:11</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+264
+</td>
+<td class='athlete'>
+<a href="/athletes/135822">Eva Silverstein</a>
+</td>
+<td>
+<a href="/segment_efforts/4531979559">Nov 6, 2013</a>
+</td>
+<td>12.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+132<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+170<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,010.4
+</td>
+<td class='last-child'>23:11</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+264
+</td>
+<td class='athlete'>
+<a href="/athletes/277134">Brynn Harrington</a>
+</td>
+<td>
+<a href="/segment_efforts/14423850437">May 29, 2016</a>
+</td>
+<td>12.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
@@ -2690,286 +2627,156 @@ Show Less
 186<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-855.9
+1,010.4
 </td>
-<td class='last-child'>27:22</td>
+<td class='last-child'>23:11</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-967
+267
 </td>
 <td class='athlete'>
-<a href="/athletes/365066">Bridget Linder</a>
+<a href="/athletes/646090">Kelly O&#39;Mara</a>
 </td>
 <td>
-<a href="/segment_efforts/32138285115">Dec 2, 2017</a>
+<a href="/segment_efforts/14398834944">May 28, 2016</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
-162<abbr class='unit' title='beats per minute'>bpm</abbr>
+148<abbr class='unit' title='beats per minute'>bpm</abbr>
 </td>
 <td class='power text-nowrap'>
-191<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-855.9
-</td>
-<td class='last-child'>27:22</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-971
-</td>
-<td class='athlete'>
-<a href="/athletes/523658">Eryn Kubinski</a>
-</td>
-<td>
-<a href="/segment_efforts/4532713223">Jun 23, 2012</a>
-</td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
--
-</td>
-<td>
-855.4
-</td>
-<td class='last-child'>27:23</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-971
-</td>
-<td class='athlete'>
-<a href="/athletes/3437868">Emily Weiss</a>
-</td>
-<td>
-<a href="/segment_efforts/15721705479">Jul 16, 2016</a>
-</td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-172<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-169<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-855.4
-</td>
-<td class='last-child'>27:23</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-973
-</td>
-<td class='athlete'>
-<a href="/athletes/3029230">Strava Athlete</a>
-</td>
-<td>
-<a href="/segment_efforts/4531030915">May 3, 2014</a>
-</td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-187<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-854.9
-</td>
-<td class='last-child'>27:24</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-973
-</td>
-<td class='athlete'>
-<a href="/athletes/342700">Kathy Nix</a>
-</td>
-<td>
-<a href="/segment_efforts/4532351788">Jun 9, 2013</a>
-</td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-158<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-359<abbr class='unit' title='watts'>W</abbr>
+210<abbr class='unit' title='watts'>W</abbr>
 <img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
 </td>
 <td>
-854.9
+1,008.2
 </td>
-<td class='last-child'>27:24</td>
+<td class='last-child'>23:14</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-973
+268
 </td>
 <td class='athlete'>
-<a href="/athletes/259620">Megan Lewis</a>
+<a href="/athletes/7926701">Cat Jubinski</a>
 </td>
 <td>
-<a href="/segment_efforts/4532754761">Jan 28, 2012</a>
+<a href="/segment_efforts/12694990871">Mar 26, 2016</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+171<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+185<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,007.5
+</td>
+<td class='last-child'>23:15</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+268
+</td>
+<td class='athlete'>
+<a href="/athletes/1685149">Svenja Ottovordemgentschenfelde</a>
+</td>
+<td>
+<a href="/segment_efforts/12940752030">May 12, 2013</a>
+</td>
+<td>12.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
 <td class='power text-nowrap'>
--
+217<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-854.9
+1,007.5
 </td>
-<td class='last-child'>27:24</td>
+<td class='last-child'>23:15</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-973
+268
 </td>
 <td class='athlete'>
-<a href="/athletes/4761">Alissa Douglas</a>
+<a href="/athletes/3217742">Lori Chung</a>
 </td>
 <td>
-<a href="/segment_efforts/4532786331">May 24, 2011</a>
+<a href="/segment_efforts/30155346233">Oct 8, 2017</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
-94<abbr class='unit' title='beats per minute'>bpm</abbr>
+161<abbr class='unit' title='beats per minute'>bpm</abbr>
 </td>
 <td class='power text-nowrap'>
-170<abbr class='unit' title='watts'>W</abbr>
+181<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
 </td>
 <td>
-854.9
+1,007.5
 </td>
-<td class='last-child'>27:24</td>
+<td class='last-child'>23:15</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-973
+271
 </td>
 <td class='athlete'>
-<a href="/athletes/183036">Erin Sprague</a>
+<a href="/athletes/150669">Anna Levine</a>
 </td>
 <td>
-<a href="/segment_efforts/7091386346">May 9, 2015</a>
+<a href="/segment_efforts/11828287657">Feb 13, 2016</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
--
+166<abbr class='unit' title='beats per minute'>bpm</abbr>
 </td>
 <td class='power text-nowrap'>
 173<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-854.9
+1,006.8
 </td>
-<td class='last-child'>27:24</td>
+<td class='last-child'>23:16</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-978
+272
 </td>
 <td class='athlete'>
-<a href="/athletes/870105">Jenn Chan</a>
+<a href="/athletes/265917">Mary Angelo</a>
 </td>
 <td>
-<a href="/segment_efforts/4530397845">Aug 24, 2014</a>
+<a href="/segment_efforts/4532476116">Mar 30, 2013</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
-167<abbr class='unit' title='beats per minute'>bpm</abbr>
+178<abbr class='unit' title='beats per minute'>bpm</abbr>
 </td>
 <td class='power text-nowrap'>
-179<abbr class='unit' title='watts'>W</abbr>
+226<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
 </td>
 <td>
-854.4
+1,006.0
 </td>
-<td class='last-child'>27:25</td>
+<td class='last-child'>23:17</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-978
+272
 </td>
 <td class='athlete'>
-<a href="/athletes/1077227">Penny Beeston</a>
+<a href="/athletes/685494">Maureen Murphy</a>
 </td>
 <td>
-<a href="/segment_efforts/4532220347">Jul 27, 2013</a>
+<a href="/segment_efforts/13442264340">Apr 24, 2016</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-180<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-854.4
-</td>
-<td class='last-child'>27:25</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-978
-</td>
-<td class='athlete'>
-<a href="/athletes/261864">Rachel Wadsworth</a>
-</td>
-<td>
-<a href="/segment_efforts/4532786357">May 21, 2011</a>
-</td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-183<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-854.4
-</td>
-<td class='last-child'>27:25</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-978
-</td>
-<td class='athlete'>
-<a href="/athletes/1376933">Julie McGee</a>
-</td>
-<td>
-<a href="/segment_efforts/6472800697">Mar 28, 2015</a>
-</td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-131<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-854.4
-</td>
-<td class='last-child'>27:25</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-978
-</td>
-<td class='athlete'>
-<a href="/athletes/6582819">Colette Glaeser</a>
-</td>
-<td>
-<a href="/segment_efforts/18108218760">Oct 8, 2016</a>
-</td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
@@ -2977,43 +2784,131 @@ Show Less
 -
 </td>
 <td>
-854.4
+1,006.0
 </td>
-<td class='last-child'>27:25</td>
+<td class='last-child'>23:17</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-978
+274
 </td>
 <td class='athlete'>
-<a href="/athletes/17016051">Sara Mooser</a>
+<a href="/athletes/1029162">Ayesha McGowan</a>
 </td>
 <td>
-<a href="/segment_efforts/22298409147">Mar 25, 2017</a>
+<a href="/segment_efforts/12242549055">Aug 10, 2015</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
-147<abbr class='unit' title='beats per minute'>bpm</abbr>
+182<abbr class='unit' title='beats per minute'>bpm</abbr>
 </td>
 <td class='power text-nowrap'>
-190<abbr class='unit' title='watts'>W</abbr>
+212<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-854.4
+1,004.6
 </td>
-<td class='last-child'>27:25</td>
+<td class='last-child'>23:19</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-984
+275
 </td>
 <td class='athlete'>
-<a href="/athletes/195814">J Losi</a>
+<a href="/athletes/393941">Katelyn Mack</a>
 </td>
 <td>
-<a href="/segment_efforts/4532791148">Mar 5, 2011</a>
+<a href="/segment_efforts/4530636653">Jul 13, 2014</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+202<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,003.2
+</td>
+<td class='last-child'>23:21</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+275
+</td>
+<td class='athlete'>
+<a href="/athletes/8213">Karen Shakespear Koenig</a>
+</td>
+<td>
+<a href="/segment_efforts/4532209892">Aug 4, 2013</a>
+</td>
+<td>12.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+196<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,003.2
+</td>
+<td class='last-child'>23:21</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+275
+</td>
+<td class='athlete'>
+<a href="/pros/khuizar">Korina Huizar</a>
+</td>
+<td>
+<a href="/segment_efforts/4532745613">Mar 21, 2012</a>
+</td>
+<td>12.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+176<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+1,003.2
+</td>
+<td class='last-child'>23:21</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+275
+</td>
+<td class='athlete'>
+<a href="/athletes/1614209">rebecca wise</a>
+</td>
+<td>
+<a href="/segment_efforts/24326894628">May 17, 2017</a>
+</td>
+<td>12.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+198<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,003.2
+</td>
+<td class='last-child'>23:21</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+275
+</td>
+<td class='athlete'>
+<a href="/athletes/1215177">Brodie Mai  Chapman</a>
+</td>
+<td>
+<a href="/segment_efforts/38839518892">May 6, 2018</a>
+</td>
+<td>12.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
@@ -3021,21 +2916,21 @@ Show Less
 -
 </td>
 <td>
-853.9
+1,003.2
 </td>
-<td class='last-child'>27:26</td>
+<td class='last-child'>23:21</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-984
+280
 </td>
 <td class='athlete'>
-<a href="/athletes/8581215">Melissa Kendrick</a>
+<a href="/athletes/396468">Denise Legault</a>
 </td>
 <td>
-<a href="/segment_efforts/15184349498">Jun 26, 2016</a>
+<a href="/segment_efforts/4530818752">Jun 8, 2014</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
@@ -3043,346 +2938,457 @@ Show Less
 164<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-853.9
+1,002.5
 </td>
-<td class='last-child'>27:26</td>
+<td class='last-child'>23:22</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-986
+280
 </td>
 <td class='athlete'>
-<a href="/athletes/2879058">Whitney Liehr</a>
+<a href="/athletes/3950524">Liz Bensmith</a>
 </td>
 <td>
-<a href="/segment_efforts/4531939718">Nov 22, 2013</a>
+<a href="/segment_efforts/4531271723">Mar 15, 2014</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
--
+168<abbr class='unit' title='beats per minute'>bpm</abbr>
 </td>
 <td class='power text-nowrap'>
-198<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-853.3
-</td>
-<td class='last-child'>27:27</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-986
-</td>
-<td class='athlete'>
-<a href="/athletes/608865">Diane Hayford</a>
-</td>
-<td>
-<a href="/segment_efforts/4532234621">Jul 16, 2013</a>
-</td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
--
-</td>
-<td class='power text-nowrap'>
-189<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-853.3
-</td>
-<td class='last-child'>27:27</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-986
-</td>
-<td class='athlete'>
-<a href="/athletes/116979">Kayla Brannen</a>
-</td>
-<td>
-<a href="/segment_efforts/4532772362">Oct 11, 2011</a>
-</td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-174<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
--
-</td>
-<td>
-853.3
-</td>
-<td class='last-child'>27:27</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-986
-</td>
-<td class='athlete'>
-<a href="/athletes/6705002">Paula Galvez-Anzano</a>
-</td>
-<td>
-<a href="/segment_efforts/7070485795">May 8, 2015</a>
-</td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-167<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-149<abbr class='unit' title='watts'>W</abbr>
-</td>
-<td>
-853.3
-</td>
-<td class='last-child'>27:27</td>
-</tr>
-<tr class=''>
-<td class='text-center'>
-986
-</td>
-<td class='athlete'>
-<a href="/athletes/172025">Michelle Nightengale</a>
-</td>
-<td>
-<a href="/segment_efforts/22864693581">Apr 9, 2017</a>
-</td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
-<td>
-152<abbr class='unit' title='beats per minute'>bpm</abbr>
-</td>
-<td class='power text-nowrap'>
-198<abbr class='unit' title='watts'>W</abbr>
+210<abbr class='unit' title='watts'>W</abbr>
 <img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
 </td>
 <td>
-853.3
+1,002.5
 </td>
-<td class='last-child'>27:27</td>
+<td class='last-child'>23:22</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-986
+280
 </td>
 <td class='athlete'>
-<a href="/athletes/2075571">Amy Passingham</a>
+<a href="/athletes/153115">Christina Cackler</a>
 </td>
 <td>
-<a href="/segment_efforts/26194414748">Jul 2, 2017</a>
+<a href="/segment_efforts/4532784392">Jun 26, 2011</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
-141<abbr class='unit' title='beats per minute'>bpm</abbr>
+173<abbr class='unit' title='beats per minute'>bpm</abbr>
 </td>
 <td class='power text-nowrap'>
-177<abbr class='unit' title='watts'>W</abbr>
-<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+278<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-853.3
+1,002.5
 </td>
-<td class='last-child'>27:27</td>
+<td class='last-child'>23:22</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-992
+280
 </td>
 <td class='athlete'>
-<a href="/athletes/1890613">Jennifer Ivey</a>
+<a href="/athletes/138506">Grace K</a>
 </td>
 <td>
-<a href="/segment_efforts/4530453047">Aug 17, 2014</a>
+<a href="/segment_efforts/24779905697">May 28, 2017</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
-159<abbr class='unit' title='beats per minute'>bpm</abbr>
+-
 </td>
 <td class='power text-nowrap'>
-154<abbr class='unit' title='watts'>W</abbr>
+192<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-852.8
+1,002.5
 </td>
-<td class='last-child'>27:28</td>
+<td class='last-child'>23:22</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-992
+280
 </td>
 <td class='athlete'>
-<a href="/athletes/281013">Cheryl Dere</a>
+<a href="/athletes/12463495">Liz Mills</a>
 </td>
 <td>
-<a href="/segment_efforts/4532618169">Nov 22, 2012</a>
+<a href="/segment_efforts/30377549679">Oct 14, 2017</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
-160<abbr class='unit' title='beats per minute'>bpm</abbr>
+170<abbr class='unit' title='beats per minute'>bpm</abbr>
 </td>
 <td class='power text-nowrap'>
-155<abbr class='unit' title='watts'>W</abbr>
+212<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-852.8
+1,002.5
 </td>
-<td class='last-child'>27:28</td>
+<td class='last-child'>23:22</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-992
+280
 </td>
 <td class='athlete'>
-<a href="/athletes/4689923">evelyn fisher</a>
+<a href="/athletes/12533">Chris Lundy</a>
 </td>
 <td>
-<a href="/segment_efforts/14223231580">May 21, 2016</a>
+<a href="/segment_efforts/38041634437">Apr 21, 2018</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
-162<abbr class='unit' title='beats per minute'>bpm</abbr>
+-
 </td>
 <td class='power text-nowrap'>
-206<abbr class='unit' title='watts'>W</abbr>
+163<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-852.8
+1,002.5
 </td>
-<td class='last-child'>27:28</td>
+<td class='last-child'>23:22</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-995
+286
 </td>
 <td class='athlete'>
-<a href="/athletes/3963234">Dawn Holley</a>
+<a href="/athletes/1819257">Anika Todd</a>
 </td>
 <td>
-<a href="/segment_efforts/4760781726">Oct 1, 2014</a>
+<a href="/segment_efforts/5920761735">Feb 9, 2015</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 165<abbr class='unit' title='beats per minute'>bpm</abbr>
 </td>
 <td class='power text-nowrap'>
-153<abbr class='unit' title='watts'>W</abbr>
+198<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-852.3
+1,001.7
 </td>
-<td class='last-child'>27:29</td>
+<td class='last-child'>23:23</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-996
+287
 </td>
 <td class='athlete'>
-<a href="/athletes/854035">Anna Loeb</a>
+<a href="/athletes/188551">Erika Krumpelman</a>
 </td>
 <td>
-<a href="/segment_efforts/4532668442">Sep 8, 2012</a>
+<a href="/segment_efforts/4530769590">Jun 14, 2014</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+160<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+201<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+1,000.3
+</td>
+<td class='last-child'>23:25</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+287
+</td>
+<td class='athlete'>
+<a href="/athletes/4020639">Samantha Summers</a>
+</td>
+<td>
+<a href="/segment_efforts/4530819405">Jun 8, 2014</a>
+</td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
 <td class='power text-nowrap'>
-153<abbr class='unit' title='watts'>W</abbr>
+203<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-851.8
+1,000.3
 </td>
-<td class='last-child'>27:30</td>
+<td class='last-child'>23:25</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-996
+287
 </td>
 <td class='athlete'>
-<a href="/athletes/10930">Susan Levine</a>
+<a href="/athletes/1076994">Amy Koop</a>
 </td>
 <td>
-<a href="/segment_efforts/4532775402">Sep 3, 2011</a>
+<a href="/segment_efforts/4532361770">Jun 1, 2013</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+165<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+230<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+1,000.3
+</td>
+<td class='last-child'>23:25</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+290
+</td>
+<td class='athlete'>
+<a href="/athletes/782337">Eliana Stefani</a>
+</td>
+<td>
+<a href="/segment_efforts/29798892348">Sep 30, 2017</a>
+</td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
 </td>
 <td class='power text-nowrap'>
--
+224<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-851.8
+999.6
 </td>
-<td class='last-child'>27:30</td>
+<td class='last-child'>23:26</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-996
+290
 </td>
 <td class='athlete'>
-<a href="/athletes/173345">Gillian Collom</a>
+<a href="/athletes/601069">Shelagh Fritz</a>
 </td>
 <td>
-<a href="/segment_efforts/5283221388">Nov 26, 2014</a>
+<a href="/segment_efforts/38032365464">Apr 21, 2018</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 -
+</td>
+<td class='power text-nowrap'>
+195<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+999.6
+</td>
+<td class='last-child'>23:26</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+292
+</td>
+<td class='athlete'>
+<a href="/athletes/284983">Christine Ryan</a>
+</td>
+<td>
+<a href="/segment_efforts/4531484412">Feb 23, 2014</a>
+</td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+188<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+998.9
+</td>
+<td class='last-child'>23:27</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+293
+</td>
+<td class='athlete'>
+<a href="/athletes/191072">Julie Eades</a>
+</td>
+<td>
+<a href="/segment_efforts/4531927766">Nov 30, 2013</a>
+</td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+205<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+998.2
+</td>
+<td class='last-child'>23:28</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+293
+</td>
+<td class='athlete'>
+<a href="/athletes/64376">Sian Turner Crespo</a>
+</td>
+<td>
+<a href="/segment_efforts/4532361154">Jun 3, 2013</a>
+</td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+175<abbr class='unit' title='beats per minute'>bpm</abbr>
 </td>
 <td class='power text-nowrap'>
 191<abbr class='unit' title='watts'>W</abbr>
 </td>
 <td>
-851.8
+998.2
 </td>
-<td class='last-child'>27:30</td>
+<td class='last-child'>23:28</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-996
+293
 </td>
 <td class='athlete'>
-<a href="/athletes/2650765">Rita Reis</a>
+<a href="/athletes/7583240">Dana Kuper</a>
 </td>
 <td>
-<a href="/segment_efforts/35473349478">Feb 25, 2018</a>
+<a href="/segment_efforts/6923347814">Apr 28, 2015</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+222<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+998.2
+</td>
+<td class='last-child'>23:28</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+293
+</td>
+<td class='athlete'>
+<a href="/athletes/357192">Nicole Dolney Bourne</a>
+</td>
+<td>
+<a href="/segment_efforts/18284629219">Oct 15, 2016</a>
+</td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+171<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+230<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+998.2
+</td>
+<td class='last-child'>23:28</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+293
+</td>
+<td class='athlete'>
+<a href="/athletes/8102662">Bronwen Raff</a>
+</td>
+<td>
+<a href="/segment_efforts/25756606376">Jun 21, 2017</a>
+</td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+141<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+199<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+998.2
+</td>
+<td class='last-child'>23:28</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+298
+</td>
+<td class='athlete'>
+<a href="/athletes/5292069">Alexis Ring</a>
+</td>
+<td>
+<a href="/segment_efforts/15334026297">Jul 2, 2016</a>
+</td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+211<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+997.5
+</td>
+<td class='last-child'>23:29</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+298
+</td>
+<td class='athlete'>
+<a href="/athletes/5794133">Nicola Boyd</a>
+</td>
+<td>
+<a href="/segment_efforts/21656039494">Mar 5, 2017</a>
+</td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
 169<abbr class='unit' title='beats per minute'>bpm</abbr>
 </td>
 <td class='power text-nowrap'>
-211<abbr class='unit' title='watts'>W</abbr>
+245<abbr class='unit' title='watts'>W</abbr>
 <img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
 </td>
 <td>
-851.8
+997.5
 </td>
-<td class='last-child'>27:30</td>
+<td class='last-child'>23:29</td>
 </tr>
 <tr class=''>
 <td class='text-center'>
-996
+300
 </td>
 <td class='athlete'>
-<a href="/athletes/588735">Katherine O&#39;Neil</a>
+<a href="/pros/aryan">Alexis Ryan</a>
 </td>
 <td>
-<a href="/segment_efforts/35485452106">Feb 25, 2018</a>
+<a href="/segment_efforts/4532729200">May 13, 2012</a>
 </td>
-<td>10.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>12.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
 <td>
--
+178<abbr class='unit' title='beats per minute'>bpm</abbr>
 </td>
 <td class='power text-nowrap'>
 -
 </td>
 <td>
-851.8
+996.8
 </td>
-<td class='last-child'>27:30</td>
+<td class='last-child'>23:30</td>
 </tr>
 </tbody>
 </table>
-<nav><ul class="pagination" data-filter="current_year"><li class="previous_page"><a rel="prev" href="/segments/8109834/leaderboard?filter=current_year&amp;gender=F&amp;page=9&amp;per_page=100">←</a></li> <li><a href="/segments/8109834/leaderboard?filter=current_year&amp;gender=F&amp;page=1&amp;per_page=100">1</a></li> <li><a href="/segments/8109834/leaderboard?filter=current_year&amp;gender=F&amp;page=2&amp;per_page=100">2</a></li> <li><a href="/segments/8109834/leaderboard?filter=current_year&amp;gender=F&amp;page=3&amp;per_page=100">3</a></li> <li class="gap disabled"><span>...</span></li> <li><a rel="prev" href="/segments/8109834/leaderboard?filter=current_year&amp;gender=F&amp;page=9&amp;per_page=100">9</a></li> <li class="active"><span>10</span></li> <li><a rel="next" href="/segments/8109834/leaderboard?filter=current_year&amp;gender=F&amp;page=11&amp;per_page=100">11</a></li> <li class="gap disabled"><span>...</span></li> <li><a href="/segments/8109834/leaderboard?filter=current_year&amp;gender=F&amp;page=32&amp;per_page=100">32</a></li> <li><a href="/segments/8109834/leaderboard?filter=current_year&amp;gender=F&amp;page=33&amp;per_page=100">33</a></li> <li><a href="/segments/8109834/leaderboard?filter=current_year&amp;gender=F&amp;page=34&amp;per_page=100">34</a></li> <li class="next_page"><a rel="next" href="/segments/8109834/leaderboard?filter=current_year&amp;gender=F&amp;page=11&amp;per_page=100">→</a></li></ul></nav>
+<nav><ul class="pagination" data-filter="current_year"><li class="previous_page"><a rel="prev" href="/segments/8109834/leaderboard?filter=current_year&amp;gender=F&amp;page=2&amp;per_page=100">←</a></li> <li><a href="/segments/8109834/leaderboard?filter=current_year&amp;gender=F&amp;page=1&amp;per_page=100">1</a></li> <li><a rel="prev" href="/segments/8109834/leaderboard?filter=current_year&amp;gender=F&amp;page=2&amp;per_page=100">2</a></li> <li class="active"><span>3</span></li> <li><a rel="next" href="/segments/8109834/leaderboard?filter=current_year&amp;gender=F&amp;page=4&amp;per_page=100">4</a></li> <li class="gap disabled"><span>...</span></li> <li><a href="/segments/8109834/leaderboard?filter=current_year&amp;gender=F&amp;page=32&amp;per_page=100">32</a></li> <li><a href="/segments/8109834/leaderboard?filter=current_year&amp;gender=F&amp;page=33&amp;per_page=100">33</a></li> <li><a href="/segments/8109834/leaderboard?filter=current_year&amp;gender=F&amp;page=34&amp;per_page=100">34</a></li> <li class="next_page"><a rel="next" href="/segments/8109834/leaderboard?filter=current_year&amp;gender=F&amp;page=4&amp;per_page=100">→</a></li></ul></nav>
 </div>
 <div class='loading-panel' style='display: none;'>
 <div class='spinner vcentered'>
@@ -3635,10 +3641,10 @@ Show Less
   window._measurement_preference = "meters";
   window._date_preference = "%m/%d/%Y";
   window._datepicker_preference_format = "mm/dd/yy"
-
+  
   //async script load for twitter
   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-
+  
   jQuery(document).ready(function() {
     Strava.Util.EventLogging.createInstance("https://analytics.strava.com","7215fa60b5f01ecc3967543619f7e3d9", 19704029);
   });
@@ -3702,7 +3708,7 @@ Show Less
     controller.bind('goalCreated', function(goal) {
       window.location = "/goals/segment/" + goal.get('id')
     });
-
+  
     var view = new Strava.PerformanceGoals.Sidebar.View(
       controller,
       '#performance-goals',
@@ -3723,7 +3729,7 @@ Show Less
         $('#segment-results').find('.filters a.selected').removeClass('selected');
         $(this).addClass('selected');
         $('#segment-results').find('.loading-panel').show();
-
+  
         var params = $(this).data('params');
         $(this).data('params', $.extend(params, { partial: true }));
         return true;
@@ -3736,24 +3742,24 @@ Show Less
           $('#' + filter).hide();
         }
       });
-
+  
     $('#segment-leaderboard')
       .on('ajax:before', '#segment-results .drop-down-menu a', function() {
         $('#age-weight-dialog a[data-js="redirect"]').attr('href', $(this).attr('href'));
         $('#segment-results').find('.loading-panel').show();
-
+  
         var params = $(this).data('params');
-
+        
         $(this).data('params', $.extend(params, { partial: true }));
-
+  
         return true;
       })
       .on('ajax:success', '#segment-results .drop-down-menu a', function(event, data, status, xhr) {
         $('#segment-leaderboard').html(data);
         $('#segment-results').find('.loading-panel').hide();
-
+  
       });
-
+  
     $('#segment-leaderboard')
       .on('click', '#segment-results .pagination a', function(event) {
         event.preventDefault();
@@ -3770,9 +3776,9 @@ Show Less
           }
         });
       });
-
+  
     // weight/age dialog
-
+  
     $('#age-weight-dialog form')
       .on("ajax:before", function() {
         $('#age-weight-dialog .loading-panel').show();
@@ -3789,7 +3795,7 @@ Show Less
           $('#age-weight-dialog .errorExplanation').html('<h5 class="error">' + json['messages']['athlete[weight]'][0] + '</h5>');
         }
       });
-
+  
     $('a#age-weight').on('click', function() {
       $('#age-weight-dialog').dialog({
         autoOpen: false,
@@ -3803,10 +3809,10 @@ Show Less
         show: 'fade',
         hide: 'fade'
       });
-
+  
       $('#age-weight-dialog').dialog('open');
     });
-
+  
   }(jQuery));
 </script>
 <script src="https://d3nn82uaxijpm6.cloudfront.net/assets/strava/segments/manifest-ecb2d2ec488ae2087412fc23fbb0b8c2e801c2bf4390c80008df91ec9eff3767.js"></script>
@@ -3823,7 +3829,7 @@ Show Less
 </script>
 <script>
   jQuery(document).ready(function() {
-
+  
     var showStreetView = true;
     new Strava.Segments.Initializer({
       segmentId: 8109834,
@@ -3850,7 +3856,7 @@ Show Less
   jQuery(document).ready(function() {
     jQuery('a').each(addSegmentAttr);
     jQuery('button').each(addSegmentAttr);
-
+   
     function addSegmentAttr(index, element){
       var $element = jQuery(element);
       var data = $element.data();
@@ -3858,11 +3864,11 @@ Show Less
       if (seg_io_event && seg_io_event.name) {
         var props = jQuery.extend({}, seg_io_event);
         delete props.name;
-
+  
         Strava.SegmentIO.trackLink($element, seg_io_event.name, props);
       }
     }
-
+  
     // Scroll Tracking
     jQuery(document).one('scroll', function(){
       Strava.SegmentIO.track('Page Scrolled', null, null, null);
@@ -3872,14 +3878,14 @@ Show Less
 <script>
   var options = {"peek_data":false,"campaign":null,"channel":"mobile web","feature":"segment show","data":{"strava_deeplink_url":"strava://segments/8109834"}}
   var peekData = options.peek_data ? options.peek_data : false;
-
+  
   Strava.BranchIO.data(peekData)
     .done(function(data) {
       if (data && data.has_app) {
         jQuery('#branch-button').text('Open');
       }
     });
-
+  
   Strava.BranchIO.createLink(options)
     .done(function(link) {
       var link_with_id = link + '?anonymousId=' + analytics.user().anonymousId();
