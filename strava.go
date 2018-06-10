@@ -7,6 +7,7 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"net/http/cookiejar"
@@ -129,6 +130,34 @@ func NewClient(email, password string, client ...*http.Client) (*Client, error) 
 	}
 
 	return c, nil
+}
+
+type stubResponseTransport struct {
+	http.Transport
+	content    string
+	statusCode int
+}
+
+func (t *stubResponseTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+	resp := &http.Response{
+		Status:     http.StatusText(t.statusCode),
+		StatusCode: t.statusCode,
+	}
+	resp.Body = ioutil.NopCloser(strings.NewReader(t.content))
+
+	return resp, nil
+}
+
+func NewStubClient(content string, statusCode ...int) *Client {
+	c := &Client{}
+	t := &stubResponseTransport{content: content}
+
+	if len(statusCode) != 0 {
+		t.statusCode = statusCode[0]
+	}
+
+	c.httpClient = &http.Client{Transport: t}
+	return c
 }
 
 func (c *Client) GetLeaderboard(segmentId int64, gender Gender, filter Filter) (*Leaderboard, int64, error) {
@@ -262,7 +291,13 @@ func main() {
 		log.Fatal("Please provide a segment")
 	}
 
-	client, err := NewClient(email, password)
+	content, err := ioutil.ReadFile("foo.html")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	client := NewStubClient(string(content), 200)
+	//client, err := NewClient(email, password)
 	if err != nil {
 		log.Fatal(err)
 	}
