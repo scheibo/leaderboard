@@ -45,11 +45,11 @@ type Segment struct {
 }
 
 type LeaderboardEntry struct {
-	Rank        int64       `json:"rank"`
+	Rank        int64     `json:"rank"`
 	Athlete     Athlete   `json:"athlete"`
 	EffortID    int64     `json:"effort_id"`
 	StartDate   time.Time `json:"start_date"`
-	ElapsedTime int64       `json:"elapsed_time"`
+	ElapsedTime int64     `json:"elapsed_time"`
 }
 
 type Leaderboards struct {
@@ -114,7 +114,7 @@ func main() {
 		td := tds.Eq(1)
 		href, _ := td.Find("a").Attr("href")
 		id, _ := parseInt(strings.TrimPrefix(href, "/athletes/"))
-		entry.Athlete = Athlete{ ID: id, Name: strings.TrimSpace(td.Text()), Gender: Genders.Female }
+		entry.Athlete = Athlete{ID: id, Name: strings.TrimSpace(td.Text()), Gender: Genders.Female}
 		td = tds.Eq(2)
 		entry.StartDate, _ = time.Parse("Jan 02, 2006", strings.TrimSpace(td.Text()))
 		href, _ = td.Find("a").Attr("href")
