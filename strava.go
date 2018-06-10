@@ -43,20 +43,21 @@ var Filters = struct {
 }{"overall", "current_year"}
 
 type Athlete struct {
-	ID     int64  `json:"id"`
+	URL    string `json:"url"`
 	Name   string `json:"name"`
 	Gender Gender `json:"gender"`
 }
 
+// TODO not going to be as accurate!
 type Segment struct {
 	ID                 int64   `json:"id"`
 	Name               string  `json:"name"`
 	Location           string  `json:"location"`
 	Distance           int64   `json:"distance"`
 	AverageGrade       float64 `json:average_grade"`
-	ElevationLow       float64 `json:"elevation_low"`
-	ElevationHigh      float64 `json:"elevation_high"`
-	TotalElevationGain float64 `json:"total_elevation_gain"`
+	ElevationLow       int64   `json:"elevation_low"`
+	ElevationHigh      int64   `json:"elevation_high"`
+	TotalElevationGain int64   `json:"total_elevation_gain"`
 }
 
 type LeaderboardEntry struct {
@@ -68,7 +69,7 @@ type LeaderboardEntry struct {
 }
 
 type Leaderboard struct {
-	Segment Segment             `json:"segment"`
+	Segment *Segment            `json:"segment"`
 	Entries []*LeaderboardEntry `json:"entries"`
 }
 
@@ -180,12 +181,67 @@ func (c *Client) GetLeaderboard(segmentId int64, gender Gender, filter Filter) (
 	}
 
 	leaderboard := &Leaderboard{}
+
+	leaderboard.Segment, err = getSegment(doc, segmentId)
+	if err != nil {
+		return nil, reqs, err
+	}
 	leaderboard.Entries, err = addToLeaderboard(doc, leaderboard.Entries)
 	if err != nil {
 		return nil, reqs, err
 	}
 
 	return leaderboard, reqs, nil
+}
+
+func getSegment(doc *goquery.Document, segmentId int64) (*Segment, error) {
+	s := &Segment{ID: segmentId}
+
+	div := doc.Find(".segment-heading").First()
+	//html, _ := goquery.OuterHtml(div.Find(".segment-name span[data-full-name]"))
+	//fmt.Printf("%s\n", html)
+	name, ok := div.Find(".segment-name span[data-full-name]").Attr("data-full-name")
+	if !ok {
+		return nil, errors.New("Could not find segment name!")
+	}
+	s.Name = name
+	s.Location = strings.TrimSpace(div.Find(".location").Contents().Not("strong").Text())
+
+	var val int64
+	stats := div.Find(".stat-text")
+
+	f, err := parseFloat(stats.Eq(0).Contents().Not("abbr").Text())
+	if err != nil {
+		return nil, err
+	}
+	s.Distance = int64(f * 1000)
+
+	val, err = parseInt(stats.Eq(2).Contents().Not("abbr").Text())
+	if err != nil {
+		return nil, err
+	}
+	s.ElevationLow = val
+
+	val, err = parseInt(stats.Eq(3).Contents().Not("abbr").Text())
+	if err != nil {
+		return nil, err
+	}
+	s.ElevationHigh = val
+
+	val, err = parseInt(stats.Eq(4).Contents().Not("abbr").Text())
+	if err != nil {
+		return nil, err
+	}
+
+	gain := s.ElevationHigh - s.ElevationLow
+	if val > gain {
+		s.ElevationHigh = val
+	} else {
+		s.TotalElevationGain = gain
+	}
+	s.AverageGrade = float64(s.TotalElevationGain) / float64(s.Distance) * 100.0
+
+	return s, nil
 }
 
 func addToLeaderboard(doc *goquery.Document, entries []*LeaderboardEntry) ([]*LeaderboardEntry, error) {
@@ -202,17 +258,14 @@ func addToLeaderboard(doc *goquery.Document, entries []*LeaderboardEntry) ([]*Le
 		td := tds.Eq(1)
 		href, ok := td.Find("a").Attr("href")
 		if !ok {
-			err = errors.New("Could not find athlete ID!")
+			err = errors.New("Could not find athlete URL!")
 			return false
 		}
-		id, err := parseInt(strings.TrimPrefix(href, "/athletes/"))
-		if err != nil {
-			return false
-		}
-		entry.Athlete = Athlete{ID: id, Name: strings.TrimSpace(td.Text()), Gender: Genders.Female}
+		url := fmt.Sprintf("https://www.strava.com%s", href)
+		entry.Athlete = Athlete{URL: url, Name: strings.TrimSpace(td.Text()), Gender: Genders.Female}
 
 		td = tds.Eq(2)
-		entry.StartDate, err = time.Parse("Jan 02, 2006", strings.TrimSpace(td.Text()))
+		entry.StartDate, err = time.Parse("Jan 2, 2006", strings.TrimSpace(td.Text()))
 		if err != nil {
 			return false
 		}
@@ -221,6 +274,7 @@ func addToLeaderboard(doc *goquery.Document, entries []*LeaderboardEntry) ([]*Le
 			err = errors.New("Could not find effort ID!")
 			return false
 		}
+		var id int64
 		id, err = parseInt(strings.TrimPrefix(href, "/segment_efforts/"))
 		if err != nil {
 			return false
@@ -232,6 +286,7 @@ func addToLeaderboard(doc *goquery.Document, entries []*LeaderboardEntry) ([]*Le
 		entries = append(entries, entry)
 		return true
 	})
+
 	if err != nil {
 		return nil, err
 	}
@@ -240,6 +295,10 @@ func addToLeaderboard(doc *goquery.Document, entries []*LeaderboardEntry) ([]*Le
 
 func parseInt(s string) (int64, error) {
 	return strconv.ParseInt(s, 10, 0)
+}
+
+func parseFloat(s string) (float64, error) {
+	return strconv.ParseFloat(s, 64)
 }
 
 func parseElapsedTime(str string) (int64, error) {
