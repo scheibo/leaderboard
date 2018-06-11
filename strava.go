@@ -19,6 +19,7 @@ import (
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/strava/go.strava"
 
 	"golang.org/x/net/publicsuffix"
 )
@@ -58,11 +59,11 @@ type Segment struct {
 	ID                 int64   `json:"id"`
 	Name               string  `json:"name"`
 	Location           string  `json:"location"`
-	Distance           int64   `json:"distance"`
+	Distance           float64 `json:"distance"`
 	AverageGrade       float64 `json:"average_grade"`
-	ElevationLow       int64   `json:"elevation_low"`
-	ElevationHigh      int64   `json:"elevation_high"`
-	TotalElevationGain int64   `json:"total_elevation_gain"`
+	ElevationLow       float64 `json:"elevation_low"`
+	ElevationHigh      float64 `json:"elevation_high"`
+	TotalElevationGain float64 `json:"total_elevation_gain"`
 }
 
 type LeaderboardEntry struct {
@@ -79,8 +80,9 @@ type Leaderboard struct {
 }
 
 type Client struct {
-	throttle   <-chan time.Time
-	httpClient *http.Client
+	throttle     <-chan time.Time
+	httpClient   *http.Client
+	stravaClient *strava.Client
 }
 
 type transport struct{}
@@ -90,20 +92,22 @@ func (t *transport) RoundTrip(req *http.Request) (*http.Response, error) {
 	return http.DefaultTransport.RoundTrip(req)
 }
 
-func NewClient(email, password string, client ...*http.Client) (*Client, error) {
-	c := &Client{throttle: time.Tick(QPS)}
-	if len(client) != 0 {
-		c.httpClient = client[0]
-	} else {
-		jar, err := cookiejar.New(&cookiejar.Options{PublicSuffixList: publicsuffix.List})
-		if err != nil {
-			return nil, err
-		}
-		c.httpClient = &http.Client{
-			Jar:       jar,
-			Timeout:   10 * time.Second,
-			Transport: &transport{},
-		}
+func NewClient(email, password string, accessToken ...string) (*Client, error) {
+	jar, err := cookiejar.New(&cookiejar.Options{PublicSuffixList: publicsuffix.List})
+	if err != nil {
+		return nil, err
+	}
+	httpClient := &http.Client{
+		Jar:       jar,
+		Timeout:   10 * time.Second,
+		Transport: &transport{},
+	}
+	c := &Client{
+		throttle:   time.Tick(QPS),
+		httpClient: httpClient,
+	}
+	if len(accessToken) > 0 && accessToken[0] != "" {
+		c.stravaClient = strava.NewClient(accessToken[0])
 	}
 
 	resp, err := c.httpClient.Get("https://www.strava.com/login")
@@ -202,7 +206,7 @@ func (c *Client) GetLeaderboard(segmentId int64, gender Gender, filter Filter) (
 	}
 	url = fmt.Sprintf("%sfilter=%s&gender=%s&per_page=%d", url, filter, gender, MAX_PER_PAGE)
 
-	var reqs int64
+	var reqs, pages, api int64
 	reqs = 1
 	<-c.throttle // rate limiting
 	resp, err := c.httpClient.Get(fmt.Sprintf("%s&page=%d", url, reqs))
@@ -217,7 +221,6 @@ func (c *Client) GetLeaderboard(segmentId int64, gender Gender, filter Filter) (
 	}
 
 	p := doc.Find(".pagination li:nth-last-child(2)").Text()
-	var pages int64
 	if p == "" {
 		pages = 1
 	} else {
@@ -228,38 +231,68 @@ func (c *Client) GetLeaderboard(segmentId int64, gender Gender, filter Filter) (
 	}
 
 	leaderboard := &Leaderboard{}
-	leaderboard.Segment, err = getSegment(doc, segmentId)
+	if c.stravaClient != nil {
+		<-c.throttle // rate limiting
+		leaderboard.Segment, err = getSegment(c.stravaClient, segmentId)
+		api = 1
+	} else {
+		leaderboard.Segment, err = parseSegment(doc, segmentId)
+	}
 	if err != nil {
-		return nil, reqs, err
+		return nil, reqs + api, err
 	}
 	leaderboard.Entries, err = addToLeaderboard(doc, gender, leaderboard.Entries)
 	if err != nil {
-		return nil, reqs, err
+		return nil, reqs + api, err
 	}
 
 	for ; reqs <= pages; reqs++ {
 		<-c.throttle // rate limiting
 		resp, err := c.httpClient.Get(fmt.Sprintf("%s&page=%d", url, reqs))
 		if err != nil {
-			return nil, reqs, err
+			return nil, reqs + api, err
 		}
 
 		defer resp.Body.Close()
 		doc, err := goquery.NewDocumentFromReader(io.Reader(resp.Body))
 		if err != nil {
-			return nil, reqs, err
+			return nil, reqs + api, err
 		}
 
 		leaderboard.Entries, err = addToLeaderboard(doc, gender, leaderboard.Entries)
 		if err != nil {
-			return nil, reqs, err
+			return nil, reqs + api, err
 		}
 	}
 
-	return leaderboard, reqs, nil
+	return leaderboard, reqs + api, nil
 }
 
-func getSegment(doc *goquery.Document, segmentId int64) (*Segment, error) {
+func getSegment(stravaClient *strava.Client, segmentId int64) (*Segment, error) {
+	segment, err := strava.NewSegmentsService(stravaClient).Get(segmentId).Do()
+	if err != nil {
+		return nil, err
+	}
+
+	s := &Segment{ID: segmentId}
+	s.Name = segment.Name
+	s.Location = fmt.Sprintf("%s, %s", segment.City, segment.State)
+	s.Distance = segment.Distance
+	s.ElevationLow = segment.ElevationLow
+	s.ElevationHigh = segment.ElevationHigh
+
+	gain := s.ElevationHigh - s.ElevationLow
+	if segment.TotalElevationGain > gain {
+		s.TotalElevationGain = segment.TotalElevationGain
+	} else {
+		s.TotalElevationGain = gain
+	}
+	s.AverageGrade = s.TotalElevationGain / s.Distance * 100.0
+
+	return s, nil
+}
+
+func parseSegment(doc *goquery.Document, segmentId int64) (*Segment, error) {
 	s := &Segment{ID: segmentId}
 
 	div := doc.Find(".segment-heading").First()
@@ -270,39 +303,38 @@ func getSegment(doc *goquery.Document, segmentId int64) (*Segment, error) {
 	s.Name = name
 	s.Location = strings.TrimSpace(div.Find(".location").Contents().Not("strong").Text())
 
-	var val int64
 	stats := div.Find(".stat-text")
 
-	f, err := parseFloat(stats.Eq(0).Contents().Not("abbr").Text())
+	val, err := parseFloat(stats.Eq(0).Contents().Not("abbr").Text())
 	if err != nil {
 		return nil, err
 	}
-	s.Distance = int64(f * 1000)
+	s.Distance = val * 1000
 
-	val, err = parseInt(stats.Eq(2).Contents().Not("abbr").Text())
+	val, err = parseFloat(stats.Eq(2).Contents().Not("abbr").Text())
 	if err != nil {
 		return nil, err
 	}
 	s.ElevationLow = val
 
-	val, err = parseInt(stats.Eq(3).Contents().Not("abbr").Text())
+	val, err = parseFloat(stats.Eq(3).Contents().Not("abbr").Text())
 	if err != nil {
 		return nil, err
 	}
 	s.ElevationHigh = val
 
-	val, err = parseInt(stats.Eq(4).Contents().Not("abbr").Text())
+	val, err = parseFloat(stats.Eq(4).Contents().Not("abbr").Text())
 	if err != nil {
 		return nil, err
 	}
 
 	gain := s.ElevationHigh - s.ElevationLow
 	if val > gain {
-		s.ElevationHigh = val
+		s.TotalElevationGain = val
 	} else {
 		s.TotalElevationGain = gain
 	}
-	s.AverageGrade = float64(s.TotalElevationGain) / float64(s.Distance) * 100.0
+	s.AverageGrade = s.TotalElevationGain / s.Distance * 100.0
 
 	return s, nil
 }
@@ -397,13 +429,14 @@ func parseElapsedTime(str string) (int64, error) {
 	return h*3600 + m*60 + s, nil
 }
 
-// go run strava.go -email=$STRAVA_EMAIL -password=$STRAVA_PASSWORD -id=8109834
+// go run strava.go -email=$STRAVA_EMAIL -password=$STRAVA_PASSWORD -token=$STRAVA_ACCESS_TOKEN -id=8109834
 func main() {
-	var email, password string
+	var email, password, accessToken string
 	var segmentId int64
 
 	flag.StringVar(&email, "email", "", "Email")
 	flag.StringVar(&password, "password", "", "Password")
+	flag.StringVar(&accessToken, "token", "", "Access Token")
 	flag.Int64Var(&segmentId, "id", -1, "Segment Id")
 
 	flag.Parse()
@@ -424,7 +457,7 @@ func main() {
 	//}
 
 	//client := NewStubClient(string(content), 200)
-	client, err := NewClient(email, password)
+	client, err := NewClient(email, password, accessToken)
 	if err != nil {
 		log.Fatal(err)
 	}
