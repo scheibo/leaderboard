@@ -25,6 +25,8 @@ import (
 
 const USER_AGENT = "strava-leaderboard/0.0.1"
 
+const QPS = 10
+
 // MAX_PER_PAGE is the maximum number of entires which can be requested per page.
 // NOTE: This is 100 when using the API, but for some reason 100 is the limit when
 // scraping.
@@ -77,6 +79,7 @@ type Leaderboard struct {
 }
 
 type Client struct {
+	throttle   <-chan time.Time
 	httpClient *http.Client
 }
 
@@ -88,7 +91,7 @@ func (t *transport) RoundTrip(req *http.Request) (*http.Response, error) {
 }
 
 func NewClient(email, password string, client ...*http.Client) (*Client, error) {
-	c := &Client{}
+	c := &Client{throttle: time.Tick(QPS)}
 	if len(client) != 0 {
 		c.httpClient = client[0]
 	} else {
@@ -201,6 +204,7 @@ func (c *Client) GetLeaderboard(segmentId int64, gender Gender, filter Filter) (
 
 	var reqs int64
 	reqs = 1
+	<-c.throttle // rate limiting
 	resp, err := c.httpClient.Get(fmt.Sprintf("%s&page=%d", url, reqs))
 	if err != nil {
 		return nil, reqs, err
@@ -234,6 +238,7 @@ func (c *Client) GetLeaderboard(segmentId int64, gender Gender, filter Filter) (
 	}
 
 	for ; reqs <= pages; reqs++ {
+		<-c.throttle // rate limiting
 		resp, err := c.httpClient.Get(fmt.Sprintf("%s&page=%d", url, reqs))
 		if err != nil {
 			return nil, reqs, err
