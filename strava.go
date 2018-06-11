@@ -23,6 +23,8 @@ import (
 	"golang.org/x/net/publicsuffix"
 )
 
+const USER_AGENT = "strava-leaderboard/0.0.1"
+
 // MAX_PER_PAGE is the maximum number of entires which can be requested per page.
 // NOTE: This is 100 when using the API, but for some reason 100 is the limit when
 // scraping.
@@ -78,6 +80,13 @@ type Client struct {
 	httpClient *http.Client
 }
 
+type transport struct{}
+
+func (t *transport) RoundTrip(req *http.Request) (*http.Response, error) {
+	req.Header.Set("User-Agent", USER_AGENT)
+	return http.DefaultTransport.RoundTrip(req)
+}
+
 func NewClient(email, password string, client ...*http.Client) (*Client, error) {
 	c := &Client{}
 	if len(client) != 0 {
@@ -87,7 +96,7 @@ func NewClient(email, password string, client ...*http.Client) (*Client, error) 
 		if err != nil {
 			return nil, err
 		}
-		c.httpClient = &http.Client{Jar: jar}
+		c.httpClient = &http.Client{Jar: jar, Transport: &transport{}}
 	}
 
 	resp, err := c.httpClient.Get("https://www.strava.com/login")
