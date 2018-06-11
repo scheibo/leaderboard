@@ -96,7 +96,11 @@ func NewClient(email, password string, client ...*http.Client) (*Client, error) 
 		if err != nil {
 			return nil, err
 		}
-		c.httpClient = &http.Client{Jar: jar, Transport: &transport{}}
+		c.httpClient = &http.Client{
+			Jar:       jar,
+			Timeout:   10 * time.Second,
+			Transport: &transport{},
+		}
 	}
 
 	resp, err := c.httpClient.Get("https://www.strava.com/login")
