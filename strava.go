@@ -11,6 +11,7 @@ import (
 	"log"
 	"net/http"
 	"net/http/cookiejar"
+	"net/http/httputil"
 	"net/url"
 	"os"
 	"strconv"
@@ -48,13 +49,13 @@ type Athlete struct {
 	Gender Gender `json:"gender"`
 }
 
-// TODO not going to be as accurate!
+// TODO not going to be as accurate as the API!
 type Segment struct {
 	ID                 int64   `json:"id"`
 	Name               string  `json:"name"`
 	Location           string  `json:"location"`
 	Distance           int64   `json:"distance"`
-	AverageGrade       float64 `json:average_grade"`
+	AverageGrade       float64 `json:"average_grade"`
 	ElevationLow       int64   `json:"elevation_low"`
 	ElevationHigh      int64   `json:"elevation_high"`
 	TotalElevationGain int64   `json:"total_elevation_gain"`
@@ -139,6 +140,22 @@ type stubResponseTransport struct {
 	statusCode int
 }
 
+func DUMP(resp *http.Response) {
+	dump, err := httputil.DumpResponse(resp, true)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("%s\n", dump)
+}
+
+func HTML(s *goquery.Selection) {
+	html, err := goquery.OuterHtml(s)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("%s\n", html)
+}
+
 func (t *stubResponseTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 	resp := &http.Response{
 		Status:     http.StatusText(t.statusCode),
@@ -162,14 +179,16 @@ func NewStubClient(content string, statusCode ...int) *Client {
 }
 
 func (c *Client) GetLeaderboard(segmentId int64, gender Gender, filter Filter) (*Leaderboard, int64, error) {
-	url := fmt.Sprintf("https://www.strava.com/segments/%d?filter=%s&gender=%s&per_page=%d",
-		segmentId, filter, gender, MAX_PER_PAGE)
+	url := fmt.Sprintf("https://www.strava.com/segments/%d?", segmentId)
+	// Strava doesn't respect current_year properly without a date_range
+	if filter == Filters.CurrentYear {
+		url = fmt.Sprintf("%sdate_range=this_year&", url)
+	}
+	url = fmt.Sprintf("%sfilter=%s&gender=%s&per_page=%d", url, filter, gender, MAX_PER_PAGE)
 
-	// TODO
 	var reqs int64
 	reqs = 1
-	page := 3
-	resp, err := c.httpClient.Get(fmt.Sprintf("%s&page=%d", url, page))
+	resp, err := c.httpClient.Get(fmt.Sprintf("%s&page=%d", url, reqs))
 	if err != nil {
 		return nil, reqs, err
 	}
@@ -180,15 +199,43 @@ func (c *Client) GetLeaderboard(segmentId int64, gender Gender, filter Filter) (
 		return nil, reqs, err
 	}
 
-	leaderboard := &Leaderboard{}
+	p := doc.Find(".pagination li:nth-last-child(2)").Text()
+	var pages int64
+	if p == "" {
+		pages = 1
+	} else {
+		pages, err = parseInt(p)
+		if err != nil {
+			return nil, reqs, err
+		}
+	}
 
+	leaderboard := &Leaderboard{}
 	leaderboard.Segment, err = getSegment(doc, segmentId)
 	if err != nil {
 		return nil, reqs, err
 	}
-	leaderboard.Entries, err = addToLeaderboard(doc, leaderboard.Entries)
+	leaderboard.Entries, err = addToLeaderboard(doc, gender, leaderboard.Entries)
 	if err != nil {
 		return nil, reqs, err
+	}
+
+	for ; reqs <= pages; reqs++ {
+		resp, err := c.httpClient.Get(fmt.Sprintf("%s&page=%d", url, reqs))
+		if err != nil {
+			return nil, reqs, err
+		}
+
+		defer resp.Body.Close()
+		doc, err := goquery.NewDocumentFromReader(io.Reader(resp.Body))
+		if err != nil {
+			return nil, reqs, err
+		}
+
+		leaderboard.Entries, err = addToLeaderboard(doc, gender, leaderboard.Entries)
+		if err != nil {
+			return nil, reqs, err
+		}
 	}
 
 	return leaderboard, reqs, nil
@@ -198,8 +245,6 @@ func getSegment(doc *goquery.Document, segmentId int64) (*Segment, error) {
 	s := &Segment{ID: segmentId}
 
 	div := doc.Find(".segment-heading").First()
-	//html, _ := goquery.OuterHtml(div.Find(".segment-name span[data-full-name]"))
-	//fmt.Printf("%s\n", html)
 	name, ok := div.Find(".segment-name span[data-full-name]").Attr("data-full-name")
 	if !ok {
 		return nil, errors.New("Could not find segment name!")
@@ -244,15 +289,20 @@ func getSegment(doc *goquery.Document, segmentId int64) (*Segment, error) {
 	return s, nil
 }
 
-func addToLeaderboard(doc *goquery.Document, entries []*LeaderboardEntry) ([]*LeaderboardEntry, error) {
+func addToLeaderboard(doc *goquery.Document, gender Gender, entries []*LeaderboardEntry) ([]*LeaderboardEntry, error) {
 	var err error
 	doc.Find(".table-leaderboard tbody tr").EachWithBreak(func(i int, tr *goquery.Selection) bool {
 		tds := tr.Find("td")
 		entry := new(LeaderboardEntry)
 
-		entry.Rank, err = parseInt(strings.TrimSpace(tds.Eq(0).Text()))
-		if err != nil {
-			return false
+		r := strings.TrimSpace(tds.Eq(0).Text())
+		if r == "" {
+			entry.Rank = 1
+		} else {
+			entry.Rank, err = parseInt(r)
+			if err != nil {
+				return false
+			}
 		}
 
 		td := tds.Eq(1)
@@ -262,7 +312,7 @@ func addToLeaderboard(doc *goquery.Document, entries []*LeaderboardEntry) ([]*Le
 			return false
 		}
 		url := fmt.Sprintf("https://www.strava.com%s", href)
-		entry.Athlete = Athlete{URL: url, Name: strings.TrimSpace(td.Text()), Gender: Genders.Female}
+		entry.Athlete = Athlete{URL: url, Name: strings.TrimSpace(td.Text()), Gender: gender}
 
 		td = tds.Eq(2)
 		entry.StartDate, err = time.Parse("Jan 2, 2006", strings.TrimSpace(td.Text()))
@@ -350,13 +400,13 @@ func main() {
 		log.Fatal("Please provide a segment")
 	}
 
-	content, err := ioutil.ReadFile("foo.html")
-	if err != nil {
-		log.Fatal(err)
-	}
+	//content, err := ioutil.ReadFile("foo.html")
+	//if err != nil {
+	//log.Fatal(err)
+	//}
 
-	client := NewStubClient(string(content), 200)
-	//client, err := NewClient(email, password)
+	//client := NewStubClient(string(content), 200)
+	client, err := NewClient(email, password)
 	if err != nil {
 		log.Fatal(err)
 	}
