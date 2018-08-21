@@ -1,19 +1,16 @@
-//package strava
-package main
+// Package leaderboard retrieves Strava leaderboard information for a logged in user.
+// The Strava API has been neutered to no longer return this information (most importantly,
+// it is lacking athlete IDs for proper deduping and identification).
+package leaderboard
 
 import (
-	"encoding/json"
 	"errors"
-	"flag"
 	"fmt"
 	"io"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"net/http/cookiejar"
-	"net/http/httputil"
 	"net/url"
-	"os"
 	"strconv"
 	"strings"
 	"time"
@@ -31,7 +28,7 @@ const USER_AGENT = "strava-leaderboard/0.0.1"
 // the API and the frontend combined.
 const QPS_LIMIT = 10
 
-// MAX_PER_PAGE is the maximum number of entires which can be requested per page.
+// MAX_PER_PAGE is the maximum number of entries which can be requested per page.
 // NOTE: This is 100 when using the API, but for some reason 100 is the limit
 // when scraping the frontend.
 const MAX_PER_PAGE = 100
@@ -46,7 +43,7 @@ var Genders = struct {
 	Female      Gender
 }{"", "M", "F"}
 
-// Filter is the filter used on the leaderbaord.
+// Filter is the filter used on the leaderboard.
 type Filter string
 
 // Filters represents the Strava filters this client supports.
@@ -63,8 +60,8 @@ type Athlete struct {
 }
 
 // Segment contains the Strava segment details.
-// NOTE: The segment information stored in the frontened leaderboard page is
-// less accurate than the information from the API.
+// NOTE: The segment information stored in the frontend leaderboard page is
+// inherently less accurate than the information from the API.
 type Segment struct {
 	ID                 int64   `json:"id"`
 	Name               string  `json:"name"`
@@ -91,8 +88,8 @@ type LeaderboardEntry struct {
 // Leaderboard has not been completely fetched or entries were added or
 // removed from the leaderboard during fetching.
 type Leaderboard struct {
-	Entries []*LeaderboardEntry `json:"entries"`
-	EntriesCount int64					`json:"entries_count"`
+	Entries      []*LeaderboardEntry `json:"entries"`
+	EntriesCount int64               `json:"entries_count"`
 }
 
 // Client is used to retrieve Segment and Leaderboard information from the
@@ -100,7 +97,7 @@ type Leaderboard struct {
 // requests/second, and the number of requests issued is tracked by
 // RequestCount.
 type Client struct {
-	RequestCount int64 // TODO if we go over, all calls should return errors?
+	RequestCount int64
 	throttle     <-chan time.Time
 	httpClient   *http.Client
 	stravaClient *strava.Client
@@ -151,7 +148,7 @@ func (c *Client) login(email, password string) (*Client, error) {
 	if !ok {
 		return nil, errors.New("Could not find csrf-param")
 	}
-	csrf_token, ok := doc.Find("meta[name=csrf-token]").Attr("content")
+	csrfToken, ok := doc.Find("meta[name=csrf-token]").Attr("content")
 	if !ok {
 		return nil, errors.New("Could not find csrf-token")
 	}
@@ -162,7 +159,7 @@ func (c *Client) login(email, password string) (*Client, error) {
 			"email":       {email},
 			"password":    {password},
 			"remember_me": {"on"},
-			csrfParam:    {csrfToken}})
+			csrfParam:     {csrfToken}})
 	if err != nil {
 		return nil, err
 	}
@@ -182,12 +179,12 @@ func (c *Client) login(email, password string) (*Client, error) {
 
 type stubResponseTransport struct {
 	http.Transport
-	content    []string
-	reqs       int64
+	content []string
+	reqs    int64
 }
 
 func (t *stubResponseTransport) RoundTrip(req *http.Request) (*http.Response, error) {
-	statusCode := 200 // TODO is this the default?
+	statusCode := 200
 	resp := &http.Response{
 		Status:     http.StatusText(statusCode),
 		StatusCode: statusCode,
@@ -231,82 +228,95 @@ func (c *Client) GetSegment(segmentId int64) (*Segment, error) {
 	return s, nil
 }
 
-// TODO 1: how to share code between GLAS and GL
-// TODO 2: how to pass in paging information (only fetch one page or continue fetching?
-
-// FIll leaderboard?
-
 // GetLeaderboardAndSegment returns the leaderboard of segmentId for the specified gender
 // and filter as well the segment details.
-// TODO how to pass in paging information?
 func (c *Client) GetLeaderboardAndSegment(segmentId int64, gender Gender, filter Filter) (*Leaderboard, *Segment, error) {
+	return getLeaderboardl(segmentId, gender, filter /* includeSegment */, true)
+}
+
+// GetLeaderboard returns the leaderboard of segmentId for the specified gender and filter.
+func (c *Client) GetLeaderboard(segmentId int64, gender gender, filter filter) (*Leaderboard, error) {
+	leaderboard, _, err := getLeaderboard(segmentId, gender, filter, page /* includeSegment */, false)
+	return leaderboard, err
+}
+
+// GetLeaderboardPageAndSegment returns the specified page of the leaderboard for segmentId for
+// given gender and filter as well as the segment details.
+func (c *Client) GetLeaderboardPageAndSegment(segmentId int64, gender Gender, filter Filter, page int64) (*Leaderboard, *Segment, error) {
+	leaderboard, segment, _, err := getLeaderboardPageForUrl(getLeaderboardUrl(segmentId, gender, filter), page /* includeSegment */, true)
+	return leaderboard, segment, err
+}
+
+// GetLeaderboardPage returns the specified page of the leaderboard for segmentId for given gender and filter.
+func (c *Client) GetLeaderboardPage(segmentId int64, gender Gender, filter Filter, page int64) (*Leaderboard, error) {
+	leaderboard, _, _, err := getLeaderboardPageForUrl(getLeaderboardUrl(segmentId, gender, filter), page /* includeSegment */, false)
+	return leaderboard, err
+}
+
+func (c *Client) getLeaderboardUrl(segmentId int64, gender Gender, filter Filter) string {
 	url := fmt.Sprintf("https://www.strava.com/segments/%d?", segmentId)
 	// Strava doesn't respect current_year properly without a date_range
 	if filter == Filters.CurrentYear {
 		url = fmt.Sprintf("%sdate_range=this_year&", url)
 	}
-	url = fmt.Sprintf("%sfilter=%s&gender=%s&per_page=%d", url, filter, gender, MAX_PER_PAGE)
+	return fmt.Sprintf("%sfilter=%s&gender=%s&per_page=%d", url, filter, gender, MAX_PER_PAGE)
+}
+
+func (c *Client) getLeaderboard(segmentId int64, gender Gender, filter Filter, bool includeSegment) (*Leaderboard, *Segment, error) {
+	url := GetLeaderboardUrl()
 
 	page := 1
+	leaderboard, segment, final, err := GetLeaderboardPageForUrl(url, page, includeSegment)
+	for ; !final; page++ {
+		next, _, final, err = GetLeaderboardPageForUrl(url, page /* includeSegment */, false)
+		if err != nil {
+			return nil, nil, err
+		}
+		// NOTE: EntriesCount could change if new activities are uploaded or deleted during fetching,
+		// the next fetched count always takes precedence.
+		leaderboard.EntriesCount = next.EntriesCount
+		leaderboard.Entries = append(leaderboard.Entries, next.Entries)
+	}
+
+	return leaderboard, segment, nil
+}
+
+func (c *Client) getLeaderboardPageForUrl(string url, int64 page, bool includeSegment) (*Leaderboard, *Segment, bool, error) {
+	var leaderboard *Leaderboard
+	var segment *Segment
+	var final bool
+	var err error
+
 	c.request()
 	resp, err := c.httpClient.Get(fmt.Sprintf("%s&page=%d", url, page))
 	if err != nil {
-		return nil, nil, err
+		return nil, nil, false, err
 	}
 
 	defer resp.Body.Close()
 	doc, err := goquery.NewDocumentFromReader(io.Reader(resp.Body))
 	if err != nil {
-		return nil, nil, err
+		return nil, nil, false, err
 	}
 
-	p := doc.Find(".pagination li:nth-last-child(2)").Text()
-	if p == "" {
-		pages = 1
-	} else {
-		pages, err = parseInt(p)
+	if includeSegment {
+		segment, err = parseSegment(doc, segmentId)
 		if err != nil {
-			return nil, nil, err
+			return nil, nil, false, err
 		}
-	}
-
-	segment, err := parseSegment(doc, segmentId)
-	if err != nil {
-		return nil, nil, err
 	}
 	leaderboard, err = parseLeaderboard(doc, gender)
 	if err != nil {
-		return nil, nil, err
+		return nil, nil, false, err
 	}
 
-	// TODO add test to handle what happens if subsequents pages show a higher or lower entry count!
-	for ; len(leaderboard.Entries) < leaderboard.EntriesCount() ; page++ {
-		c.request()
-		resp, err := c.httpClient.Get(fmt.Sprintf("%s&page=%d", url, page))
-		if err != nil {
-			return nil, nil, err
-		}
+	// When building up the results, we can't simply loop until len(leaderboard.Entries)
+	// == leaderboard.EntryCount  because that's not guaranteed to ever be true. We can
+	// definitely stop looping once Strava is no longer returning entries, and we can also
+	// use the pagination information to be fairly confident we should stop.
+	final = len(next.Entries) == 0 || isFinalPage(doc)
 
-		defer resp.Body.Close()
-		doc, err := goquery.NewDocumentFromReader(io.Reader(resp.Body))
-		if err != nil {
-			return nil, nil, err
-		}
-
-		next, err = parseLeaderboard(doc, gender)
-		if err != nil {
-			return nil, nil, err
-		}
-
-		leaderboard.EntriesCount = next.EntriesCount
-		leaderboard.Entries = append(leaderboard.Entries, next.Entries)
-	}
-
-	return leaderboard, segment nil
-}
-
-// GetLeaderboard returns the leaderboard of segmentId for the specified gender and filter.
-func (c *Client) GetLeaderboard(segmentid int64, gender gender, filter filter) (*Leaderboard, error) {
+	return leaderboard, segment, final, nil
 }
 
 func (c *Client) request() {
@@ -459,60 +469,8 @@ func parseElapsedTime(str string) (int64, error) {
 	return h*3600 + m*60 + s, nil
 }
 
-// go run strava.go -email=$STRAVA_EMAIL -password=$STRAVA_PASSWORD -token=$STRAVA_ACCESS_TOKEN -id=8109834
-func main() {
-	var email, password, accessToken string
-	var segmentId int64
-
-	flag.StringVar(&email, "email", "", "Email")
-	flag.StringVar(&password, "password", "", "Password")
-	flag.StringVar(&accessToken, "token", "", "Access Token")
-	flag.Int64Var(&segmentId, "id", -1, "Segment Id")
-
-	flag.Parse()
-
-	if email == "" {
-		log.Fatal("Please provide an email")
-	}
-	if password == "" {
-		log.Fatal("Please provide a password")
-	}
-	if segmentId < 0 {
-		log.Fatal("Please provide a segment")
-	}
-
-	//content, err := ioutil.ReadFile("foo.html")
-	//if err != nil {
-	//log.Fatal(err)
-	//}
-
-	//client := NewStubClient(string(content), 200)
-	client, err := NewClient(email, password, accessToken)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	leaderboard, _, err := client.GetLeaderboard(segmentId, Genders.Female, Filters.CurrentYear)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	enc := json.NewEncoder(os.Stdout)
-	enc.Encode(leaderboard)
+func isFinalPage(doc *goquery.Document) bool {
+	// TODO(kjs): should this be '&&' instead?
+	return doc.Find(".pagination li:nth-last-child(2)").HasClass("active") ||
+		doc.Find(".pagination li.next_page").HasClass("disabled")
 }
-
-//func _dump(resp *http.Response) {
-	//dump, err := httputil.DumpResponse(resp, true)
-	//if err != nil {
-		//log.Fatal(err)
-	//}
-	//fmt.Printf("%s\n", dump)
-//}
-
-//func _html(s *goquery.Selection) {
-	//html, err := goquery.OuterHtml(s)
-	//if err != nil {
-		//log.Fatal(err)
-	//}
-	//fmt.Printf("%s\n", html)
-//}
