@@ -10,25 +10,6 @@ import (
 	"github.com/scheibo/stravax"
 )
 
-func fmtDuration(d time.Duration) string {
-	d = d.Round(time.Second)
-	h := d / time.Hour
-	d -= h * time.Hour
-	m := d / time.Minute
-	d -= m * time.Minute
-	s := d / time.Second
-	if h > 0 {
-		return fmt.Sprintf("%d:%02d:%02d", h, m, s)
-	}
-	return fmt.Sprintf("%d:%02d", m, s)
-}
-
-func exit(err error) {
-	fmt.Fprintf(os.Stderr, "%s\n", err)
-	flag.PrintDefaults()
-	os.Exit(1)
-}
-
 func main() {
 	var email, password, token string
 	var segmentId int64
@@ -78,4 +59,23 @@ func main() {
 			fmtDuration(time.Duration(e.ElapsedTime)*time.Second),
 			e.StartDate)
 	}
+}
+
+func fmtDuration(d time.Duration) string {
+	d = d.Round(time.Second)
+	h := d / time.Hour
+	d -= h * time.Hour
+	m := d / time.Minute
+	d -= m * time.Minute
+	s := d / time.Second
+	if h > 0 {
+		return fmt.Sprintf("%d:%02d:%02d", h, m, s)
+	}
+	return fmt.Sprintf("%d:%02d", m, s)
+}
+
+func exit(err error) {
+	fmt.Fprintf(os.Stderr, "%s\n", err)
+	flag.PrintDefaults()
+	os.Exit(1)
 }

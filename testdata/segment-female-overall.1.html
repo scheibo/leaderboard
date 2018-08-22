@@ -1,0 +1,4049 @@
+<!-- Orion Layout -->
+<!DOCTYPE html>
+<html class='logged-in  s-minifeed feed3p0 old-login strava-orion' dir='ltr' lang='en-US' xmlns:fb='http://www.facebook.com/2008/fbml' xmlns:og='http://opengraphprotocol.org/schema/' xmlns='http://www.w3.org/TR/html5'>
+<head>
+<meta charset='UTF-8'>
+<meta content='yes' name='apple-mobile-web-app-capable'>
+<meta content='black' name='apple-mobile-web-app-status-bar-style'>
+<meta content='width = device-width, initial-scale = 1, maximum-scale = 2' name='viewport'>
+<link href='https://d3nn82uaxijpm6.cloudfront.net/apple-touch-icon-180x180.png?v=dLlWydWlG8' rel='apple-touch-icon' sizes='180x180'>
+<link href='https://d3nn82uaxijpm6.cloudfront.net/apple-touch-icon-152x152.png?v=dLlWydWlG8' rel='apple-touch-icon' sizes='152x152'>
+<link href='https://d3nn82uaxijpm6.cloudfront.net/apple-touch-icon-144x144.png?v=dLlWydWlG8' rel='apple-touch-icon' sizes='144x144'>
+<link href='https://d3nn82uaxijpm6.cloudfront.net/apple-touch-icon-120x120.png?v=dLlWydWlG8' rel='apple-touch-icon' sizes='120x120'>
+<link href='https://d3nn82uaxijpm6.cloudfront.net/apple-touch-icon-114x114.png?v=dLlWydWlG8' rel='apple-touch-icon' sizes='114x114'>
+<link href='https://d3nn82uaxijpm6.cloudfront.net/apple-touch-icon-76x76.png?v=dLlWydWlG8' rel='apple-touch-icon' sizes='76x76'>
+<link href='https://d3nn82uaxijpm6.cloudfront.net/apple-touch-icon-72x72.png?v=dLlWydWlG8' rel='apple-touch-icon' sizes='72x72'>
+<link href='https://d3nn82uaxijpm6.cloudfront.net/apple-touch-icon-60x60.png?v=dLlWydWlG8' rel='apple-touch-icon' sizes='60x60'>
+<link href='https://d3nn82uaxijpm6.cloudfront.net/apple-touch-icon-57x57.png?v=dLlWydWlG8' rel='apple-touch-icon' sizes='57x57'>
+<link href='https://d3nn82uaxijpm6.cloudfront.net/favicon-32x32.png?v=dLlWydWlG8' rel='icon' sizes='32x32' type='image/png'>
+<link href='https://d3nn82uaxijpm6.cloudfront.net/icon-strava-chrome-192.png?v=dLlWydWlG8' rel='icon' sizes='192x192' type='image/png'>
+<link href='https://d3nn82uaxijpm6.cloudfront.net/favicon-96x96.png?v=dLlWydWlG8' rel='icon' sizes='96x96' type='image/png'>
+<link href='https://d3nn82uaxijpm6.cloudfront.net/favicon-16x16.png?v=dLlWydWlG8' rel='icon' sizes='16x16' type='image/png'>
+<link href='/manifest.json?v=dLlWydWlG8' rel='manifest'>
+<meta content='#fc4c02' name='msapplication-TileColor'>
+<meta content='https://d3nn82uaxijpm6.cloudfront.net/mstile-144x144.png?v=dLlWydWlG8' name='msapplication-TileImage'>
+<meta content='#fc4c02' name='theme-color'>
+<meta content='Strava' name='apple-mobile-web-app-title'>
+<meta content='Strava' name='application-name'>
+
+<style type='text/css'>
+<style>
+  .spinner, .spinner .status {
+    position: relative;
+  }
+  .spinner {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  .spinner .status {
+    top: 2px;
+    margin-left: 0.5em;
+  }
+  .spinner .status:empty {
+    display: none;
+  }
+  .spinner.lg .graphic {
+    border-width: 3px;
+    height: 32px;
+    width: 32px;
+  }
+  .spinner.tiny {
+    height: 10px;
+    width: 10px;
+  }
+  .spinner.centered, .spinner.vcentered {
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .spinner.vcentered {
+    left: 0;
+    margin-top: -12px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 50%;
+  }
+  .spinner .graphic, .ajax-loading-image {
+    animation: spin 1.2s infinite linear;
+    box-sizing: border-box;
+    border-color: #eee;
+    border-radius: 50%;
+    border-style: solid;
+    border-top-color: #666;
+    border-top-style: solid;
+    border-width: 2px;
+    content: "";
+    display: inline-block;
+    height: 20px;
+    position: relative;
+    vertical-align: middle;
+    width: 20px;
+  }
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+</style>
+</style>
+
+<link rel="stylesheet" media="screen" href="https://d3nn82uaxijpm6.cloudfront.net/assets/strava-app-icons-e463c30580ac56ff6b1d7065207ff903a90a6043dbda686e8005a9bed5090d2b.css" />
+<link rel="stylesheet" media="screen" href="https://d3nn82uaxijpm6.cloudfront.net/assets/strava-orion-9bc403ca6e0126c50b6bb9458aefc711d858ca34b43c78af07186bbb3ae52410.css" />
+
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="WoixYRPtKUauzpQXfT48R292fitZwRNkMU4DpMeKXqNdkGjSjHbXglkuEuwjE5I5VPOxF8vcxDtkcXi2YjHDpQ==" />
+<script src="https://d3nn82uaxijpm6.cloudfront.net/packs/chunking_runtime-c499ff2789cb95d57f0b.js"></script>
+<script src="https://d3nn82uaxijpm6.cloudfront.net/packs/global-b27a6be5ddd3fad31603.js"></script>
+<script src="https://d3nn82uaxijpm6.cloudfront.net/assets/strava-head-d0f4c1f1472bbfd71048d6bbbe5e3b9041ec1330343ab67cfc3a6099b8fee09e.js"></script>
+
+<link rel="stylesheet" media="screen" href="https://d3nn82uaxijpm6.cloudfront.net/assets/segments/show-6a74f39725c150791ccd79fa2a4e64f15c22ca03f0316dd91f8db4f42e1c8a42.css" />
+<title>16.1 km Ride Segment in Dixon, CA on Strava</title>
+<meta content='View bike ride segment, 16.1 kilometers long, starting in Dixon, CA, with 15 meters in elevation gain.' type='description'>
+<meta content='noindex' name='robots'>
+<link href='https://www.strava.com/segments/2198806' rel='canonical'>
+
+
+<script>
+  !function(options){
+    window.Strava = window.Strava || {};
+    var _enabled = true;
+    var _snowplow = true;
+    var _options = options;
+    var _ready = null;
+  
+    window.Strava.SegmentIO = window.Strava.SegmentIO || (
+      {
+        isEnabled: function() {
+          return _enabled;
+        },
+        snowplowEnabled: function() {
+          return _snowplow;
+        },
+        isDebug: function() {
+          return _options.debug;
+        },
+        track: function() {
+          if(this.isEnabled()) {
+            analytics.track.apply(analytics, arguments)
+            this.log('%ctrack %O', arguments)
+          }
+        },
+        snowplowTrack: function(category, page, action, element, properties = {}) {
+          var event_data = {
+            'category': category,
+            'page': page,
+            'action': action,
+            'element': element,
+            'properties': properties
+          }
+          snowplow('trackSelfDescribingEvent', {
+            schema: 'iglu:com.strava/track/jsonschema/1-0-0',
+            data: event_data
+          });
+          this.track(category, event_data);
+        },
+        page: function(category, name, properties, options) {
+          if(this.isEnabled()) {
+            var _category = category;
+            var _name = name;
+            if(!_name) {
+              _name = category;
+              _category = null;
+            }
+            var _properties = properties || {};
+            _properties.is_mobile = _options.is_mobile;
+            _properties.mobile_os = _options.os;
+            _properties.athlete_id = _options.athlete_id;
+            _properties.locale = _options.locale;
+            analytics.page(_category, _name, _properties, options)
+            this.log('%canalytics %O', [_category, _name, _properties, options])
+          }
+          if(this.snowplowEnabled()) {
+            snowplow('trackPageView');
+          }
+        },
+        trackLink: function() {
+          if(this.isEnabled()) {
+            analytics.trackLink.apply(analytics, arguments)
+            this.log('%cattaching to track link %O', arguments)
+          }
+        },
+        trackForm: function() {
+          if(this.isEnabled()) {
+            analytics.trackForm.apply(analytics, arguments);
+            this.log('%cattaching to track form %O', arguments);
+          }
+        },
+        identify: function() {
+          if(this.isEnabled()) {
+            analytics.identify.apply(analytics, arguments);
+            this.log('%cidentify(%O)', arguments);
+          }
+        },
+        setupSnowplow: function(id) {
+          if(this.snowplowEnabled()) {
+            snowplow("newTracker", "cf", "c.strava.com", {
+              appId: "strava-web",
+              platform: "web"
+            });
+            snowplow('setUserId', id);
+          }
+        },
+        anonymousId: function() {
+          var d = jQuery.Deferred();
+          if (this.isEnabled()) {
+            if (!_ready) {
+              _ready = jQuery.Deferred();
+              analytics.ready(function(){
+                _ready.resolve(analytics.user().anonymousId());
+              });
+            }
+            _ready.always(function(anonymousId){
+              d.resolve(anonymousId);
+            });
+          } else {
+            d.reject(null);
+          }
+          return d;
+        },
+        log: function(message, values) {
+          if(this.isDebug()) {
+            console.log(message, 'background-color: yellow; color: blue; font-size: medium;', values);
+          }
+        },
+        debug: function(value) {
+          _options.debug = value;
+        }
+      }
+    )
+  }({
+    is_mobile: false,
+    os: "",
+    debug: false,
+    athlete_id: 19704029,
+    locale: "en-US"
+  });
+</script>
+
+<script>
+  !function(){
+    var analytics = window.analytics = window.analytics || [];
+    if(!analytics.initialize) {
+      if(analytics.invoked) {
+        window.console && console.error && console.error("Segment snippet included twice.");
+      } else {
+        analytics.invoked = !0;
+        analytics.methods = ["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];
+        analytics.factory = function(t) {
+          return function() {
+            var e = Array.prototype.slice.call(arguments);
+            e.unshift(t);
+            analytics.push(e);
+            return analytics
+          }
+        };
+        for(var t = 0; t < analytics.methods.length; t++) {
+          var e = analytics.methods[t];
+          analytics[e] = analytics.factory(e)
+        }
+        analytics.load = function(t) {
+          var e = document.createElement("script");
+          e.type = "text/javascript";
+          e.async = !0;
+          e.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.segment.com/analytics.js/v1/" + t + "/analytics.min.js";
+          var n = document.getElementsByTagName("script")[0];
+          n.parentNode.insertBefore(e,n)
+        };
+        analytics.SNIPPET_VERSION = "4.0.0";
+        analytics.load("4U9hx9LX3VDSlP3o5AoG4vHoGdJY340J");
+  
+        if (true) {
+          (function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)};p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","https://dy9z4910shqac.cloudfront.net/1oG5icild0laCtJMi45LjA.js","snowplow"));
+          Strava.SegmentIO.setupSnowplow(19704029);
+        }
+  
+        if(Strava.SegmentIO.isDebug()) {
+          analytics.debug();
+        } else {
+          analytics.debug(false);
+        }
+  
+        Strava.SegmentIO.page(null, null, null);
+      }
+    }
+  }();
+</script>
+
+<script>
+  !function(debug){
+    window.Strava = window.Strava || {};
+  
+    var _enabled = true;
+    var _debug = !!debug;
+    var _branchData = null;
+  
+    window.Strava.BranchIO = window.Strava.BranchIO || (
+      {
+        isEnabled: function() {
+          return _enabled;
+        },
+        isDebug: function() {
+          return _debug;
+        },
+        dataToLocalStorage: function() {
+          if (!_branchData) {
+            _branchData = new Strava.BranchAnalytics.BranchData();
+          }
+  
+          var d = this.data()
+          var that = this;
+          d.done(function(data) {
+            that.log('storing data %o to local storage', data)
+            _branchData.data(data)
+          });
+          d.fail(function(message) {
+            that.log('failed to retrieve data from branch');
+            _branchData.data({})
+          });
+          return d;
+        },
+        createLink: function(options) {
+          var d = jQuery.Deferred();
+          var data = null;
+          var callback = function(e, l) {
+            if (!e) {
+              d.resolve(l);
+            } else {
+              d.reject(e);
+            }
+          }
+          if (options.peek_data) {
+            data = this.dataFromLocalStorage();
+            if (data && data.data_parsed && data.data_parsed['~referring_link']) {
+              d.resolve(data.data_parsed['~referring_link']);
+            } else {
+              d.reject();
+            }
+          } else {
+            branch.link(options, callback);
+          }
+          return d;
+        },
+        dataFromLocalStorage: function() {
+          if (!_branchData) {
+            _branchData = new Strava.BranchAnalytics.BranchData();
+          }
+          return _branchData.data();
+        },
+        clearLocalStorage: function() {
+          if (!_branchData) {
+            _branchData = new Strava.BranchAnalytics.BranchData();
+          }
+          _branchData.data({});
+        },
+        data: function(checkLocalStorage) {
+          var d = jQuery.Deferred();
+          var that = this;
+          var c = function(message, meta_data) {
+            var storedData = null;
+  
+            if(message) {
+              d.reject(message);
+            } else {
+              if (checkLocalStorage == true && (meta_data == null || meta_data.data == "" || meta_data.data == null)) {
+                storedData = that.dataFromLocalStorage();
+                that.clearLocalStorage();
+  
+                d.resolve(storedData);
+              } else {
+                d.resolve(meta_data);
+              }
+            }
+          };
+  
+          if(this.isEnabled()) {
+            branch.data(c);
+            this.log('%cdata (branch enabled)');
+          } else {
+            this.log('%cdata (branch disabled)');
+            d.resolve({});
+          }
+          return d;
+        },
+        identify: function(athleteId) {
+          var callback = function(error, data) {
+            if (error) {
+              console.log(error);
+            }
+          }
+          if(this.isEnabled()) {
+            branch.setIdentity(athleteId, callback);
+          }
+        },
+        track: function(eventName, metaData) {
+          var callback = function(error, data) {
+            if (error) {
+              console.log(error);
+            }
+          }
+          if(this.isEnabled()) {
+            branch.track(eventName, metaData, callback);
+          }
+        },
+        log: function(message, values) {
+          if(this.isDebug()) {
+            console.log(message, 'background-color: yellow; color: blue; font-size: medium;', values);
+          }
+        },
+        debug: function(value) {
+          _debug = value;
+        }
+      }
+    )
+  }(false);
+</script>
+
+<script>
+  (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode banner closeBanner creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode".split(" "), 0);
+  branch.init("key_live_lmpPsfj2DP8CflI4rmzfiemerte7sgwm", {});
+</script>
+
+</head>
+<body>
+<script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push(
+    {'gtm.start': new Date().getTime(),event:'gtm.js'}
+    );var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','googleTagManagerDataLayer', "GTM-TP845S");
+</script>
+<noscript>
+<iframe height='0' src='//www.googletagmanager.com/ns.html?id=GTM-TP845S' style='display:none;visibility:hidden' width='0'></iframe>
+</noscript>
+
+<link rel="stylesheet" media="screen" href="https://d3nn82uaxijpm6.cloudfront.net/assets/common/smartbanner_orion-d529d3976599eda88ccea3b2f62fce6541a4316de9d04e744e6efb3b868ff255.css" />
+<div class='container smartbanner-content pt-md pb-md' id='smartbanner-orion'>
+<div class='row'>
+<div class='col-xs-12'>
+<img class="app-icon" src="https://d3nn82uaxijpm6.cloudfront.net/assets/activities/icon-ios-app-733eeda2116ef56f8b3c7ac253afe87cfcc8e0caa244bb7d35af7adf10be6dee.svg" alt="Icon ios app" />
+<div class='app-info mt-xs'>
+<div class='app-name'>Strava</div>
+<div class='app-subtitle'>Free app for Android and iPhone</div>
+</div>
+<div class='text-right mt-xs'>
+<a href="https://www.strava.com/mobile" class="btn btn-primary btn-outline btn-cta text-uppercase" role="button">Download</a>
+</div>
+</div>
+</div>
+</div>
+
+<header id='global-header'><!--
+deploy: 40483945ea0db833dd133322ba7febfb99bdbf65
+-->
+<nav class='nav-bar container' role='navigation'>
+<div class='row'>
+<div class='col-md-12 clearfix'>
+<h1 title="Return to the Strava home page" class="branding"><a class="branding-content" href="/"><span class="sr-only">Strava</span></a></h1>
+<a href="#container-nav" aria-expanded="false" aria-controls="container-nav" data-toggle="collapse" class="btn btn-default btn-mobile-menu visible-xs-inline-block visible-sm-inline-block" role="button">Menu</a>
+<div class='collapse' id='container-nav'>
+<div class='container-nav-inner'>
+<form class='form-inline' id='global-search-bar'>
+<div class='form-group bottomless'>
+<div class='dropdown' id='global-search-filter'>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-default btn-icon btn-icon-right' data-toggle='dropdown' data-value='athletes'>
+<span class='btn-label'>Athletes</span>
+<span class="app-icon-wrapper  "><span class="app-icon icon-caret-down icon-dark icon-sm"></span></span>
+</button>
+<ul aria-labeledby='global-search-filter' class='dropdown-menu' role='menu'>
+<li>
+<div class='clickable' data-value='activities'>
+Activities
+</div>
+</li>
+<li>
+<div class='clickable' data-value='athletes'>
+Athletes
+</div>
+</li>
+<li>
+<div class='clickable' data-value='clubs'>
+Clubs
+</div>
+</li>
+<li>
+<div class='clickable' data-value='segments'>
+Segments
+</div>
+</li>
+</ul>
+</div>
+<div class='input-group'>
+<label class='btn btn-white btn-icon btn-icon-only' for='global-search-field' id='global-search-button' title='Search'>
+<span class="app-icon-wrapper  "><span class="app-icon icon-search icon-lg icon-dark"></span></span>
+</label>
+<input class='form-control' data-search-filter='athletes' id='global-search-field' placeholder='Search' type='text'>
+<div class='btn btn-white btn-icon btn-icon-only' id='global-search-cancel' title='Cancel'>
+<span class="app-icon-wrapper  "><span class="app-icon icon-remove icon-sm icon-dark"></span></span>
+</div>
+</div>
+<div id='global-search-autocomplete-anchor'>
+<div id='global-search-autocomplete-container'></div>
+</div>
+</div>
+</form>
+
+<ul class='global-nav nav-group list-unstyled'>
+<li class='drop-down-menu'>
+<a class="selection" href="/dashboard">Dashboard
+</a><ul class='options'>
+<li class=''>
+<a href="/dashboard">Activity Feed</a>
+</li>
+<li class=''>
+<a href="/athlete/segments/starred">My Segments</a>
+</li>
+<li class=''>
+<a href="/athlete/routes">My Routes</a>
+</li>
+<li class='premium opt-group'>
+<h4>
+<img alt="Strava Summit" src="https://d3nn82uaxijpm6.cloudfront.net/assets/premium/summit-logo-white-84a19e1840a30a51cfcc144a777ac521270394744983890141b03303653b5d8d.svg" />
+</h4>
+<ul>
+<li class=''>
+<a href="/athlete/goals">My Goals
+</a></li>
+<li class=''>
+<a href="/athlete/heatmaps">Heatmaps
+</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='drop-down-menu'>
+<a class="selection" href="/athlete/training/log">Training
+</a><ul class='options'>
+<li class=''>
+<a href="/athlete/training/log">Training Log</a>
+</li>
+<li class=''>
+<a href="/athlete/calendar">Training Calendar</a>
+</li>
+<li class=''>
+<a href="/athlete/training">My Activities</a>
+</li>
+<li class='premium opt-group'>
+<h4>
+<img alt="Strava Summit" src="https://d3nn82uaxijpm6.cloudfront.net/assets/premium/summit-logo-white-84a19e1840a30a51cfcc144a777ac521270394744983890141b03303653b5d8d.svg" />
+</h4>
+<ul>
+<li class=''>
+<a href="/videos">Training Videos
+</a></li>
+<li class=''>
+<a href="/athlete/training-plans">Training Plans
+</a></li>
+<li class=''>
+<a href="/athlete/analysis">Power Curve
+</a></li>
+<li class=''>
+<a href="/athlete/fitness">Fitness &amp; Freshness
+</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='drop-down-menu selected'>
+<a class="selection" href="/segments/explore">Explore
+</a><ul class='options'>
+<li class=''>
+<a href="/segments/explore">Segment Explore</a>
+</li>
+<li class='selected'>
+<a href="/segments/search">Segment Search</a>
+</li>
+<li class=''>
+<a href="/athletes/search">Athlete Search</a>
+</li>
+<li class=''>
+<a href="/clubs/search">Clubs</a>
+</li>
+<li class=''>
+<a href="/apps">Apps</a>
+</li>
+<li class=''>
+<a href="/featured-running-races">Running Races</a>
+</li>
+<li class=''>
+<a href="/local">Local</a>
+</li>
+<li class='premium opt-group'>
+<h4>
+<img alt="Strava Summit" src="https://d3nn82uaxijpm6.cloudfront.net/assets/premium/summit-logo-white-84a19e1840a30a51cfcc144a777ac521270394744983890141b03303653b5d8d.svg" />
+</h4>
+<ul>
+<li class=''>
+<a href="/premium/perks">Summit Perks
+</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class=''>
+<a class="nav-link" href="/challenges">Challenges
+</a></li>
+</ul>
+<ul class='user-nav nav-group list-unstyled'>
+<li class='upgrade'>
+<a class="experiment" href="/premium?cta=premium&amp;element=link&amp;source=global-header"><button class='btn btn-sm btn-primary'>
+Upgrade
+</button>
+</a></li>
+<li class='notifications'>
+<button class='btn btn-icon btn-icon-only btn-unstyled empty' id='notifications-button' title='0 new notifications'>
+<div class='notifications-icon'>Notifications</div>
+<div id='notifications-count'>0</div>
+</button>
+<div id='notifications-drop-down'>
+<p class='no-notifications'>You have no Notifications</p>
+</div>
+</li>
+<li class='drop-down-menu user-menu'>
+<a class="selection" href="/athletes/19704029"><div class='avatar avatar-athlete'><img alt="Bigtop" class="avatar-img" src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg" /></div>
+<span class='visible-xs-inline-block visible-sm-inline-block'>Bigtop Web</span>
+</a><ul class='options'>
+<li class='featured'>
+<span class='clickable find-and-invite' data-source='header menu'>
+Invite Friends
+</span>
+</li>
+<li><a href="/athletes/19704029">My Profile</a></li>
+<li><a href="/settings/profile">Settings</a></li>
+<li><a rel="nofollow" data-method="delete" href="/session">Log Out</a></li>
+</ul>
+<div class='tooltip dark bottom' id='tooltip-user-menu'>
+Edit your profile from the Settings page of this menu.
+</div>
+</li>
+<li class='upload-menu'>
+<div class='drop-down-menu'>
+<div class='new-upload-button-wrapper selection'>
+<a class="new-upload-button icon-upload-circular app-icon icon-sm" href="/upload">Upload</a>
+</div>
+<ul class='options'>
+<li>
+<a href='/upload'>
+<span class='upload-activity app-icon icon-upload-activity'></span>
+Upload activity
+</a>
+</li>
+<li>
+<a href='/upload/manual'>
+<span class='upload-activity-manual app-icon icon-upload-activity-manual'></span>
+Add manual entry
+</a>
+</li>
+<li>
+<a href='/routes/new'>
+<span class='upload-route app-icon icon-upload-route'></span>
+Create a route
+</a>
+</li>
+<li>
+<a href='/athletes/19704029/posts/new'>
+<span class='create-post app-icon icon-create-post'></span>
+Create a post
+</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+<div class='section sidebar-footer'>
+<ul class='mt-md mb-sm'>
+<li><a href="https://strava.zendesk.com/home">Support</a></li>
+<li><a href="/premium">Summit</a></li>
+<li><a href="/legal/terms">Terms and Conditions</a></li>
+<li><a href="/legal/privacy">Privacy Policy</a></li>
+</ul>
+<ul class='mt-sm mb-md'>
+<li class='dropdown drop-down-menu drop-down-xs enabled' id='language-picker'>
+<button aria-haspopup class='btn btn-default btn-xs dropdown-selection btn-white selection' data-toggle='dropdown' id='dropdown-language-picker-button' tabindex='0'>
+English (US)
+</button>
+<ul aria-labeledby='dropdown-language-picker-button' class='dropdown-menu anchor-bottom' role='menu'>
+<li>
+<div class='replace-selection clickable language-pick' language-code='en-GB'>British English</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='de-DE'>Deutsch</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='en-US'>English (US)</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='es-ES'>español</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='es-419'>español latinoamericano</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='fr-FR'>français</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='it-IT'>italiano</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='nl-NL'>Nederlands</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='pt-PT'>português</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='pt-BR'>português do Brasil</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='ru-RU'>русский</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='ko-KR'>한국어</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='zh-CN'>中文</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='ja-JP'>日本語</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='zh-TW'>繁體中文</div>
+</li>
+</ul>
+</li>
+<li class='dropdown drop-down-menu drop-down-xs enabled' id='dropdown-more'>
+<button aria-haspopup class='btn btn-default btn-xs dropdown-selection btn-white selection' data-toggle='dropdown' id='dropdown-more-button' tabindex='0'>
+About
+</button>
+<ul aria-labeledby='dropdown-more-button' class='dropdown-menu anchor-bottom' role='menu'>
+<li><a href="/about">About</a></li>
+<li><a href="/careers">Careers</a></li>
+<li><a href="http://labs.strava.com/developers">Developers</a></li>
+<li><a href="http://labs.strava.com">Labs</a></li>
+<li><a href="https://strava.zendesk.com/entries/46363890-About-Strava-Maps">About Our Maps</a></li>
+<li><a href="/community-standards">Strava Community Standards</a></li>
+</ul>
+</li>
+<li class='dropdown drop-down-menu drop-down-xs enabled' id='dropdown-follow-us'>
+<button aria-haspopup class='btn btn-default btn-xs dropdown-selection btn-white selection' data-toggle='dropdown' id='dropdown-follow-us-button' tabindex='0'>
+Follow Us
+</button>
+<ul aria-labeledby='dropdown-follow-us-button' class='dropdown-menu anchor-bottom' role='menu'>
+<li><a target="_blank" href="http://www.facebook.com/Strava">Facebook</a></li>
+<li><a target="_blank" href="http://twitter.com/strava">Twitter</a></li>
+<li><a target="_blank" href="http://instagram.com/strava">Instagram</a></li>
+<li><a target="_blank" href="http://www.youtube.com/stravainc">YouTube</a></li>
+<li><a href="http://blog.strava.com">Blog</a></li>
+</ul>
+</li>
+</ul>
+<div class='copyright mt-md mb-md'>
+© 2018 Strava
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+
+
+<div class='messages' id='system-messages-js'>
+<div class='flash-messages'>
+</div>
+<div class='container'></div>
+</div>
+
+
+<script id='custom-map-controls-show-privacy-fullscreen-template' type='text/template'>
+<div id='map-control-container' style='padding: 5px'>
+<div class='js-map-control' id='map-control-container' index='1'>
+<div class='inline-inputs' id='strava-map-controls'>
+
+<div class='drop-down-menu' id='map-type-control'>
+<a class='selection' data-map-type-id='terrain' id='selected-map'>Terrain Map</a>
+<ul class='options'>
+<li>
+<a class='map-type-selector' data-map-type-id='standard'>Standard Map</a>
+</li>
+<li>
+<a class='map-type-selector' data-map-type-id='satellite'>Satellite Map</a>
+</li>
+<li>
+<a id='start-street-view'>Street View (Start)</a>
+</li>
+<li>
+<a id='end-street-view'>Street View (End)</a>
+</li>
+<li>
+<label>
+<input id='privacy_toggle' type='checkbox'>Show Privacy Zone</input>
+</label>
+</li>
+</ul>
+</div>
+
+<a class='button' id='toggle-fullscreen'></a>
+</div>
+</div>
+</div>
+</script>
+<script id='custom-map-controls-suggest-privacy-fullscreen-template' type='text/template'>
+<div id='map-control-container' style='padding: 5px'>
+<div class='js-map-control' id='map-control-container' index='1'>
+<div class='inline-inputs' id='strava-map-controls'>
+
+<div class='drop-down-menu' id='map-type-control'>
+<a class='selection' data-map-type-id='terrain' id='selected-map'>Terrain Map</a>
+<ul class='options'>
+<li>
+<a class='map-type-selector' data-map-type-id='standard'>Standard Map</a>
+</li>
+<li>
+<a class='map-type-selector' data-map-type-id='satellite'>Satellite Map</a>
+</li>
+<li>
+<a id='start-street-view'>Street View (Start)</a>
+</li>
+<li>
+<a id='end-street-view'>Street View (End)</a>
+</li>
+<li>
+<a href='/settings/privacy'>Add Privacy Zone</a>
+</li>
+</ul>
+</div>
+
+<a class='button' id='toggle-fullscreen'></a>
+</div>
+</div>
+</div>
+</script>
+<script id='custom-map-controls-show-privacy-template' type='text/template'>
+<div id='map-control-container' style='padding: 5px'>
+<div class='js-map-control' id='map-control-container' index='1'>
+<div class='inline-inputs' id='strava-map-controls'>
+
+<div class='drop-down-menu' id='map-type-control'>
+<a class='selection' data-map-type-id='terrain' id='selected-map'>Terrain Map</a>
+<ul class='options'>
+<li>
+<a class='map-type-selector' data-map-type-id='standard'>Standard Map</a>
+</li>
+<li>
+<a class='map-type-selector' data-map-type-id='satellite'>Satellite Map</a>
+</li>
+<li>
+<a id='start-street-view'>Street View (Start)</a>
+</li>
+<li>
+<a id='end-street-view'>Street View (End)</a>
+</li>
+<li>
+<label>
+<input id='privacy_toggle' type='checkbox'>Show Privacy Zone</input>
+</label>
+</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+</script>
+<script id='custom-map-controls-suggest-privacy-template' type='text/template'>
+<div id='map-control-container' style='padding: 5px'>
+<div class='js-map-control' id='map-control-container' index='1'>
+<div class='inline-inputs' id='strava-map-controls'>
+
+<div class='drop-down-menu' id='map-type-control'>
+<a class='selection' data-map-type-id='terrain' id='selected-map'>Terrain Map</a>
+<ul class='options'>
+<li>
+<a class='map-type-selector' data-map-type-id='standard'>Standard Map</a>
+</li>
+<li>
+<a class='map-type-selector' data-map-type-id='satellite'>Satellite Map</a>
+</li>
+<li>
+<a id='start-street-view'>Street View (Start)</a>
+</li>
+<li>
+<a id='end-street-view'>Street View (End)</a>
+</li>
+<li>
+<a href='/settings/privacy'>Add Privacy Zone</a>
+</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+</script>
+<script id='custom-map-controls-fullscreen-template' type='text/template'>
+<div id='map-control-container' style='padding: 5px'>
+<div class='js-map-control' id='map-control-container' index='1'>
+<div class='inline-inputs' id='strava-map-controls'>
+
+<div class='drop-down-menu' id='map-type-control'>
+<a class='selection' data-map-type-id='terrain' id='selected-map'>Terrain Map</a>
+<ul class='options'>
+<li>
+<a class='map-type-selector' data-map-type-id='standard'>Standard Map</a>
+</li>
+<li>
+<a class='map-type-selector' data-map-type-id='satellite'>Satellite Map</a>
+</li>
+<li>
+<a id='start-street-view'>Street View (Start)</a>
+</li>
+<li>
+<a id='end-street-view'>Street View (End)</a>
+</li>
+</ul>
+</div>
+
+<a class='button' id='toggle-fullscreen'></a>
+</div>
+</div>
+</div>
+</script>
+<script id='custom-map-controls-template' type='text/template'>
+<div id='map-control-container' style='padding: 5px'>
+<div class='js-map-control' id='map-control-container' index='1'>
+<div class='inline-inputs' id='strava-map-controls'>
+
+<div class='drop-down-menu' id='map-type-control'>
+<a class='selection' data-map-type-id='terrain' id='selected-map'>Terrain Map</a>
+<ul class='options'>
+<li>
+<a class='map-type-selector' data-map-type-id='standard'>Standard Map</a>
+</li>
+<li>
+<a class='map-type-selector' data-map-type-id='satellite'>Satellite Map</a>
+</li>
+<li>
+<a id='start-street-view'>Street View (Start)</a>
+</li>
+<li>
+<a id='end-street-view'>Street View (End)</a>
+</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+</script>
+
+<div class='container'>
+<div class='section row' id='segment'>
+<div class='segment-heading col-md-8'>
+<div class='segment-name'>
+<div class='name'>
+<h2 class='bottomless'>
+<button class='btn btn-icon btn-icon-only btn-unstyled btn-xs starred' data-segment-id='2198806'>
+<span class="app-icon-wrapper  "><span class="app-icon icon-star icon-lg icon-dark"></span></span>
+</button>
+<span data-full-name='PCSD'>PCSD</span>
+</h2>
+</div>
+</div>
+<div class='location'>
+<strong>Ride Segment</strong>
+Dixon, CA
+</div>
+<ul class='inline-stats list-stats stats-lg'>
+<li><div class="stat"><span class="stat-subtext">Distance</span><b class="stat-text">16.11<abbr class='unit' title='kilometers'>km</abbr></b></div></li>
+<li><div class="stat"><span class="stat-subtext">Avg Grade</span><b class="stat-text">0<abbr class='unit' title='percent'>%</abbr></b></div></li>
+<li><div class="stat"><span class="stat-subtext">Lowest Elev</span><b class="stat-text">83<abbr class='unit' title='meters'>m</abbr></b></div></li>
+<li><div class="stat"><span class="stat-subtext">Highest Elev</span><b class="stat-text">96<abbr class='unit' title='meters'>m</abbr></b></div></li>
+<li><div class="stat"><span class="stat-subtext">Elev Difference</span><b class="stat-text">13<abbr class='unit' title='meters'>m</abbr></b></div></li>
+<li><div class="stat attempts"><span class="stat-subtext">3,560 Attempts By 612 People</span><b class="stat-text"></b></div></li>
+</ul>
+
+</div>
+</div>
+<div class='row'>
+<div class='col-md-8'>
+<div class='map-container map-large' id='map_canvas'></div>
+<div class='elevation-chart chart-container mb-sm mt-sm' id='chart-container'>
+<div id='elev-chart'></div>
+</div>
+</div>
+<div class='sidebar col-md-4'>
+<div class='section segment-activity-my-efforts topless'>
+<h3>Fastest Times</h3>
+<div class='kom-qom mt-md pt-md'>
+<div class='results'>
+<div class='avatar avatar-athlete avatar-md' title='Dave Bailey'>
+<div class="avatar-content"><div class='avatar-img-wrapper'>
+<div class='avatar-badge'><span class="app-icon-wrapper  "><span class="app-icon icon-badge-premium"></span></span></div>
+<img class='avatar-img' src='https://dgalywyr863hv.cloudfront.net/pictures/athletes/143982/127671/1/medium.jpg'>
+</div>
+</div></div>
+
+<div class='result'>
+<div class='athlete'>Dave Bailey</div>
+<strong>KOM</strong>
+19:36
+<span class='timestamp'><a href="/segment_efforts/1440115807">Aug 7, 2013</a></span>
+</div>
+</div>
+
+<div class='results'>
+<div class='avatar avatar-athlete avatar-md' title='Alison Tetrick'>
+<div class="avatar-content"><div class='avatar-img-wrapper'>
+<div class='avatar-badge'><span class="app-icon-wrapper  "><span class="app-icon icon-badge-pro"></span></span></div>
+<img class='avatar-img' src='https://dgalywyr863hv.cloudfront.net/pictures/athletes/188112/45714/7/medium.jpg'>
+</div>
+</div></div>
+
+<div class='result'>
+<div class='athlete'>Alison Tetrick</div>
+<strong>QOM</strong>
+21:22
+<span class='timestamp'><a href="/segment_efforts/356621090">Aug 15, 2012</a></span>
+</div>
+</div>
+
+</div>
+
+<a href="/segments/2198806/compare" class="btn button btn-primary btn-block mt-md" role="button">Compare Efforts</a>
+</div>
+<div class='section border-top-light' id='performance-goals'>
+<div class='mt-xl mb-xl'><div class='spinner sm vcentered' style=''>
+      <div class='graphic'></div>
+      <span class='status'></span>
+    </div></div>
+</div>
+
+<div class='section'>
+<button data-toggle="modal" data-target="#modal-embed" class="btn btn-default">Embed on Blog</button>
+<div class='modal fade' id='modal-embed' role='dialog' tabindex='-1'>
+<div class='modal-dialog'>
+<div class='modal-content'>
+<div class='modal-header'>
+<button data-dismiss="modal" aria-label="close" class="btn close btn-icon btn-icon-only"><span class="app-icon-wrapper  "><span class="app-icon icon-remove icon-dark icon-lg"></span></span></button>
+<h4 class='modal-title'>Embed the Strava Segment Widget</h4>
+</div>
+<div class='modal-body'>
+<div class='form-group'>
+<label for='embed'>Copy the code below and paste it into your blog or website</label>
+<textarea class='form-control textarea-code select-on-click' id='embed' readonly>&lt;iframe height='405' width='590' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/segments/2198806/embed'&gt;&lt;/iframe&gt;</textarea>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class='dropdown' id='segment-actions'>
+<button aria-haspopup class='btn btn-default dropdown-toggle' data-toggle='dropdown'>
+Actions
+<span class="app-icon-wrapper  "><span class="app-icon icon-strong-caret-down icon-dark icon-xs"></span></span>
+</button>
+<ul aria-labeledby='segment-actions' class='dropdown-menu' role='menu'>
+<li><a rel="nofollow" data-method="put" href="/segments/2198806/reset_athlete_leaderboard">Refresh My Results</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<h3>Leaderboards</h3>
+<div id='segment-leaderboard'>
+<div class='leaderboard row' id='segment-results'>
+<div class='col-lg-2 col-md-3'><ul class='filters list-unstyled'>
+<li>
+<a class="option selected" data-type="html" data-filter-hide="this-year" data-remote="true" href="/segments/2198806/leaderboard?filter=overall&amp;gender=F">All Time</a>
+</li>
+<li>
+<a class="option" data-type="html" data-filter-hide="all-time" data-remote="true" href="/segments/2198806/leaderboard?date_range=this_year&amp;filter=current_year&amp;gender=F">This Year</a>
+</li>
+<li>
+<a class="option" data-type="html" data-filter="my_results" data-segmentid="2198806" data-remote="true" href="/segments/2198806/leaderboard?filter=my_results&amp;gender=F">My Results</a>
+</li>
+<li>
+<a class="option" data-type="html" data-remote="true" href="/segments/2198806/leaderboard?filter=following&amp;gender=F">People I&#39;m Following</a>
+</li>
+<li id='premium-new'>
+<div class='premium-header option'>
+<img class="premium-logo" src="https://d3nn82uaxijpm6.cloudfront.net/assets/premium/summit-logo-white-84a19e1840a30a51cfcc144a777ac521270394744983890141b03303653b5d8d.svg" alt="Summit logo white" />
+</div>
+<ul class='list-unstyled'>
+<li class='filter-header'>
+By Age Group
+</li>
+<li class='age-filter collapse'>
+<a class=" filter-link" data-type="html" data-remote="true" href="/segments/2198806/leaderboard?age_group=0_19&amp;filter=age_group&amp;gender=F">19 and under</a>
+</li>
+<li class='age-filter collapse'>
+<a class=" filter-link" data-type="html" data-remote="true" href="/segments/2198806/leaderboard?age_group=20_24&amp;filter=age_group&amp;gender=F">20 to 24</a>
+</li>
+<li class='age-filter collapse'>
+<a class=" filter-link" data-type="html" data-remote="true" href="/segments/2198806/leaderboard?age_group=25_34&amp;filter=age_group&amp;gender=F">25 to 34</a>
+</li>
+<li class='age-filter collapse'>
+<a class=" filter-link" data-type="html" data-remote="true" href="/segments/2198806/leaderboard?age_group=35_44&amp;filter=age_group&amp;gender=F">35 to 44</a>
+</li>
+<li class='age-filter collapse'>
+<a class=" filter-link" data-type="html" data-remote="true" href="/segments/2198806/leaderboard?age_group=45_54&amp;filter=age_group&amp;gender=F">45 to 54</a>
+</li>
+<li class='age-filter collapse'>
+<a class=" filter-link" data-type="html" data-remote="true" href="/segments/2198806/leaderboard?age_group=55_64&amp;filter=age_group&amp;gender=F">55 to 64</a>
+</li>
+<li class='age-filter collapse'>
+<a class=" filter-link" data-type="html" data-remote="true" href="/segments/2198806/leaderboard?age_group=65_69&amp;filter=age_group&amp;gender=F">65 to 69</a>
+</li>
+<li class='age-filter collapse'>
+<a class=" filter-link" data-type="html" data-remote="true" href="/segments/2198806/leaderboard?age_group=70_74&amp;filter=age_group&amp;gender=F">70 to 74</a>
+</li>
+<li class='age-filter collapse'>
+<a class=" filter-link" data-type="html" data-remote="true" href="/segments/2198806/leaderboard?age_group=75_plus&amp;filter=age_group&amp;gender=F">75+</a>
+</li>
+<li>
+<button aria-expanded='false' class='see-all' data-target='.age-filter' data-toggle='collapse' type='button'>
+<span class='expand'>
+See All
+<span class="app-icon-wrapper  "><span class="app-icon icon-dark icon-caret-down"></span></span>
+</span>
+<span class='less'>
+Show Less
+<span class="app-icon-wrapper  "><span class="app-icon icon-dark icon-caret-up"></span></span>
+</span>
+</button>
+</li>
+</ul>
+<ul class='list-unstyled'>
+<li class='filter-header'>
+By Weight Class
+</li>
+<li class='weight-filter collapse'>
+<a class=" filter-link" data-type="html" data-remote="true" href="/segments/2198806/leaderboard?filter=weight_class&amp;gender=F&amp;weight_class=0_54">54 kg and under</a>
+</li>
+<li class='weight-filter collapse'>
+<a class=" filter-link" data-type="html" data-remote="true" href="/segments/2198806/leaderboard?filter=weight_class&amp;gender=F&amp;weight_class=55_64">55 to 64 kg</a>
+</li>
+<li class='weight-filter collapse'>
+<a class=" filter-link" data-type="html" data-remote="true" href="/segments/2198806/leaderboard?filter=weight_class&amp;gender=F&amp;weight_class=65_74">65 to 74 kg</a>
+</li>
+<li class='weight-filter collapse'>
+<a class=" filter-link" data-type="html" data-remote="true" href="/segments/2198806/leaderboard?filter=weight_class&amp;gender=F&amp;weight_class=75_84">75 to 84 kg</a>
+</li>
+<li class='weight-filter collapse'>
+<a class=" filter-link" data-type="html" data-remote="true" href="/segments/2198806/leaderboard?filter=weight_class&amp;gender=F&amp;weight_class=85_94">85 to 95 kg</a>
+</li>
+<li class='weight-filter collapse'>
+<a class=" filter-link" data-type="html" data-remote="true" href="/segments/2198806/leaderboard?filter=weight_class&amp;gender=F&amp;weight_class=95_104">95 kg to 104 kg</a>
+</li>
+<li class='weight-filter collapse'>
+<a class=" filter-link" data-type="html" data-remote="true" href="/segments/2198806/leaderboard?filter=weight_class&amp;gender=F&amp;weight_class=105_114">105 kg to 114 kg</a>
+</li>
+<li class='weight-filter collapse'>
+<a class=" filter-link" data-type="html" data-remote="true" href="/segments/2198806/leaderboard?filter=weight_class&amp;gender=F&amp;weight_class=115_plus">115 kg and over</a>
+</li>
+<li>
+<button aria-expanded='false' class='see-all' data-target='.weight-filter' data-toggle='collapse' type='button'>
+<span class='expand'>
+See All
+<span class="app-icon-wrapper  "><span class="app-icon icon-dark icon-caret-down"></span></span>
+</span>
+<span class='less'>
+Show Less
+<span class="app-icon-wrapper  "><span class="app-icon icon-dark icon-caret-up"></span></span>
+</span>
+</button>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class='col-lg-10 col-md-9 leaders'>
+<h4 data-role='active-filters'>Overall
+</h4>
+<table class='table layout summary bottomless'>
+<tr>
+<td class='standing text-nowrap'>
+<h5 class='topless text-uppercase'>My Current Place</h5>
+<strong>
+-
+ / 120
+</strong>
+</td>
+<td class='time text-nowrap'>
+<h5 class='topless text-uppercase'>My Best Time</h5>
+<strong>-</strong>
+</td>
+<td class='text-nowrap'>
+<div class='drop-down-menu minimal'>
+<button class="btn selection btn-unstyled">All-Time</button>
+<ul class='options'>
+<li id='all-time'><a data-type="html" data-remote="true" href="/segments/2198806/leaderboard?filter=overall&amp;gender=F">All-Time</a></li>
+<li><a data-type="html" data-remote="true" href="/segments/2198806/leaderboard?date_range=today&amp;filter=overall&amp;gender=F">Today</a></li>
+<li><a data-type="html" data-remote="true" href="/segments/2198806/leaderboard?date_range=this_week&amp;filter=overall&amp;gender=F">This Week</a></li>
+<li><a data-type="html" data-remote="true" href="/segments/2198806/leaderboard?date_range=this_month&amp;filter=overall&amp;gender=F">This Month</a></li>
+<li id='this-year'><a data-type="html" data-remote="true" href="/segments/2198806/leaderboard?date_range=this_year&amp;filter=overall&amp;gender=F">This Year</a></li>
+</ul>
+</div>
+</td>
+<td class='text-nowrap'>
+<div class='drop-down-menu minimal'>
+<button class="btn selection btn-unstyled">Women</button>
+<ul class='options'>
+<li><a data-type="html" data-remote="true" href="/segments/2198806/leaderboard?filter=overall&amp;gender=all">All</a></li>
+<li><a data-type="html" data-remote="true" href="/segments/2198806/leaderboard?filter=overall&amp;gender=M">Men</a></li>
+<li><a data-type="html" data-remote="true" href="/segments/2198806/leaderboard?filter=overall&amp;gender=F">Women</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+<div id='results'><table class='table table-striped table-padded table-leaderboard'>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Name</th>
+<th>Date</th>
+<th>Speed</th>
+<th>HR</th>
+<th>Power</th>
+<th>VAM</th>
+<th class='last-child'>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class=''>
+<td class='text-center'>
+<div class='avatar avatar-athlete avatar-sm' title='Alison Tetrick'>
+<div class="avatar-content"><div class='avatar-img-wrapper'>
+<div class='avatar-badge'><span class="app-icon-wrapper  "><span class="app-icon icon-badge-pro"></span></span></div>
+<img class='avatar-img' src='https://dgalywyr863hv.cloudfront.net/pictures/athletes/188112/45714/7/medium.jpg'>
+</div>
+</div></div>
+
+</td>
+<td class='athlete'>
+<strong><a href="/pros/atetrick">Alison Tetrick</a></strong>
+</td>
+<td>
+<a href="/segment_efforts/356621090">Aug 15, 2012</a>
+</td>
+<td>45.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+107<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+-
+</td>
+<td class='last-child'>21:22</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+2
+</td>
+<td class='athlete'>
+<a href="/athletes/9705">Danielle Haulman</a>
+</td>
+<td>
+<a href="/segment_efforts/646910125">Jan 25, 2013</a>
+</td>
+<td>44.2<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+167<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+411<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>21:53</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+3
+</td>
+<td class='athlete'>
+<a href="/pros/katiehall">Katie Hall</a>
+</td>
+<td>
+<a href="/segment_efforts/3027150726">Apr 23, 2014</a>
+</td>
+<td>43.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+-
+</td>
+<td class='last-child'>22:18</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+4
+</td>
+<td class='athlete'>
+<a href="/athletes/1462543">Joanna Dahl</a>
+</td>
+<td>
+<a href="/segment_efforts/3043528282">Apr 23, 2014</a>
+</td>
+<td>42.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+261<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+-
+</td>
+<td class='last-child'>22:39</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+5
+</td>
+<td class='athlete'>
+<a href="/athletes/589382">Angie Platis</a>
+</td>
+<td>
+<a href="/segment_efforts/2084098036">May 29, 2013</a>
+</td>
+<td>41.2<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+163<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+-
+</td>
+<td class='last-child'>23:28</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+6
+</td>
+<td class='athlete'>
+<a href="/athletes/18937779">Emily Cocks</a>
+</td>
+<td>
+<a href="/segment_efforts/19838398548">May 21, 2014</a>
+</td>
+<td>40.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+149<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+239<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+-
+</td>
+<td class='last-child'>23:45</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+7
+</td>
+<td class='athlete'>
+<a href="/athletes/1354633">Diane Moug</a>
+</td>
+<td>
+<a href="/segment_efforts/858917885">Apr 3, 2013</a>
+</td>
+<td>40.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+180<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+304<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>23:49</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+8
+</td>
+<td class='athlete'>
+<a href="/athletes/119889">April Schleck</a>
+</td>
+<td>
+<a href="/segment_efforts/848028213">Apr 11, 2013</a>
+</td>
+<td>39.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+172<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+316<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>24:17</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+9
+</td>
+<td class='athlete'>
+<a href="/athletes/160020">Gina Lapekas</a>
+</td>
+<td>
+<a href="/segment_efforts/1267596397">Jul 10, 2013</a>
+</td>
+<td>39.2<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+170<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+228<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+-
+</td>
+<td class='last-child'>24:40</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+10
+</td>
+<td class='athlete'>
+<a href="/athletes/68317">Deborah Gallagher</a>
+</td>
+<td>
+<a href="/segment_efforts/350623988">Jul 25, 2012</a>
+</td>
+<td>38.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+159<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+252<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>24:55</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+11
+</td>
+<td class='athlete'>
+<a href="/athletes/8945">Sandra King</a>
+</td>
+<td>
+<a href="/segment_efforts/1050774820">May 29, 2013</a>
+</td>
+<td>38.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+164<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+251<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>25:05</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+12
+</td>
+<td class='athlete'>
+<a href="/athletes/151952">Road Monkey</a>
+</td>
+<td>
+<a href="/segment_efforts/350623786">Jul 3, 2012</a>
+</td>
+<td>38.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+116<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>25:09</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+13
+</td>
+<td class='athlete'>
+<a href="/athletes/18521592">Claudia Ferreira</a>
+</td>
+<td>
+<a href="/segment_efforts/38021039267">Apr 21, 2018</a>
+</td>
+<td>38.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+144<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+231<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>25:10</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+14
+</td>
+<td class='athlete'>
+<a href="/athletes/424617">Emily Thurston</a>
+</td>
+<td>
+<a href="/segment_efforts/3026828583">Apr 23, 2014</a>
+</td>
+<td>38.1<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+181<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+240<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>25:24</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+15
+</td>
+<td class='athlete'>
+<a href="/pros/khuizar">Korina Huizar</a>
+</td>
+<td>
+<a href="/segment_efforts/3026716272">Apr 23, 2014</a>
+</td>
+<td>37.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+185<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+217<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+-
+</td>
+<td class='last-child'>25:45</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+16
+</td>
+<td class='athlete'>
+<a href="/athletes/197434">Madeline Finch</a>
+</td>
+<td>
+<a href="/segment_efforts/1052264049">May 29, 2013</a>
+</td>
+<td>37.1<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+166<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+232<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>26:04</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+17
+</td>
+<td class='athlete'>
+<a href="/athletes/1326795">Bridget  Carlson</a>
+</td>
+<td>
+<a href="/segment_efforts/899042783">Apr 24, 2013</a>
+</td>
+<td>37.1<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+-
+</td>
+<td class='last-child'>26:05</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+18
+</td>
+<td class='athlete'>
+<a href="/athletes/581814">Lindsay Wetzel Polin</a>
+</td>
+<td>
+<a href="/segment_efforts/1181805465">May 29, 2013</a>
+</td>
+<td>37.0<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+163<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+231<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>26:06</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+19
+</td>
+<td class='athlete'>
+<a href="/athletes/165951">emily s.</a>
+</td>
+<td>
+<a href="/segment_efforts/1054341277">May 29, 2013</a>
+</td>
+<td>37.0<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+162<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+231<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>26:07</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+20
+</td>
+<td class='athlete'>
+<a href="/athletes/12552">Tanya Fredricks</a>
+</td>
+<td>
+<a href="/segment_efforts/2431588894">Feb 3, 2014</a>
+</td>
+<td>36.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+223<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>26:15</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+21
+</td>
+<td class='athlete'>
+<a href="/athletes/6199157">Cary Craig</a>
+</td>
+<td>
+<a href="/segment_efforts/4409547609">Aug 27, 2014</a>
+</td>
+<td>36.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+158<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+-
+</td>
+<td class='last-child'>26:17</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+22
+</td>
+<td class='athlete'>
+<a href="/pros/caroline_dezendorf">Caroline Nolan</a>
+</td>
+<td>
+<a href="/segment_efforts/1532677804">Aug 21, 2013</a>
+</td>
+<td>36.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+190<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+220<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>26:22</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+23
+</td>
+<td class='athlete'>
+<a href="/athletes/1645242">Kristen Hill</a>
+</td>
+<td>
+<a href="/segment_efforts/4207559651">Aug 9, 2014</a>
+</td>
+<td>36.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+132<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+206<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+-
+</td>
+<td class='last-child'>26:38</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+24
+</td>
+<td class='athlete'>
+<a href="/athletes/5067526">Simone Federici</a>
+</td>
+<td>
+<a href="/segment_efforts/21211865445">Feb 18, 2017</a>
+</td>
+<td>35.9<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+214<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>26:55</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+25
+</td>
+<td class='athlete'>
+<a href="/athletes/266627">Kathy Bertram</a>
+</td>
+<td>
+<a href="/segment_efforts/820865182">Apr 3, 2013</a>
+</td>
+<td>35.9<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+168<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+197<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>26:56</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+26
+</td>
+<td class='athlete'>
+<a href="/athletes/133707">Kelly M</a>
+</td>
+<td>
+<a href="/segment_efforts/1192639088">Jun 26, 2013</a>
+</td>
+<td>35.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+168<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+164<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+-
+</td>
+<td class='last-child'>27:02</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+27
+</td>
+<td class='athlete'>
+<a href="/athletes/913701">Abbey Thigpen</a>
+</td>
+<td>
+<a href="/segment_efforts/3434789119">Jun 4, 2014</a>
+</td>
+<td>35.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+188<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+-
+</td>
+<td class='last-child'>27:05</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+28
+</td>
+<td class='athlete'>
+<a href="/athletes/232497">Tara Kurihara</a>
+</td>
+<td>
+<a href="/segment_efforts/762537270">Mar 16, 2013</a>
+</td>
+<td>35.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+146<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>27:07</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+29
+</td>
+<td class='athlete'>
+<a href="/athletes/3069617">Sara Enders</a>
+</td>
+<td>
+<a href="/segment_efforts/2481682087">Feb 1, 2014</a>
+</td>
+<td>35.1<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+180<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+197<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>27:31</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+30
+</td>
+<td class='athlete'>
+<a href="/athletes/270980">Jen Mathe</a>
+</td>
+<td>
+<a href="/segment_efforts/2676924131">Mar 12, 2014</a>
+</td>
+<td>34.9<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+172<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+170<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+-
+</td>
+<td class='last-child'>27:43</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+31
+</td>
+<td class='athlete'>
+<a href="/athletes/2319863">Melinda Zavala</a>
+</td>
+<td>
+<a href="/segment_efforts/1350044862">Jul 24, 2013</a>
+</td>
+<td>34.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+207<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>27:45</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+32
+</td>
+<td class='athlete'>
+<a href="/athletes/210446">Krissy Collett</a>
+</td>
+<td>
+<a href="/segment_efforts/363270830">Aug 29, 2012</a>
+</td>
+<td>34.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+183<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+191<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>28:07</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+32
+</td>
+<td class='athlete'>
+<a href="/athletes/318483">Debbie Souza</a>
+</td>
+<td>
+<a href="/segment_efforts/1050654715">May 29, 2013</a>
+</td>
+<td>34.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+165<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+183<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>28:07</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+34
+</td>
+<td class='athlete'>
+<a href="/athletes/186352">Sunshine Townsend</a>
+</td>
+<td>
+<a href="/segment_efforts/350641744">Feb 4, 2012</a>
+</td>
+<td>34.2<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+183<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+-
+</td>
+<td class='last-child'>28:14</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+35
+</td>
+<td class='athlete'>
+<a href="/athletes/622638">Sarah Struve</a>
+</td>
+<td>
+<a href="/segment_efforts/3442706426">Jun 4, 2014</a>
+</td>
+<td>34.1<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+155<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+174<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>28:20</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+35
+</td>
+<td class='athlete'>
+<a href="/athletes/15818950">Victoria Woolfolk</a>
+</td>
+<td>
+<a href="/segment_efforts/34555458565">Feb 3, 2018</a>
+</td>
+<td>34.1<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+168<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>28:20</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+37
+</td>
+<td class='athlete'>
+<a href="/athletes/350401">Amy Chow</a>
+</td>
+<td>
+<a href="/segment_efforts/350641698">Jul 6, 2011</a>
+</td>
+<td>34.0<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+143<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+-
+</td>
+<td class='last-child'>28:26</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+38
+</td>
+<td class='athlete'>
+<a href="/athletes/776730">Breezer Hill</a>
+</td>
+<td>
+<a href="/segment_efforts/896936923">Apr 24, 2013</a>
+</td>
+<td>33.9<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+165<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+185<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>28:30</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+38
+</td>
+<td class='athlete'>
+<a href="/athletes/509386">Nancy Fairbanks</a>
+</td>
+<td>
+<a href="/segment_efforts/1192581776">Jun 26, 2013</a>
+</td>
+<td>33.9<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+156<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+183<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>28:30</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+40
+</td>
+<td class='athlete'>
+<a href="/athletes/3274761">Sarah Beard</a>
+</td>
+<td>
+<a href="/segment_efforts/6334549619">Mar 18, 2015</a>
+</td>
+<td>33.9<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+177<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+189<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>28:33</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+41
+</td>
+<td class='athlete'>
+<a href="/athletes/1995842">Susan Lee</a>
+</td>
+<td>
+<a href="/segment_efforts/1702928724">Sep 18, 2013</a>
+</td>
+<td>33.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+178<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+185<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>28:46</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+42
+</td>
+<td class='athlete'>
+<a href="/pros/bethbikes">Beth Hernandez (Newell)</a>
+</td>
+<td>
+<a href="/segment_efforts/2899650990">Apr 9, 2014</a>
+</td>
+<td>33.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+144<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+186<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>28:49</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+43
+</td>
+<td class='athlete'>
+<a href="/athletes/206843">Liz Harris</a>
+</td>
+<td>
+<a href="/segment_efforts/350641625">Feb 10, 2012</a>
+</td>
+<td>33.2<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+149<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+-
+</td>
+<td class='last-child'>29:09</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+43
+</td>
+<td class='athlete'>
+<a href="/athletes/1272804">Rachel Baarda</a>
+</td>
+<td>
+<a href="/segment_efforts/21890945722">Mar 12, 2017</a>
+</td>
+<td>33.2<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+197<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+197<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+-
+</td>
+<td class='last-child'>29:09</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+45
+</td>
+<td class='athlete'>
+<a href="/athletes/175323">Joy Hsu</a>
+</td>
+<td>
+<a href="/segment_efforts/905531385">Apr 26, 2013</a>
+</td>
+<td>33.0<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+135<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>29:18</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+46
+</td>
+<td class='athlete'>
+<a href="/athletes/12479380">Sonja Bumann</a>
+</td>
+<td>
+<a href="/segment_efforts/18845747815">Nov 8, 2016</a>
+</td>
+<td>32.9<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+169<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>29:24</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+47
+</td>
+<td class='athlete'>
+<a href="/athletes/139816">Sara Stearns</a>
+</td>
+<td>
+<a href="/segment_efforts/3295005017">May 21, 2014</a>
+</td>
+<td>32.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+146<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+135<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+-
+</td>
+<td class='last-child'>29:44</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+48
+</td>
+<td class='athlete'>
+<a href="/athletes/314896">Heather Duffy</a>
+</td>
+<td>
+<a href="/segment_efforts/3901797470">Jul 16, 2014</a>
+</td>
+<td>32.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+151<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+-
+</td>
+<td class='last-child'>29:49</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+49
+</td>
+<td class='athlete'>
+<a href="/athletes/1153113">Elisma Caffrey</a>
+</td>
+<td>
+<a href="/segment_efforts/646340751">Feb 2, 2013</a>
+</td>
+<td>32.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+182<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+-
+</td>
+<td class='last-child'>29:57</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+50
+</td>
+<td class='athlete'>
+<a href="/athletes/132301">Darcy Hargrove</a>
+</td>
+<td>
+<a href="/segment_efforts/1120174039">Jun 12, 2013</a>
+</td>
+<td>32.1<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+178<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+165<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>30:10</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+51
+</td>
+<td class='athlete'>
+<a href="/athletes/1781156">Pamela C</a>
+</td>
+<td>
+<a href="/segment_efforts/898775158">Apr 24, 2013</a>
+</td>
+<td>31.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+143<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>30:22</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+52
+</td>
+<td class='athlete'>
+<a href="/athletes/3196363">Elise Hickman</a>
+</td>
+<td>
+<a href="/segment_efforts/2414710039">Feb 1, 2014</a>
+</td>
+<td>31.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+112<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+154<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>30:30</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+53
+</td>
+<td class='athlete'>
+<a href="/athletes/4479736">Alexandria Gallizioli</a>
+</td>
+<td>
+<a href="/segment_efforts/33322675873">Jan 6, 2018</a>
+</td>
+<td>31.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+191<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+173<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+-
+</td>
+<td class='last-child'>30:54</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+54
+</td>
+<td class='athlete'>
+<a href="/athletes/1667937">Kirsten Pearsons</a>
+</td>
+<td>
+<a href="/segment_efforts/2392106651">Jan 28, 2014</a>
+</td>
+<td>31.2<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+156<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>31:02</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+54
+</td>
+<td class='athlete'>
+<a href="/athletes/3341620">Riva Ballis</a>
+</td>
+<td>
+<a href="/segment_efforts/2406538373">Jan 30, 2014</a>
+</td>
+<td>31.2<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+174<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+157<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>31:02</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+54
+</td>
+<td class='athlete'>
+<a href="/athletes/11663847">Rachel Preeg</a>
+</td>
+<td>
+<a href="/segment_efforts/19311785970">Nov 30, 2016</a>
+</td>
+<td>31.2<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+138<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>31:02</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+57
+</td>
+<td class='athlete'>
+<a href="/athletes/126322">Lucia Sorensen</a>
+</td>
+<td>
+<a href="/segment_efforts/350624238">May 30, 2012</a>
+</td>
+<td>31.1<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+116<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>31:08</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+58
+</td>
+<td class='athlete'>
+<a href="/athletes/13258009">Sarah Sun</a>
+</td>
+<td>
+<a href="/segment_efforts/21016993957">Feb 11, 2017</a>
+</td>
+<td>30.9<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+145<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>31:16</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+59
+</td>
+<td class='athlete'>
+<a href="/athletes/1845328">Karen Bond</a>
+</td>
+<td>
+<a href="/segment_efforts/756203750">Apr 18, 2012</a>
+</td>
+<td>30.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+164<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+-
+</td>
+<td class='last-child'>31:30</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+60
+</td>
+<td class='athlete'>
+<a href="/athletes/557619">Kennedy  .</a>
+</td>
+<td>
+<a href="/segment_efforts/10303883238">Nov 7, 2015</a>
+</td>
+<td>30.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+143<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>31:35</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+61
+</td>
+<td class='athlete'>
+<a href="/athletes/168773">Patricia Benson</a>
+</td>
+<td>
+<a href="/segment_efforts/389307205">Sep 12, 2012</a>
+</td>
+<td>30.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+162<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+140<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>31:38</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+62
+</td>
+<td class='athlete'>
+<a href="/athletes/1172749">Christina Poon</a>
+</td>
+<td>
+<a href="/segment_efforts/1617989296">Aug 21, 2013</a>
+</td>
+<td>30.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+178<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+139<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>31:50</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+63
+</td>
+<td class='athlete'>
+<a href="/athletes/2290162">Christine Kenney</a>
+</td>
+<td>
+<a href="/segment_efforts/1925074446">May 29, 2013</a>
+</td>
+<td>30.2<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+165<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+141<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>32:00</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+64
+</td>
+<td class='athlete'>
+<a href="/athletes/303573">Rexanne Hughes</a>
+</td>
+<td>
+<a href="/segment_efforts/990314316">May 15, 2013</a>
+</td>
+<td>30.0<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+173<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+168<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>32:15</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+65
+</td>
+<td class='athlete'>
+<a href="/athletes/10676655">Sarabeth M</a>
+</td>
+<td>
+<a href="/segment_efforts/10267325776">Nov 4, 2015</a>
+</td>
+<td>29.9<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+159<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+127<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>32:18</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+66
+</td>
+<td class='athlete'>
+<a href="/athletes/3819630">Jennifer Keyser</a>
+</td>
+<td>
+<a href="/segment_efforts/4471392882">Aug 27, 2014</a>
+</td>
+<td>29.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+184<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+-
+</td>
+<td class='last-child'>32:24</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+67
+</td>
+<td class='athlete'>
+<a href="/athletes/1587443">Lauren Padilla</a>
+</td>
+<td>
+<a href="/segment_efforts/4040898480">Jul 30, 2014</a>
+</td>
+<td>29.0<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+117<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>33:18</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+68
+</td>
+<td class='athlete'>
+<a href="/athletes/2221854">Mira Mastoras</a>
+</td>
+<td>
+<a href="/segment_efforts/21211138502">Feb 18, 2017</a>
+</td>
+<td>29.0<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+115<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>33:23</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+69
+</td>
+<td class='athlete'>
+<a href="/athletes/3894472">Makenzie DeLaughder</a>
+</td>
+<td>
+<a href="/segment_efforts/5822620900">Jan 30, 2015</a>
+</td>
+<td>28.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+135<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+-
+</td>
+<td class='last-child'>33:35</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+70
+</td>
+<td class='athlete'>
+<a href="/athletes/13221483">Kinsey Mead</a>
+</td>
+<td>
+<a href="/segment_efforts/18603629343">Oct 29, 2016</a>
+</td>
+<td>28.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+176<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+121<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>33:40</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+71
+</td>
+<td class='athlete'>
+<a href="/athletes/16567">Brandy Kilkenny</a>
+</td>
+<td>
+<a href="/segment_efforts/350642776">Jun 17, 2011</a>
+</td>
+<td>28.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+137<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+117<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>33:44</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+72
+</td>
+<td class='athlete'>
+<a href="/athletes/14128915">Makenna Marty</a>
+</td>
+<td>
+<a href="/segment_efforts/18603476815">Oct 29, 2016</a>
+</td>
+<td>28.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+120<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>34:06</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+73
+</td>
+<td class='athlete'>
+<a href="/athletes/4799436">Maggie Christman</a>
+</td>
+<td>
+<a href="/segment_efforts/30310171356">Oct 12, 2017</a>
+</td>
+<td>27.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+132<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+127<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>34:58</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+74
+</td>
+<td class='athlete'>
+<a href="/athletes/9735213">Judy Doherty</a>
+</td>
+<td>
+<a href="/segment_efforts/10693809759">Dec 5, 2015</a>
+</td>
+<td>27.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+105<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>35:14</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+75
+</td>
+<td class='athlete'>
+<a href="/athletes/1491451">Alicia Began</a>
+</td>
+<td>
+<a href="/segment_efforts/624958259">Jan 23, 2013</a>
+</td>
+<td>27.2<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+123<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>35:29</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+76
+</td>
+<td class='athlete'>
+<a href="/athletes/831903">Margaret  Kelly</a>
+</td>
+<td>
+<a href="/segment_efforts/350623893">Jul 20, 2012</a>
+</td>
+<td>24.9<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+121<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+83<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>38:50</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+77
+</td>
+<td class='athlete'>
+<a href="/athletes/542361">Kathleen Kozawa</a>
+</td>
+<td>
+<a href="/segment_efforts/350623898">Aug 1, 2012</a>
+</td>
+<td>24.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+114<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>39:34</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+78
+</td>
+<td class='athlete'>
+<a href="/athletes/349983">Beth K.</a>
+</td>
+<td>
+<a href="/segment_efforts/29176952876">Sep 14, 2017</a>
+</td>
+<td>24.3<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+114<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>39:52</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+79
+</td>
+<td class='athlete'>
+<a href="/athletes/313245">Jeni Filcoff</a>
+</td>
+<td>
+<a href="/segment_efforts/350623946">Jul 4, 2012</a>
+</td>
+<td>24.1<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+165<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>40:04</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+80
+</td>
+<td class='athlete'>
+<a href="/athletes/1939377"> Cristina Buss</a>
+</td>
+<td>
+<a href="/segment_efforts/1644454576">Sep 7, 2013</a>
+</td>
+<td>22.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+118<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>42:23</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+81
+</td>
+<td class='athlete'>
+<a href="/pros/rfarina">Robin Farina</a>
+</td>
+<td>
+<a href="/segment_efforts/3154875294">May 7, 2014</a>
+</td>
+<td>22.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+124<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+120<abbr class='unit' title='watts'>W</abbr>
+<img class="power-meter" src="https://d3nn82uaxijpm6.cloudfront.net/assets/powermeter-45fa2f9f06528441cf847a5b702990fbba60cde11a1ef1716feec0cd46a0dd69.png" alt="Powermeter" />
+</td>
+<td>
+-
+</td>
+<td class='last-child'>43:07</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+82
+</td>
+<td class='athlete'>
+<a href="/athletes/198099">Sarah Pittiglio</a>
+</td>
+<td>
+<a href="/segment_efforts/726921561">Feb 28, 2013</a>
+</td>
+<td>22.2<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+131<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+113<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>43:34</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+83
+</td>
+<td class='athlete'>
+<a href="/athletes/712606">Amy Dixson</a>
+</td>
+<td>
+<a href="/segment_efforts/350623939">Aug 20, 2012</a>
+</td>
+<td>22.1<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+135<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>43:40</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+83
+</td>
+<td class='athlete'>
+<a href="/athletes/5580258">Christine Scarlett</a>
+</td>
+<td>
+<a href="/segment_efforts/4058715292">Aug 1, 2014</a>
+</td>
+<td>22.1<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+-
+</td>
+<td class='last-child'>43:40</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+85
+</td>
+<td class='athlete'>
+<a href="/athletes/4249509">melissa martel</a>
+</td>
+<td>
+<a href="/segment_efforts/29248963749">Sep 16, 2017</a>
+</td>
+<td>22.0<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+87<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>44:01</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+86
+</td>
+<td class='athlete'>
+<a href="/athletes/12070908">Leslie Lindbo</a>
+</td>
+<td>
+<a href="/segment_efforts/29251070736">Sep 16, 2017</a>
+</td>
+<td>22.0<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+-
+</td>
+<td class='last-child'>44:02</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+87
+</td>
+<td class='athlete'>
+<a href="/athletes/263585">Diane Dailey</a>
+</td>
+<td>
+<a href="/segment_efforts/350624122">Jun 16, 2012</a>
+</td>
+<td>21.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+64<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>44:43</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+88
+</td>
+<td class='athlete'>
+<a href="/athletes/4588831">Angie Hart</a>
+</td>
+<td>
+<a href="/segment_efforts/4516750529">Sep 9, 2014</a>
+</td>
+<td>20.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+114<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>47:10</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+89
+</td>
+<td class='athlete'>
+<a href="/athletes/181826">Jessica Lawrence</a>
+</td>
+<td>
+<a href="/segment_efforts/350641713">Mar 11, 2012</a>
+</td>
+<td>19.2<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+138<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+108<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>50:18</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+90
+</td>
+<td class='athlete'>
+<a href="/athletes/767695">birgit puschner</a>
+</td>
+<td>
+<a href="/segment_efforts/350624048">Jul 23, 2012</a>
+</td>
+<td>19.2<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+154<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>50:29</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+91
+</td>
+<td class='athlete'>
+<a href="/athletes/300760">katie nast</a>
+</td>
+<td>
+<a href="/segment_efforts/350641433">Mar 19, 2012</a>
+</td>
+<td>18.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+-
+</td>
+<td class='last-child'>51:30</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+92
+</td>
+<td class='athlete'>
+<a href="/athletes/152686">Joan OConnor</a>
+</td>
+<td>
+<a href="/segment_efforts/350642339">Dec 23, 2011</a>
+</td>
+<td>18.4<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+85<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>52:34</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+93
+</td>
+<td class='athlete'>
+<a href="/athletes/1561007">Erikaceae Thompson</a>
+</td>
+<td>
+<a href="/segment_efforts/581405343">Oct 21, 2012</a>
+</td>
+<td>17.9<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+-
+</td>
+<td class='last-child'>53:56</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+94
+</td>
+<td class='athlete'>
+<a href="/athletes/560653">Ella Eser  ~UCLA Triathlon~ </a>
+</td>
+<td>
+<a href="/segment_efforts/558548601">Dec 22, 2012</a>
+</td>
+<td>17.6<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+100<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>55:02</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+95
+</td>
+<td class='athlete'>
+<a href="/athletes/24774">Ruby Tuesday Cosgrove</a>
+</td>
+<td>
+<a href="/segment_efforts/350642522">Oct 23, 2011</a>
+</td>
+<td>17.5<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+154<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>55:15</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+96
+</td>
+<td class='athlete'>
+<a href="/athletes/318448">Lauren Schwartzburg</a>
+</td>
+<td>
+<a href="/segment_efforts/350641330">Apr 6, 2012</a>
+</td>
+<td>17.1<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+-
+</td>
+<td>
+-
+</td>
+<td class='last-child'>56:27</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+97
+</td>
+<td class='athlete'>
+<a href="/athletes/674042">Leslie Creed</a>
+</td>
+<td>
+<a href="/segment_efforts/470157705">Oct 27, 2012</a>
+</td>
+<td>16.7<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+119<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+94<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>57:56</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+98
+</td>
+<td class='athlete'>
+<a href="/athletes/10773">Beverly Chaney</a>
+</td>
+<td>
+<a href="/segment_efforts/350641623">Nov 9, 2011</a>
+</td>
+<td>16.2<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+137<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+110<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>59:32</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+99
+</td>
+<td class='athlete'>
+<a href="/athletes/944517">Chris Franchetti</a>
+</td>
+<td>
+<a href="/segment_efforts/350623891">Aug 4, 2012</a>
+</td>
+<td>16.2<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+-
+</td>
+<td class='power text-nowrap'>
+81<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>59:33</td>
+</tr>
+<tr class=''>
+<td class='text-center'>
+100
+</td>
+<td class='athlete'>
+<a href="/athletes/274907">Amy Leath</a>
+</td>
+<td>
+<a href="/segment_efforts/350641579">Feb 24, 2012</a>
+</td>
+<td>15.8<abbr class='unit' title='kilometers per hour'>km/h</abbr></td>
+<td>
+167<abbr class='unit' title='beats per minute'>bpm</abbr>
+</td>
+<td class='power text-nowrap'>
+88<abbr class='unit' title='watts'>W</abbr>
+</td>
+<td>
+-
+</td>
+<td class='last-child'>1:01:08</td>
+</tr>
+</tbody>
+</table>
+<nav><ul class="pagination" data-filter="overall"><li class="previous_page disabled"><span>←</span></li> <li class="active"><span>1</span></li> <li><a rel="next" href="/segments/2198806/leaderboard?filter=overall&amp;gender=F&amp;page=2&amp;per_page=100">2</a></li> <li class="next_page"><a rel="next" href="/segments/2198806/leaderboard?filter=overall&amp;gender=F&amp;page=2&amp;per_page=100">→</a></li></ul></nav>
+</div>
+<div class='loading-panel' style='display: none;'>
+<div class='spinner vcentered'>
+<span class='graphic'></span>
+<span class='status'>Loading…</span>
+</div>
+</div>
+</div>
+</div>
+<div class='hidden' id='age-weight-dialog'>
+<form class="flow" id="edit_athlete_19704029" action="/athletes/19704029" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="patch" /><label for="athlete_sex">Sex</label>
+<select name="athlete[sex]" id="athlete_sex"><option value=""></option>
+<option selected="selected" value="M">Male</option>
+<option value="F">Female</option></select>
+<label for="athlete_weight">Weight (kg.)</label>
+<input value="0.0" class="narrow" type="text" name="athlete[weight]" id="athlete_weight" />
+<label for="athlete_dateofbirth">Date of birth</label>
+<input type="hidden" id="athlete_dateofbirth_3i" name="athlete[dateofbirth(3i)]" value="1" />
+<select id="athlete_dateofbirth_2i" name="athlete[dateofbirth(2i)]" class="date-select">
+<option value="1" selected="selected">January</option>
+<option value="2">February</option>
+<option value="3">March</option>
+<option value="4">April</option>
+<option value="5">May</option>
+<option value="6">June</option>
+<option value="7">July</option>
+<option value="8">August</option>
+<option value="9">September</option>
+<option value="10">October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+</select>
+<select id="athlete_dateofbirth_1i" name="athlete[dateofbirth(1i)]" class="date-select">
+<option value="1930">1930</option>
+<option value="1931">1931</option>
+<option value="1932">1932</option>
+<option value="1933">1933</option>
+<option value="1934">1934</option>
+<option value="1935">1935</option>
+<option value="1936">1936</option>
+<option value="1937">1937</option>
+<option value="1938">1938</option>
+<option value="1939">1939</option>
+<option value="1940">1940</option>
+<option value="1941">1941</option>
+<option value="1942">1942</option>
+<option value="1943">1943</option>
+<option value="1944">1944</option>
+<option value="1945">1945</option>
+<option value="1946">1946</option>
+<option value="1947">1947</option>
+<option value="1948">1948</option>
+<option value="1949">1949</option>
+<option value="1950">1950</option>
+<option value="1951">1951</option>
+<option value="1952">1952</option>
+<option value="1953">1953</option>
+<option value="1954">1954</option>
+<option value="1955">1955</option>
+<option value="1956">1956</option>
+<option value="1957">1957</option>
+<option value="1958">1958</option>
+<option value="1959">1959</option>
+<option value="1960">1960</option>
+<option value="1961">1961</option>
+<option value="1962">1962</option>
+<option value="1963">1963</option>
+<option value="1964">1964</option>
+<option value="1965">1965</option>
+<option value="1966">1966</option>
+<option value="1967">1967</option>
+<option value="1968">1968</option>
+<option value="1969">1969</option>
+<option value="1970" selected="selected">1970</option>
+<option value="1971">1971</option>
+<option value="1972">1972</option>
+<option value="1973">1973</option>
+<option value="1974">1974</option>
+<option value="1975">1975</option>
+<option value="1976">1976</option>
+<option value="1977">1977</option>
+<option value="1978">1978</option>
+<option value="1979">1979</option>
+<option value="1980">1980</option>
+<option value="1981">1981</option>
+<option value="1982">1982</option>
+<option value="1983">1983</option>
+<option value="1984">1984</option>
+<option value="1985">1985</option>
+<option value="1986">1986</option>
+<option value="1987">1987</option>
+<option value="1988">1988</option>
+<option value="1989">1989</option>
+<option value="1990">1990</option>
+<option value="1991">1991</option>
+<option value="1992">1992</option>
+<option value="1993">1993</option>
+<option value="1994">1994</option>
+<option value="1995">1995</option>
+<option value="1996">1996</option>
+<option value="1997">1997</option>
+<option value="1998">1998</option>
+<option value="1999">1999</option>
+<option value="2000">2000</option>
+<option value="2001">2001</option>
+<option value="2002">2002</option>
+<option value="2003">2003</option>
+<option value="2004">2004</option>
+<option value="2005">2005</option>
+</select>
+
+<input type="submit" name="commit" value="Save Changes" class="callout button" />
+</form>
+<div class='message errorExplanation'></div>
+<div class='loading-panel' style='display: none'>
+<div class='status'>Saving…</div>
+</div>
+<a class='hidden' data-js='redirect' data-remote='true' href='/segments/2198806/leaderboard?filter=overall&amp;gender=F'></a>
+</div>
+
+</div>
+</div>
+
+<footer><div class='footer-global container' role='navigation'>
+<div class='row'>
+<div class='col-sm-3'>
+<div title="Return to the Strava home page" class="branding logo-bw"><a class="branding-content" href="/"><span class="sr-only">Strava</span></a></div>
+<div class='copyright'>
+© 2018 Strava
+</div>
+</div>
+<div class='col-sm-2 col-sm-offset-1'>
+<h4>About</h4>
+<ul class='list-unstyled'>
+<li><a href="/about">About</a></li>
+<li><a href="/features">Features</a></li>
+<li><a href="/mobile">Mobile</a></li>
+<li><a href="/premium?cta=summit&amp;element=nav&amp;source=global-footer">Summit</a></li>
+<li><a href="/legal/privacy">Privacy Policy</a></li>
+<li><a href="/legal/terms">Terms and Conditions</a></li>
+<li><a href="https://strava.zendesk.com/entries/46363890-About-Strava-Maps">About Our Maps</a></li>
+</ul>
+</div>
+<div class='col-sm-2'>
+<h4>Follow</h4>
+<ul class='list-unstyled'>
+<li><a target="_blank" href="http://www.facebook.com/Strava">Facebook</a></li>
+<li><a target="_blank" href="http://twitter.com/strava">Twitter</a></li>
+<li><a target="_blank" href="http://instagram.com/strava">Instagram</a></li>
+<li><a target="_blank" href="http://www.youtube.com/stravainc">YouTube</a></li>
+<li><a href="http://blog.strava.com">Blog</a></li>
+</ul>
+</div>
+<div class='col-sm-2'>
+<h4>Help</h4>
+<ul class='list-unstyled'>
+<li><a href="https://strava.zendesk.com/home">Strava Support</a></li>
+</ul>
+
+</div>
+<div class='col-sm-2'>
+<h4>More</h4>
+<ul class='list-unstyled'>
+<li><a href="/local">Local</a></li>
+<li><a href="/careers">Careers</a></li>
+<li><a href="http://labs.strava.com/developers">Developers</a></li>
+<li><a href="http://labs.strava.com">Labs</a></li>
+<li><a href="/pros">Pros on Strava</a></li>
+<li><a href="/community-standards">Strava Community Standards</a></li>
+</ul>
+<div class='dropdown drop-down-menu drop-down-xs' id='language-picker'>
+<button class='btn btn-default btn-xs dropdown-selection btn-white selection'>English (US)</button>
+<ul class='options dropdown-menu anchor-right anchor-bottom'>
+<li>
+<div class='replace-selection clickable language-pick' language-code='en-GB'>British English</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='de-DE'>Deutsch</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='en-US'>English (US)</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='es-ES'>español</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='es-419'>español latinoamericano</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='fr-FR'>français</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='it-IT'>italiano</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='nl-NL'>Nederlands</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='pt-PT'>português</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='pt-BR'>português do Brasil</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='ru-RU'>русский</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='ko-KR'>한국어</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='zh-CN'>中文</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='ja-JP'>日本語</div>
+</li>
+<li>
+<div class='replace-selection clickable language-pick' language-code='zh-TW'>繁體中文</div>
+</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+<a id="back-to-top" class="media-sm-show visible-sm-block" href="#">Top ↑</a>
+</footer>
+
+
+<script src="https://d3nn82uaxijpm6.cloudfront.net/assets/mapbox-da2fe5d1172b95abafc266d12990e4fda0648c438fa9c8d5db4a220b5846becb.js"></script>
+<script>
+  window._maps_api = "pk.eyJ1Ijoic3RyYXZhIiwiYSI6IlpoeXU2U0UifQ.c7yhlZevNRFCqHYm6G6Cyg"
+  jQuery(document).ready(function(){
+    Strava.Maps.Mapbox.Base.setMapIds({"terrain_id":"strava.blprdx6r","terrain_template":"https://api.tiles.mapbox.com/v4/strava.blprdx6r/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3RyYXZhIiwiYSI6IlpoeXU2U0UifQ.c7yhlZevNRFCqHYm6G6Cyg","satellite_id":"strava.xdfmkj4i","satellite_template":"https://api.tiles.mapbox.com/v4/strava.xdfmkj4i/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3RyYXZhIiwiYSI6IlpoeXU2U0UifQ.c7yhlZevNRFCqHYm6G6Cyg","standard_id":"strava.map-zn3cjvc6","standard_template":"https://api.tiles.mapbox.com/v4/strava.map-zn3cjvc6/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3RyYXZhIiwiYSI6IlpoeXU2U0UifQ.c7yhlZevNRFCqHYm6G6Cyg","runbikehike_template":"https://api.tiles.mapbox.com/v4/mapbox.run-bike-hike/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3RyYXZhIiwiYSI6IlpoeXU2U0UifQ.c7yhlZevNRFCqHYm6G6Cyg","mapboxstreets_template":"https://api.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3RyYXZhIiwiYSI6IlpoeXU2U0UifQ.c7yhlZevNRFCqHYm6G6Cyg","mapboxstreetsbasic_template":"https://api.tiles.mapbox.com/v4/mapbox.streets-basic/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3RyYXZhIiwiYSI6IlpoeXU2U0UifQ.c7yhlZevNRFCqHYm6G6Cyg","mapboxlight_template":"https://api.tiles.mapbox.com/v4/mapbox.light/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3RyYXZhIiwiYSI6IlpoeXU2U0UifQ.c7yhlZevNRFCqHYm6G6Cyg","mapboxsatellite_template":"https://api.tiles.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3RyYXZhIiwiYSI6IlpoeXU2U0UifQ.c7yhlZevNRFCqHYm6G6Cyg","mapboxstreetssatellite_template":"https://api.tiles.mapbox.com/v4/mapbox.streets-satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3RyYXZhIiwiYSI6IlpoeXU2U0UifQ.c7yhlZevNRFCqHYm6G6Cyg","mapboxoutdoors_template":"https://api.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3RyYXZhIiwiYSI6IlpoeXU2U0UifQ.c7yhlZevNRFCqHYm6G6Cyg"});
+  });
+</script>
+<script id='lightbox-template' type='text/template'>
+<div class='lightbox-window modal-content'>
+<div class='close-lightbox'>
+<button class='btn btn-unstyled btn-close'>
+<div class='app-icon icon-close icon-xs icon-white'></div>
+</button>
+</div>
+</div>
+</script>
+<script id='popover-template' type='text/template'>
+<div class='popover'></div>
+</script>
+<script>
+  window._asset_host = "https://d3nn82uaxijpm6.cloudfront.net";
+  window._measurement_preference = "meters";
+  window._date_preference = "%m/%d/%Y";
+  window._datepicker_preference_format = "mm/dd/yy"
+  
+  jQuery(document).ready(function() {
+    Strava.Util.EventLogging.createInstance("https://analytics.strava.com","7215fa60b5f01ecc3967543619f7e3d9", 19704029);
+  });
+</script>
+<script>
+  //async script load for twitter
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+<script src="https://d3nn82uaxijpm6.cloudfront.net/assets/strava/i18n/locales/en-US-e9d110b3ba74c6d188a30a2a45de646c893cb201f6fb8136ab9d30506aef2033.js"></script>
+<script src="https://d3nn82uaxijpm6.cloudfront.net/assets/application-b87f881689a48b90892ee851c334800936751bd2287ad3991fd79cbd191c77f4.js"></script>
+
+
+
+<div id='fb-root'></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId: "284597785309",
+      status: true,
+      cookie: true,
+      xfbml: true,
+      version: "v2.7"
+    });
+    Strava.Facebook.PermissionsManager.getInstance().facebookReady();
+    jQuery('#fb-root').trigger('facebook:init');
+  };
+  (function(d){
+    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement('script'); js.id = id; js.async = true;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    ref.parentNode.insertBefore(js, ref);
+  }(document));
+</script>
+
+
+<script>
+  var currentAthlete = new Strava.Models.CurrentAthlete({"id":19704029,"logged_in":true,"display_name":"Bigtop Web","first_name":"Bigtop","last_name":"Web","premium":false,"has_power_analysis_access":false,"photo_large":"https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg","photo":"https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg","badge":null,"measurement_preference":"meters","weight_measurement_unit":"kg","type":0,"member_type":"","display_location":"","gender":"M","geo":{"city":null,"state":null,"country":null,"lat_lng":[null,null]},"has_leaderboards_access":false,"has_pace_zone_analysis_access":false});
+  HAML.globals = function() {
+    return {
+      currentAthlete: currentAthlete,
+      renderPartial: function(name, context) {
+        if (context == null) {
+          context = this;
+        }
+        return JST[name](context);
+      }
+    }
+  }
+</script>
+
+<script>
+  new Strava.Initializer();
+</script>
+<script src="https://d3nn82uaxijpm6.cloudfront.net/assets/strava/maps/mapbox/manifest-0670a9a9d855cc8c06955ff68d0aa09464963c3e027e1caa115e564adab5b28f.js"></script>
+<script>
+  jQuery(document).ready(function() {
+    var controller = new Strava.PerformanceGoals.Controller({
+      current_athlete_id: 19704029,
+      segment_id: 2198806,
+      segment_name: 'PCSD',
+      can_see_training_plans: true,
+      has_plan: false
+    });
+    controller.bind('goalCreated', function(goal) {
+      window.location = "/goals/segment/" + goal.get('id')
+    });
+  
+    var view = new Strava.PerformanceGoals.Sidebar.View(
+      controller,
+      '#performance-goals',
+      'segment');
+    controller.fetchUpcomingSegmentGoal();
+  });
+</script>
+<script>
+  jQuery('.see-all').on('click', function(e) {
+    jQuery(this).children().toggle();
+  })
+</script>
+<script>
+  jQuery(function($) {
+    $('#segment-leaderboard')
+      .on('ajax:before', '#segment-results .filters a, #age-weight-dialog a[data-js="redirect"]', function() {
+        $('#age-weight-dialog a[data-js="redirect"]').attr('href', $(this).attr('href'));
+        $('#segment-results').find('.filters a.selected').removeClass('selected');
+        $(this).addClass('selected');
+        $('#segment-results').find('.loading-panel').show();
+  
+        var params = $(this).data('params');
+        $(this).data('params', $.extend(params, { partial: true }));
+        return true;
+      })
+      .on("ajax:success", '#segment-results .filters a, #age-weight-dialog a[data-js="redirect"]', function(event, data, status, xhr) {
+        $('#segment-leaderboard').html(data);
+        $('#segment-results').find('.loading-panel').hide();
+        var filter = $('#segment-leaderboard').find('ul.filters .selected').data('filter-hide');
+        if (filter) {
+          $('#' + filter).hide();
+        }
+      });
+  
+    $('#segment-leaderboard')
+      .on('ajax:before', '#segment-results .drop-down-menu a', function() {
+        $('#age-weight-dialog a[data-js="redirect"]').attr('href', $(this).attr('href'));
+        $('#segment-results').find('.loading-panel').show();
+  
+        var params = $(this).data('params');
+        
+        $(this).data('params', $.extend(params, { partial: true }));
+  
+        return true;
+      })
+      .on('ajax:success', '#segment-results .drop-down-menu a', function(event, data, status, xhr) {
+        $('#segment-leaderboard').html(data);
+        $('#segment-results').find('.loading-panel').hide();
+  
+      });
+  
+    $('#segment-leaderboard')
+      .on('click', '#segment-results .pagination a', function(event) {
+        event.preventDefault();
+        $.ajax({
+          url: this.href,
+          data: { partial: true },
+          dataType: 'html',
+          beforeSend: function(xhr) {
+            $('#segment-results').find('.loading-panel').show();
+          },
+          success: function(data) {
+            $('#segment-leaderboard').html(data);
+            $('#segment-results').find('.loading-panel').hide();
+          }
+        });
+      });
+  
+    // weight/age dialog
+  
+    $('#age-weight-dialog form')
+      .on("ajax:before", function() {
+        $('#age-weight-dialog .loading-panel').show();
+        return true;
+      })
+      .on("ajax:success", function(event, data, status, xhr) {
+        $('#age-weight-dialog').dialog('close');
+        $('#age-weight-dialog a[data-js="redirect"]').click();
+      })
+      .on("ajax:error", function(event, data, status, xhr) {
+        json = jQuery.parseJSON(data.responseText)
+        $('#age-weight-dialog .loading-panel').hide();
+        if (json['messages']['athlete[weight]']) {
+          $('#age-weight-dialog .errorExplanation').html('<h5 class="error">' + json['messages']['athlete[weight]'][0] + '</h5>');
+        }
+      });
+  
+    $('a#age-weight').on('click', function() {
+      $('#age-weight-dialog').dialog({
+        autoOpen: false,
+        resizable: false,
+        draggable: false,
+        modal: true,
+        height: 400,
+        width: 420,
+        title: "Set Your Age and Weight",
+        open: Strava.Util.Dialog.setupModalCloseClick,
+        show: 'fade',
+        hide: 'fade'
+      });
+  
+      $('#age-weight-dialog').dialog('open');
+    });
+  
+  }(jQuery));
+</script>
+<script src="https://d3nn82uaxijpm6.cloudfront.net/assets/strava/segments/manifest-904fd39acde838cf3ed1b60f7f856512668f183376bb09ce10888d872229c835.js"></script>
+<script src="https://d3nn82uaxijpm6.cloudfront.net/assets/strava/segments/history/manifest-f8f802852d7afd13334ea9c784da736a68f55b0085b8fc2f8357cbd9e6caf02f.js"></script>
+<script src="https://d3nn82uaxijpm6.cloudfront.net/assets/strava/directory/manifest-b159ff0acdce11685b6940e583f00fb0299fe4a6fde3a6d5951d2cd114e2d63b.js"></script>
+<script>
+  Strava.Logging.AjaxLatency.logSegmentStreams = false
+</script>
+
+<script>
+  var segmentId = parseInt("2198806");
+  var pr_asset_path = "https://d3nn82uaxijpm6.cloudfront.net/assets/segments/pr-badge-0b7f793d48f3ec1b32860afb76c71273fee2af80405959f959310e66ccce88fc.png"
+  new Strava.Segments.History.AthleteHistoryChartController(segmentId, pr_asset_path);
+</script>
+<script>
+  jQuery(document).ready(function() {
+  
+    var showStreetView = true;
+    new Strava.Segments.Initializer({
+      segmentId: 2198806,
+      segmentName: "PCSD",
+      segmentHazard: false,
+      segmentHazardWaived: false,
+      showWaiver: false,
+      canStarSegment: true,
+      showStreetView: showStreetView,
+    });
+  });
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register("/service_worker.js?v=dLlWydWlG8").then(function(registration) {
+      }, function(err) {
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
+</script>
+<script>
+  jQuery(document).ready(function() {
+    jQuery('a').each(addSegmentAttr);
+    jQuery('button').each(addSegmentAttr);
+    function addSegmentAttr(index, element){
+      var $element = jQuery(element);
+      var data = $element.data();
+      var seg_io_event = data.segioevent;
+      if (seg_io_event && seg_io_event.name) {
+        var props = jQuery.extend({}, seg_io_event);
+        delete props.name;
+  
+        Strava.SegmentIO.trackLink($element, seg_io_event.name, props);
+      }
+    }
+  
+    // Scroll Tracking
+    jQuery(document).one('scroll', function(){
+      Strava.SegmentIO.track('Page Scrolled', null, null, null);
+    });
+  });
+</script>
+<script>
+  (function(){
+    var options = {"peek_data":false,"campaign":null,"channel":"mobile web","feature":"segment show","data":{"strava_deeplink_url":"strava://segments/2198806"}}
+    var peekData = options.peek_data ? options.peek_data : false;
+  
+    Strava.BranchIO.data(peekData)
+      .done(function(data) {
+        if (data && data.has_app) {
+          jQuery('#branch-button').text('Open');
+        }
+      });
+  
+    Strava.SegmentIO
+      .anonymousId()
+      .always(function(anonymousId){
+        if (anonymousId) {
+          options.data['anonymousId'] = anonymousId;
+        }
+  
+        Strava.BranchIO.createLink(options)
+          .done(function(link) {
+            jQuery('.js-download-app-link').attr('href', link);
+          })
+          .fail(function(err) {
+            console.log(err);
+            jQuery('#smartbanner-orion').remove();
+          });
+    });
+  })();
+</script>
+<script src="https://d3nn82uaxijpm6.cloudfront.net/assets/strava/ui/views/SmartbannerOrionView-14369f065f3110607a3aec2fd1775faf1804cc5c5857ef5790a321e0f190d8e8.js"></script>
+<script>
+  jQuery(document).ready(function() {
+    new Strava.Ui.Views.SmartbannerOrionView();
+  });
+</script>
+<script>
+  jQuery(document).ready(function($) {
+    new Strava.GlobalSearch.SearchFieldController(currentAthlete);
+  });
+</script>
+<script>
+  // Dismiss function for alert messages
+  jQuery('document').ready(function(){
+    var dismissController = new Strava.Util.DismissController("/dashboard/dismiss_ui");
+    jQuery('.message').on('click', '.dismiss', function(){
+      dismissController.dismiss("");
+      jQuery(this).parents('.message').slideUp('fast');
+    });
+  });
+</script>
+<script>
+  jQuery(document).ready(function() {
+    new Strava.Util.DropDownMenu('.drop-down-menu')
+    jQuery('.language-pick').each(function(index) {
+      jQuery( this ).click(function() {
+        language = jQuery( this ).attr('language-code');
+        expiration = new Date();
+        expiration.setTime(expiration.getTime() + (1825 * 24 * 60 * 60 * 1000));
+        // Reset any previously set cookie for this page
+        document.cookie = 'ui_language= ; expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+        // Set a global cookie
+        document.cookie = 'ui_language=' + language + '; expires=' + expiration + '; path=/';
+        location.reload(true);
+      });
+    });
+  });
+</script>
+<script>
+  jQuery(document).ready(function() {
+    jQuery('#explore-strava, #challenge-list-view, .promo-simple, .promo-fancy, .promo-overlay').on('click', 'a', function(event) {
+      var link = jQuery(event.target).closest('a');
+      var adzerkClickUri = link.data('adzerk-click-uri');
+      if (adzerkClickUri != null) {
+        jQuery.get(adzerkClickUri); // this is fire-and-forget - we don't need to wait for a successful response from Adzerk
+      }
+    });
+  });
+</script>
+
+<script src="https://d3nn82uaxijpm6.cloudfront.net/assets/bootstrap.min-55483ca093070244e24730190b707a18467cb78d3262a0133d34b80fc82c8636.js"></script>
+<script src="https://d3nn82uaxijpm6.cloudfront.net/assets/strava/notifications/drop_down/manifest-946418f62bf3cde7ff0d261f44a123af97d123dfe48551111dbdbb786f1ca47b.js"></script>
+<script>
+  jQuery(function($) {
+    var mark_all_read_notifications_path = "/notifications/mark_all_read";
+    var controller = new Strava.Notifications.DropDown.MarkAllReadController(mark_all_read_notifications_path);
+    var view = new Strava.Notifications.DropDown.View(controller);
+  })
+</script>
+<script src='https://apis.google.com/js/client.js' type='text/javascript'></script>
+
+<script src="//www.google.com/jsapi?key=ABQIAAAA9S76sdh5KSPpfr65zxQHGBT-rU0CFRjazioGWeeHjJLEyYXO2RSmaFbEdGganPrQRY2l3ORmYrTPpA"></script>
+<script src="https://d3nn82uaxijpm6.cloudfront.net/assets/strava/invites/manifest-d6b1a022e5738b1d801df35f6b93769b60181f9f6f278193ef2e5f312eeedbfe.js"></script>
+<script>
+  Strava.Google.CI = "541588808765.apps.googleusercontent.com";
+  google.load("gdata", "1.x");
+  jQuery(document).ready(function() {
+    inviteController = new Strava.Invites.InviteController(
+      {
+        athlete_id: 19704029,
+        athlete_first_name: 'Bigtop',
+        athlete_url: 'https://www.strava.com/athletes/19704029',
+        strava_logo_url: 'https://d3nn82uaxijpm6.cloudfront.net/assets/common/strava-logo-62b5d3764a6fa7a282bb2537b2a9619ba6b3fcb0ef5fcb0a431c98c003717b29.png',
+        invite_link: 'https://www.strava.com/?utm_content=19704029&utm_medium=facebook&utm_source=member_referral'
+      });
+    inviteView = new Strava.Invites.InviteButtonView(inviteController, '.find-and-invite');
+    if (window.location.hash === '#invite') {
+      Strava.Invites.InviteLightboxView.show(inviteController);
+    }
+  });
+</script>
+
+</body>
+</html>

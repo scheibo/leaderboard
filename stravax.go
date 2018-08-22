@@ -179,7 +179,7 @@ func (c *Client) login(email, password string) (*Client, error) {
 type stubResponseTransport struct {
 	http.Transport
 	content []string
-	reqs    int64
+	reqs    int
 }
 
 func (t *stubResponseTransport) RoundTrip(req *http.Request) (*http.Response, error) {
@@ -187,6 +187,9 @@ func (t *stubResponseTransport) RoundTrip(req *http.Request) (*http.Response, er
 	resp := &http.Response{
 		Status:     http.StatusText(statusCode),
 		StatusCode: statusCode,
+	}
+	if len(t.content) <= t.reqs {
+		return nil, fmt.Errorf("request for stub response %d but only %d exist", t.reqs+1, len(t.content))
 	}
 	resp.Body = ioutil.NopCloser(strings.NewReader(t.content[t.reqs]))
 	t.reqs++
@@ -498,7 +501,7 @@ func parseElapsedTime(str string) (int64, error) {
 }
 
 func isFinalPage(doc *goquery.Document) bool {
-	// TODO(kjs): should this be '&&' instead?
-	return doc.Find(".pagination li:nth-last-child(2)").HasClass("active") ||
+	return doc.Find(".pagination").Length() == 0 ||
+		doc.Find(".pagination li:nth-last-child(2)").HasClass("active") ||
 		doc.Find(".pagination li.next_page").HasClass("disabled")
 }
