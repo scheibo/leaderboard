@@ -1,5 +1,5 @@
-// Package stravax extends to Strava API to allow for retrieving complete Strava
-// leaderboard information for a logged in user.
+// Package stravax extends the Strava API to allow for retrieving complete
+// Strava leaderboard information for a logged in user.
 package stravax
 
 import (
@@ -21,7 +21,7 @@ import (
 )
 
 // USER_AGENT is the user agent we will use when making requests against the frontend.
-const USER_AGENT = "stravax/0.0.1"
+const USER_AGENT = "stravax/0.1.0"
 
 // QPS_LIMIT is the maximum number of requests we will make in a second to both
 // the API and the frontend combined.
