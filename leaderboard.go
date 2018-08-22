@@ -1,6 +1,4 @@
 // Package leaderboard retrieves Strava leaderboard information for a logged in user.
-// The Strava API has been neutered to no longer return this information (most importantly,
-// it is lacking athlete IDs for proper deduping and identification).
 package leaderboard
 
 import (
@@ -129,7 +127,7 @@ func NewClient(email, password string, accessToken ...string) (*Client, error) {
 		c.stravaClient = strava.NewClient(accessToken[0])
 	}
 
-	return c.login()
+	return c.login(email, password)
 }
 
 func (c *Client) login(email, password string) (*Client, error) {
@@ -189,8 +187,8 @@ func (t *stubResponseTransport) RoundTrip(req *http.Request) (*http.Response, er
 		Status:     http.StatusText(statusCode),
 		StatusCode: statusCode,
 	}
-	resp.Body = ioutil.NopCloser(strings.NewReader(t.content[reqs]))
-	reqs++
+	resp.Body = ioutil.NopCloser(strings.NewReader(t.content[t.reqs]))
+	t.reqs++
 
 	return resp, nil
 }
@@ -231,57 +229,56 @@ func (c *Client) GetSegment(segmentId int64) (*Segment, error) {
 // GetLeaderboardAndSegment returns the leaderboard of segmentId for the specified gender
 // and filter as well the segment details.
 func (c *Client) GetLeaderboardAndSegment(segmentId int64, gender Gender, filter Filter) (*Leaderboard, *Segment, error) {
-	return getLeaderboardl(segmentId, gender, filter /* includeSegment */, true)
+	return c.getLeaderboard(segmentId, gender, filter /* includeSegment */, true)
 }
 
 // GetLeaderboard returns the leaderboard of segmentId for the specified gender and filter.
-func (c *Client) GetLeaderboard(segmentId int64, gender gender, filter filter) (*Leaderboard, error) {
-	leaderboard, _, err := getLeaderboard(segmentId, gender, filter, page /* includeSegment */, false)
+func (c *Client) GetLeaderboard(segmentId int64, gender Gender, filter Filter) (*Leaderboard, error) {
+	leaderboard, _, err := c.getLeaderboard(segmentId, gender, filter /* includeSegment */, false)
 	return leaderboard, err
 }
 
 // GetLeaderboardPageAndSegment returns the specified page of the leaderboard for segmentId for
 // given gender and filter as well as the segment details.
-func (c *Client) GetLeaderboardPageAndSegment(segmentId int64, gender Gender, filter Filter, page int64) (*Leaderboard, *Segment, error) {
-	leaderboard, segment, _, err := getLeaderboardPageForUrl(getLeaderboardUrl(segmentId, gender, filter), page /* includeSegment */, true)
+func (c *Client) GetLeaderboardPageAndSegment(segmentId int64, gender Gender, filter Filter, page int) (*Leaderboard, *Segment, error) {
+	leaderboard, segment, _, err := c.getLeaderboardPageForUrl(getLeaderboardUrl(segmentId, gender, filter), gender, page /* includeSegment */, true)
 	return leaderboard, segment, err
 }
 
 // GetLeaderboardPage returns the specified page of the leaderboard for segmentId for given gender and filter.
-func (c *Client) GetLeaderboardPage(segmentId int64, gender Gender, filter Filter, page int64) (*Leaderboard, error) {
-	leaderboard, _, _, err := getLeaderboardPageForUrl(getLeaderboardUrl(segmentId, gender, filter), page /* includeSegment */, false)
+func (c *Client) GetLeaderboardPage(segmentId int64, gender Gender, filter Filter, page int) (*Leaderboard, error) {
+	leaderboard, _, _, err := c.getLeaderboardPageForUrl(getLeaderboardUrl(segmentId, gender, filter), gender, page /* includeSegment */, false)
 	return leaderboard, err
 }
 
-func (c *Client) getLeaderboardUrl(segmentId int64, gender Gender, filter Filter) string {
-	url := fmt.Sprintf("https://www.strava.com/segments/%d?", segmentId)
-	// Strava doesn't respect current_year properly without a date_range
-	if filter == Filters.CurrentYear {
-		url = fmt.Sprintf("%sdate_range=this_year&", url)
-	}
-	return fmt.Sprintf("%sfilter=%s&gender=%s&per_page=%d", url, filter, gender, MAX_PER_PAGE)
-}
-
-func (c *Client) getLeaderboard(segmentId int64, gender Gender, filter Filter, bool includeSegment) (*Leaderboard, *Segment, error) {
-	url := GetLeaderboardUrl()
+func (c *Client) getLeaderboard(segmentId int64, gender Gender, filter Filter, includeSegment bool) (*Leaderboard, *Segment, error) {
+	var next *Leaderboard
+	url := getLeaderboardUrl(segmentId, gender, filter)
 
 	page := 1
-	leaderboard, segment, final, err := GetLeaderboardPageForUrl(url, page, includeSegment)
+	leaderboard, segment, final, err :=
+		c.getLeaderboardPageForUrl(url, gender, page, includeSegment)
+	if err != nil {
+		return nil, nil, err
+	}
+
 	for ; !final; page++ {
-		next, _, final, err = GetLeaderboardPageForUrl(url, page /* includeSegment */, false)
+		next, _, final, err =
+			c.getLeaderboardPageForUrl(
+				url, gender, page /* includeSegment */, false)
 		if err != nil {
 			return nil, nil, err
 		}
-		// NOTE: EntriesCount could change if new activities are uploaded or deleted during fetching,
-		// the next fetched count always takes precedence.
+		// NOTE: EntriesCount could change if new activities are uploaded or
+		// deleted during fetching, the next fetched count always takes precedence.
 		leaderboard.EntriesCount = next.EntriesCount
-		leaderboard.Entries = append(leaderboard.Entries, next.Entries)
+		leaderboard.Entries = append(leaderboard.Entries, next.Entries...)
 	}
 
 	return leaderboard, segment, nil
 }
 
-func (c *Client) getLeaderboardPageForUrl(string url, int64 page, bool includeSegment) (*Leaderboard, *Segment, bool, error) {
+func (c *Client) getLeaderboardPageForUrl(url string, gender Gender, page int, includeSegment bool) (*Leaderboard, *Segment, bool, error) {
 	var leaderboard *Leaderboard
 	var segment *Segment
 	var final bool
@@ -300,7 +297,7 @@ func (c *Client) getLeaderboardPageForUrl(string url, int64 page, bool includeSe
 	}
 
 	if includeSegment {
-		segment, err = parseSegment(doc, segmentId)
+		segment, err = parseSegment(doc)
 		if err != nil {
 			return nil, nil, false, err
 		}
@@ -312,9 +309,9 @@ func (c *Client) getLeaderboardPageForUrl(string url, int64 page, bool includeSe
 
 	// When building up the results, we can't simply loop until len(leaderboard.Entries)
 	// == leaderboard.EntryCount  because that's not guaranteed to ever be true. We can
-	// definitely stop looping once Strava is no longer returning entries, and we can also
-	// use the pagination information to be fairly confident we should stop.
-	final = len(next.Entries) == 0 || isFinalPage(doc)
+	// definitely stop looping once Strava is no longer returning entries, and we can
+	// also use the pagination information to be fairly confident we should stop.
+	final = len(leaderboard.Entries) == 0 || isFinalPage(doc)
 
 	return leaderboard, segment, final, nil
 }
@@ -326,8 +323,27 @@ func (c *Client) request() {
 	c.RequestCount++
 }
 
-func parseSegment(doc *goquery.Document, segmentId int64) (*Segment, error) {
-	s := &Segment{ID: segmentId}
+func getLeaderboardUrl(segmentId int64, gender Gender, filter Filter) string {
+	url := fmt.Sprintf("https://www.strava.com/segments/%d?", segmentId)
+	// Strava doesn't respect current_year properly without a date_range
+	if filter == Filters.CurrentYear {
+		url = fmt.Sprintf("%sdate_range=this_year&", url)
+	}
+	return fmt.Sprintf(
+		"%sfilter=%s&gender=%s&per_page=%d", url, filter, gender, MAX_PER_PAGE)
+}
+
+func parseSegment(doc *goquery.Document) (*Segment, error) {
+	s := &Segment{}
+	attr, ok := doc.Find(".segment-name button").Attr("data-segment-id")
+	if !ok {
+		return nil, errors.New("Could not find segment ID!")
+	}
+	id, err := parseInt(attr)
+	if err != nil {
+		return nil, err
+	}
+	s.ID = id
 
 	div := doc.Find(".segment-heading").First()
 	name, ok := div.Find(".segment-name span[data-full-name]").Attr("data-full-name")
@@ -335,29 +351,30 @@ func parseSegment(doc *goquery.Document, segmentId int64) (*Segment, error) {
 		return nil, errors.New("Could not find segment name!")
 	}
 	s.Name = name
-	s.Location = strings.TrimSpace(div.Find(".location").Contents().Not("strong").Text())
+	s.Location = strings.TrimSpace(
+		div.Find(".location").Contents().Not("strong").Text())
 
 	stats := div.Find(".stat-text")
 
-	val, err := parseStat(0)
+	val, err := parseStat(stats, 0)
 	if err != nil {
 		return nil, err
 	}
 	s.Distance = val * 1000
 
-	val, err = parseStat(2)
+	val, err = parseStat(stats, 2)
 	if err != nil {
 		return nil, err
 	}
 	s.ElevationLow = val
 
-	val, err = parseStat(3)
+	val, err = parseStat(stats, 3)
 	if err != nil {
 		return nil, err
 	}
 	s.ElevationHigh = val
 
-	val, err = parseStat(4)
+	val, err = parseStat(stats, 4)
 	if err != nil {
 		return nil, err
 	}
@@ -373,13 +390,17 @@ func parseSegment(doc *goquery.Document, segmentId int64) (*Segment, error) {
 	return s, nil
 }
 
-func parseStat(s *goquery.Selection, i int64) (float64, error) {
+func parseStat(s *goquery.Selection, i int) (float64, error) {
 	return parseFloat(s.Eq(i).Contents().Not("abbr").Text())
 }
 
-func parseLeaderboard(doc *goquery.Document, gender Gender) (board Leaderboard, err error) {
-	var entries []*LeaderboardEntry
-	board.EntriesCount = parseInt(strings.TrimSpace(strings.Split(doc.Find(".standing").Text(), "/")[-1]))
+func parseLeaderboard(doc *goquery.Document, gender Gender) (board *Leaderboard, err error) {
+	split := strings.Split(doc.Find(".standing").Text(), "/")
+	val, err := parseInt(strings.TrimSpace(split[len(split)-1]))
+	if err != nil {
+		return nil, err
+	}
+	board.EntriesCount = val
 
 	doc.Find(".table-leaderboard tbody tr").EachWithBreak(func(i int, tr *goquery.Selection) bool {
 		tds := tr.Find("td")
@@ -402,10 +423,14 @@ func parseLeaderboard(doc *goquery.Document, gender Gender) (board Leaderboard, 
 			return false
 		}
 		url := fmt.Sprintf("https://www.strava.com%s", href)
-		entry.Athlete = Athlete{URL: url, Name: strings.TrimSpace(td.Text()), Gender: gender}
-
+		entry.Athlete = Athlete{
+			URL:    url,
+			Name:   strings.TrimSpace(td.Text()),
+			Gender: gender,
+		}
 		td = tds.Eq(2)
-		entry.StartDate, err = time.Parse("Jan 2, 2006", strings.TrimSpace(td.Text()))
+		entry.StartDate, err =
+			time.Parse("Jan 2, 2006", strings.TrimSpace(td.Text()))
 		if err != nil {
 			return false
 		}
@@ -421,9 +446,10 @@ func parseLeaderboard(doc *goquery.Document, gender Gender) (board Leaderboard, 
 		}
 		entry.EffortID = id
 
-		entry.ElapsedTime, _ = parseElapsedTime(strings.TrimSpace(tds.Eq(7).Text()))
+		entry.ElapsedTime, _ =
+			parseElapsedTime(strings.TrimSpace(tds.Eq(7).Text()))
 
-		board.entries = append(board.entries, entry)
+		board.Entries = append(board.Entries, entry)
 		return true
 	})
 

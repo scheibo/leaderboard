@@ -3,8 +3,8 @@ package main
 
 import (
 	"flag"
-	"os"
 	"fmt"
+	"os"
 	"time"
 
 	"github.com/scheibo/leaderboard"
@@ -63,15 +63,19 @@ func main() {
 		exit(err)
 	}
 
-	// TODO only get one page
-	leaderboard, _, err := client.GetLeaderboard(segmentId, Genders.Male, Filters.CurrentYear)
+	leaderboard, err :=
+		client.GetLeaderboardPage(segmentId, Genders.Male, Filters.CurrentYear, 1)
 	if err != nil {
 		exit(err)
 	}
 
-	// json.NewEncoder(os.Stdout).Encode(leaderboard)
-	fmt.Printf("%s (%d): %.2f km @ %.2f%% \n", segment.Name, segment.ID, segment.Distance, segment.AverageGrade)
+	fmt.Printf("%s (%d): %.2f km @ %.2f%%\n",
+		segment.Name, segment.ID, segment.Distance, segment.AverageGrade)
 	for e := range leaderboard.Entries {
-		fmt.Printf("%d) %s: %v (%s)\n", e.Rank, e.Athlete.Name, fmtDuration(time.Duration(e.ElapsedTime) * time.Second), e.StartDate)
+		fmt.Printf("%d) %s: %v (%s)\n",
+			e.Rank,
+			e.Athlete.Name,
+			fmtDuration(time.Duration(e.ElapsedTime)*time.Second),
+			e.StartDate)
 	}
 }
