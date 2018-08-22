@@ -53,25 +53,25 @@ func main() {
 		exit(fmt.Errorf("Please provide a segment"))
 	}
 
-	client, err := stravax.NewClient(email, password, accessToken)
+	client, err := stravax.NewClient(email, password, token)
 	if err != nil {
 		exit(err)
 	}
 
-	segment, _, err := client.GetSegment(segmentId)
+	segment, err := client.GetSegment(segmentId)
 	if err != nil {
 		exit(err)
 	}
 
 	leaderboard, err :=
-		client.GetLeaderboardPage(segmentId, Genders.Male, Filters.CurrentYear, 1)
+		client.GetLeaderboardPage(segmentId, stravax.Genders.Male, stravax.Filters.CurrentYear, 1)
 	if err != nil {
 		exit(err)
 	}
 
 	fmt.Printf("%s (%d): %.2f km @ %.2f%%\n",
 		segment.Name, segment.ID, segment.Distance, segment.AverageGrade)
-	for e := range leaderboard.Entries {
+	for _, e := range leaderboard.Entries {
 		fmt.Printf("%d) %s: %v (%s)\n",
 			e.Rank,
 			e.Athlete.Name,

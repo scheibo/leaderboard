@@ -230,25 +230,25 @@ func (c *Client) GetSegment(segmentID int64) (*Segment, error) {
 // GetLeaderboardAndSegment returns the leaderboard of segmentID for the specified gender
 // and filter as well the segment details.
 func (c *Client) GetLeaderboardAndSegment(segmentID int64, gender Gender, filter Filter) (*Leaderboard, *Segment, error) {
-	return c.getLeaderboard(segmentID, gender, filter /* includeSegment */, true)
+	return c.getLeaderboard(segmentID, gender, filter, true)
 }
 
 // GetLeaderboard returns the leaderboard of segmentID for the specified gender and filter.
 func (c *Client) GetLeaderboard(segmentID int64, gender Gender, filter Filter) (*Leaderboard, error) {
-	leaderboard, _, err := c.getLeaderboard(segmentID, gender, filter /* includeSegment */, false)
+	leaderboard, _, err := c.getLeaderboard(segmentID, gender, filter, false)
 	return leaderboard, err
 }
 
 // GetLeaderboardPageAndSegment returns the specified page of the leaderboard for segmentID for
 // given gender and filter as well as the segment details.
 func (c *Client) GetLeaderboardPageAndSegment(segmentID int64, gender Gender, filter Filter, page int) (*Leaderboard, *Segment, error) {
-	leaderboard, segment, _, err := c.getLeaderboardPageForURL(getLeaderboardURL(segmentID, gender, filter), gender, page /* includeSegment */, true)
+	leaderboard, segment, _, err := c.getLeaderboardPageForURL(getLeaderboardURL(segmentID, gender, filter), gender, page, true)
 	return leaderboard, segment, err
 }
 
 // GetLeaderboardPage returns the specified page of the leaderboard for segmentID for given gender and filter.
 func (c *Client) GetLeaderboardPage(segmentID int64, gender Gender, filter Filter, page int) (*Leaderboard, error) {
-	leaderboard, _, _, err := c.getLeaderboardPageForURL(getLeaderboardURL(segmentID, gender, filter), gender, page /* includeSegment */, false)
+	leaderboard, _, _, err := c.getLeaderboardPageForURL(getLeaderboardURL(segmentID, gender, filter), gender, page, false)
 	return leaderboard, err
 }
 
@@ -266,7 +266,7 @@ func (c *Client) getLeaderboard(segmentID int64, gender Gender, filter Filter, i
 	for ; !final; page++ {
 		next, _, final, err =
 			c.getLeaderboardPageForURL(
-				url, gender, page /* includeSegment */, false)
+				url, gender, page, false)
 		if err != nil {
 			return nil, nil, err
 		}
@@ -395,13 +395,14 @@ func parseStat(s *goquery.Selection, i int) (float64, error) {
 	return parseFloat(s.Eq(i).Contents().Not("abbr").Text())
 }
 
-func parseLeaderboard(doc *goquery.Document, gender Gender) (board *Leaderboard, err error) {
+func parseLeaderboard(doc *goquery.Document, gender Gender) (*Leaderboard, error) {
+	var leaderboard Leaderboard
 	split := strings.Split(doc.Find(".standing").Text(), "/")
 	val, err := parseInt(strings.TrimSpace(split[len(split)-1]))
 	if err != nil {
 		return nil, err
 	}
-	board.EntriesCount = val
+	leaderboard.EntriesCount = val
 
 	doc.Find(".table-leaderboard tbody tr").EachWithBreak(func(i int, tr *goquery.Selection) bool {
 		tds := tr.Find("td")
@@ -450,14 +451,14 @@ func parseLeaderboard(doc *goquery.Document, gender Gender) (board *Leaderboard,
 		entry.ElapsedTime, _ =
 			parseElapsedTime(strings.TrimSpace(tds.Eq(7).Text()))
 
-		board.Entries = append(board.Entries, entry)
+		leaderboard.Entries = append(leaderboard.Entries, entry)
 		return true
 	})
 
 	if err != nil {
 		return nil, err
 	}
-	return board, nil
+	return &leaderboard, nil
 }
 
 func parseInt(s string) (int64, error) {
