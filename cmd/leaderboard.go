@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/scheibo/leaderboard"
+	"github.com/scheibo/stravax"
 )
 
 func fmtDuration(d time.Duration) string {
@@ -53,7 +53,7 @@ func main() {
 		exit(fmt.Errorf("Please provide a segment"))
 	}
 
-	client, err := NewClient(email, password, accessToken)
+	client, err := stravax.NewClient(email, password, accessToken)
 	if err != nil {
 		exit(err)
 	}

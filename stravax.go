@@ -1,5 +1,6 @@
-// Package leaderboard retrieves Strava leaderboard information for a logged in user.
-package leaderboard
+// Package stravax extends to Strava API to allow for retrieving complete Strava
+// leaderboard information for a logged in user.
+package stravax
 
 import (
 	"errors"
@@ -20,7 +21,7 @@ import (
 )
 
 // USER_AGENT is the user agent we will use when making requests against the frontend.
-const USER_AGENT = "strava-leaderboard/0.0.1"
+const USER_AGENT = "stravax/0.0.1"
 
 // QPS_LIMIT is the maximum number of requests we will make in a second to both
 // the API and the frontend combined.
@@ -144,11 +145,11 @@ func (c *Client) login(email, password string) (*Client, error) {
 
 	csrfParam, ok := doc.Find("meta[name=csrf-param]").Attr("content")
 	if !ok {
-		return nil, errors.New("Could not find csrf-param")
+		return nil, errors.New("could not find csrf-param")
 	}
 	csrfToken, ok := doc.Find("meta[name=csrf-token]").Attr("content")
 	if !ok {
-		return nil, errors.New("Could not find csrf-token")
+		return nil, errors.New("could not find csrf-token")
 	}
 
 	resp, err = c.httpClient.PostForm(
@@ -169,7 +170,7 @@ func (c *Client) login(email, password string) (*Client, error) {
 	}
 
 	if doc.Find("title").Text() != "Dashboard | Strava" {
-		return nil, errors.New("Login was unsuccessful!")
+		return nil, errors.New("login was unsuccessful")
 	}
 
 	return c, nil
@@ -200,15 +201,15 @@ func NewStubClient(content ...string) *Client {
 	return c
 }
 
-// GetSegment returns the data for the segment identified by segmentId using the Strava API.
-func (c *Client) GetSegment(segmentId int64) (*Segment, error) {
+// GetSegment returns the data for the segment identified by segmentID using the Strava API.
+func (c *Client) GetSegment(segmentID int64) (*Segment, error) {
 	c.request()
-	segment, err := strava.NewSegmentsService(c.stravaClient).Get(segmentId).Do()
+	segment, err := strava.NewSegmentsService(c.stravaClient).Get(segmentID).Do()
 	if err != nil {
 		return nil, err
 	}
 
-	s := &Segment{ID: segmentId}
+	s := &Segment{ID: segmentID}
 	s.Name = segment.Name
 	s.Location = fmt.Sprintf("%s, %s", segment.City, segment.State)
 	s.Distance = segment.Distance
@@ -226,45 +227,45 @@ func (c *Client) GetSegment(segmentId int64) (*Segment, error) {
 	return s, nil
 }
 
-// GetLeaderboardAndSegment returns the leaderboard of segmentId for the specified gender
+// GetLeaderboardAndSegment returns the leaderboard of segmentID for the specified gender
 // and filter as well the segment details.
-func (c *Client) GetLeaderboardAndSegment(segmentId int64, gender Gender, filter Filter) (*Leaderboard, *Segment, error) {
-	return c.getLeaderboard(segmentId, gender, filter /* includeSegment */, true)
+func (c *Client) GetLeaderboardAndSegment(segmentID int64, gender Gender, filter Filter) (*Leaderboard, *Segment, error) {
+	return c.getLeaderboard(segmentID, gender, filter /* includeSegment */, true)
 }
 
-// GetLeaderboard returns the leaderboard of segmentId for the specified gender and filter.
-func (c *Client) GetLeaderboard(segmentId int64, gender Gender, filter Filter) (*Leaderboard, error) {
-	leaderboard, _, err := c.getLeaderboard(segmentId, gender, filter /* includeSegment */, false)
+// GetLeaderboard returns the leaderboard of segmentID for the specified gender and filter.
+func (c *Client) GetLeaderboard(segmentID int64, gender Gender, filter Filter) (*Leaderboard, error) {
+	leaderboard, _, err := c.getLeaderboard(segmentID, gender, filter /* includeSegment */, false)
 	return leaderboard, err
 }
 
-// GetLeaderboardPageAndSegment returns the specified page of the leaderboard for segmentId for
+// GetLeaderboardPageAndSegment returns the specified page of the leaderboard for segmentID for
 // given gender and filter as well as the segment details.
-func (c *Client) GetLeaderboardPageAndSegment(segmentId int64, gender Gender, filter Filter, page int) (*Leaderboard, *Segment, error) {
-	leaderboard, segment, _, err := c.getLeaderboardPageForUrl(getLeaderboardUrl(segmentId, gender, filter), gender, page /* includeSegment */, true)
+func (c *Client) GetLeaderboardPageAndSegment(segmentID int64, gender Gender, filter Filter, page int) (*Leaderboard, *Segment, error) {
+	leaderboard, segment, _, err := c.getLeaderboardPageForURL(getLeaderboardURL(segmentID, gender, filter), gender, page /* includeSegment */, true)
 	return leaderboard, segment, err
 }
 
-// GetLeaderboardPage returns the specified page of the leaderboard for segmentId for given gender and filter.
-func (c *Client) GetLeaderboardPage(segmentId int64, gender Gender, filter Filter, page int) (*Leaderboard, error) {
-	leaderboard, _, _, err := c.getLeaderboardPageForUrl(getLeaderboardUrl(segmentId, gender, filter), gender, page /* includeSegment */, false)
+// GetLeaderboardPage returns the specified page of the leaderboard for segmentID for given gender and filter.
+func (c *Client) GetLeaderboardPage(segmentID int64, gender Gender, filter Filter, page int) (*Leaderboard, error) {
+	leaderboard, _, _, err := c.getLeaderboardPageForURL(getLeaderboardURL(segmentID, gender, filter), gender, page /* includeSegment */, false)
 	return leaderboard, err
 }
 
-func (c *Client) getLeaderboard(segmentId int64, gender Gender, filter Filter, includeSegment bool) (*Leaderboard, *Segment, error) {
+func (c *Client) getLeaderboard(segmentID int64, gender Gender, filter Filter, includeSegment bool) (*Leaderboard, *Segment, error) {
 	var next *Leaderboard
-	url := getLeaderboardUrl(segmentId, gender, filter)
+	url := getLeaderboardURL(segmentID, gender, filter)
 
 	page := 1
 	leaderboard, segment, final, err :=
-		c.getLeaderboardPageForUrl(url, gender, page, includeSegment)
+		c.getLeaderboardPageForURL(url, gender, page, includeSegment)
 	if err != nil {
 		return nil, nil, err
 	}
 
 	for ; !final; page++ {
 		next, _, final, err =
-			c.getLeaderboardPageForUrl(
+			c.getLeaderboardPageForURL(
 				url, gender, page /* includeSegment */, false)
 		if err != nil {
 			return nil, nil, err
@@ -278,7 +279,7 @@ func (c *Client) getLeaderboard(segmentId int64, gender Gender, filter Filter, i
 	return leaderboard, segment, nil
 }
 
-func (c *Client) getLeaderboardPageForUrl(url string, gender Gender, page int, includeSegment bool) (*Leaderboard, *Segment, bool, error) {
+func (c *Client) getLeaderboardPageForURL(url string, gender Gender, page int, includeSegment bool) (*Leaderboard, *Segment, bool, error) {
 	var leaderboard *Leaderboard
 	var segment *Segment
 	var final bool
@@ -323,8 +324,8 @@ func (c *Client) request() {
 	c.RequestCount++
 }
 
-func getLeaderboardUrl(segmentId int64, gender Gender, filter Filter) string {
-	url := fmt.Sprintf("https://www.strava.com/segments/%d?", segmentId)
+func getLeaderboardURL(segmentID int64, gender Gender, filter Filter) string {
+	url := fmt.Sprintf("https://www.strava.com/segments/%d?", segmentID)
 	// Strava doesn't respect current_year properly without a date_range
 	if filter == Filters.CurrentYear {
 		url = fmt.Sprintf("%sdate_range=this_year&", url)
@@ -337,7 +338,7 @@ func parseSegment(doc *goquery.Document) (*Segment, error) {
 	s := &Segment{}
 	attr, ok := doc.Find(".segment-name button").Attr("data-segment-id")
 	if !ok {
-		return nil, errors.New("Could not find segment ID!")
+		return nil, errors.New("could not find segment ID")
 	}
 	id, err := parseInt(attr)
 	if err != nil {
@@ -348,7 +349,7 @@ func parseSegment(doc *goquery.Document) (*Segment, error) {
 	div := doc.Find(".segment-heading").First()
 	name, ok := div.Find(".segment-name span[data-full-name]").Attr("data-full-name")
 	if !ok {
-		return nil, errors.New("Could not find segment name!")
+		return nil, errors.New("could not find segment name")
 	}
 	s.Name = name
 	s.Location = strings.TrimSpace(
@@ -419,7 +420,7 @@ func parseLeaderboard(doc *goquery.Document, gender Gender) (board *Leaderboard,
 		td := tds.Eq(1)
 		href, ok := td.Find("a").Attr("href")
 		if !ok {
-			err = errors.New("Could not find athlete URL!")
+			err = errors.New("could not find athlete URL")
 			return false
 		}
 		url := fmt.Sprintf("https://www.strava.com%s", href)
@@ -436,7 +437,7 @@ func parseLeaderboard(doc *goquery.Document, gender Gender) (board *Leaderboard,
 		}
 		href, ok = td.Find("a").Attr("href")
 		if !ok {
-			err = errors.New("Could not find effort ID!")
+			err = errors.New("could not find effort ID")
 			return false
 		}
 		var id int64

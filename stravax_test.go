@@ -1,12 +1,12 @@
-package leaderboard
+package stravax
 
 import (
 	"testing"
 )
 
-func TestGetLeaderboardUrl(t *testing.T) {
+func TestGetLeaderboardURL(t *testing.T) {
 	tests := []struct {
-		segmentId int64
+		segmentID int64
 		gender    Gender
 		filter    Filter
 		expected  string
@@ -21,10 +21,10 @@ func TestGetLeaderboardUrl(t *testing.T) {
 			"https://www.strava.com/segments/3456?date_range=this_year&filter=current_year&gender=F&per_page=100"},
 	}
 	for _, tt := range tests {
-		actual := getLeaderboardUrl(tt.segmentId, tt.gender, tt.filter)
+		actual := getLeaderboardURL(tt.segmentID, tt.gender, tt.filter)
 		if actual != tt.expected {
-			t.Errorf("getLeaderboardUrl(%d, %s, %s): got: %s, want: %s",
-				tt.segmentId, tt.gender, tt.filter, actual, tt.expected)
+			t.Errorf("getLeaderboardURL(%d, %s, %s): got: %s, want: %s",
+				tt.segmentID, tt.gender, tt.filter, actual, tt.expected)
 		}
 	}
 }
@@ -42,7 +42,7 @@ func TestGetLeaderboardAndSegment(t *testing.T) {
 	}
 	tests := []struct {
 		files                                                          []string
-		segmentId                                                      int64
+		segmentID                                                      int64
 		gender                                                         Gender
 		filter                                                         Filter
 		expectedRequestCount, expectedLenEntries, expectedEntriesCount int64
@@ -55,7 +55,7 @@ func TestGetLeaderboardAndSegment(t *testing.T) {
 	}
 	for _, tt := range tests {
 		c := newStubClient(t, files)
-		leaderboard, segment, err := client.GetLeaderboardAndSegment(tt.segmentId, tt.gender, tt.filter)
+		leaderboard, segment, err := client.GetLeaderboardAndSegment(tt.segmentID, tt.gender, tt.filter)
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -64,7 +64,7 @@ func TestGetLeaderboardAndSegment(t *testing.T) {
 			segment != expectedSegment ||
 			c.RequestCount != tt.expectedRequestCount {
 			t.Errorf("GetLeaderboardAndSegment(%d, %s, %s): got: ((%d, %d), %v, %d), want: ((%d, %d), %v, %d)",
-				tt.segmentId, tt.gender, tt.filter, len(leaderboard.Entries), leaderboard.EntriesCount, segment, c.RequestCount,
+				tt.segmentID, tt.gender, tt.filter, len(leaderboard.Entries), leaderboard.EntriesCount, segment, c.RequestCount,
 				tt.expectedLenEntries, tt.expectedEntriesCount, expectedSegment, tt.ex.expectedRequestCount)
 		}
 	}
