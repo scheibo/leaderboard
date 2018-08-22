@@ -28,7 +28,7 @@ const USER_AGENT = "stravax/0.1.0"
 const QPS_LIMIT = 10
 
 // MAX_PER_PAGE is the maximum number of entries which can be requested per page.
-// NOTE: This is 100 when using the API, but for some reason 100 is the limit
+// NOTE: This is 200 when using the API, but for some reason 100 is the limit
 // when scraping the frontend.
 const MAX_PER_PAGE = 100
 
