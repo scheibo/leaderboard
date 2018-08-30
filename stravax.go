@@ -219,6 +219,7 @@ func (c *Client) GetSegment(segmentID int64) (*Segment, error) {
 	s.ElevationLow = segment.ElevationLow
 	s.ElevationHigh = segment.ElevationHigh
 
+	// BUG: this only works for climbs...
 	gain := s.ElevationHigh - s.ElevationLow
 	if segment.TotalElevationGain > gain {
 		s.TotalElevationGain = segment.TotalElevationGain
