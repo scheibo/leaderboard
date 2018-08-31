@@ -42,10 +42,11 @@ func TestGetLeaderboardAndSegment(t *testing.T) {
 		Name:               "PCSD",
 		Location:           "Dixon, CA",
 		Distance:           16110,
-		AverageGrade:       0.08069522036002483,
+		AverageGrade:       0.0008069522036002483,
 		ElevationLow:       83,
 		ElevationHigh:      96,
 		TotalElevationGain: 13,
+		MedianElevation:    89.5,
 	}
 	tests := []struct {
 		files                []string
@@ -116,10 +117,11 @@ func TestGetLeaderboardPageAndSegment(t *testing.T) {
 		Name:               "PCSD",
 		Location:           "Dixon, CA",
 		Distance:           16110,
-		AverageGrade:       0.08069522036002483,
+		AverageGrade:       0.0008069522036002483,
 		ElevationLow:       83,
 		ElevationHigh:      96,
 		TotalElevationGain: 13,
+		MedianElevation:    89.5,
 	}
 	tests := []struct {
 		file                 string

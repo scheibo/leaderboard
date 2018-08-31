@@ -32,6 +32,10 @@ const QPS_LIMIT = 10
 // when scraping the frontend.
 const MAX_PER_PAGE = 100
 
+// CLIMB_THRESHOLD is the mininum gradient that is considered a climb for purposes
+// of adjusting the TotalElevationGained/AverageGrade metrics.
+const CLIMB_THRESHOLD = 0.03
+
 // Gender is the gender of the athlete.
 type Gender string
 
@@ -70,6 +74,7 @@ type Segment struct {
 	ElevationLow       float64 `json:"elevation_low"`
 	ElevationHigh      float64 `json:"elevation_high"`
 	TotalElevationGain float64 `json:"total_elevation_gain"`
+	MedianElevation    float64 `json:"median_elevation"`
 }
 
 // LeaderboardEntry is a single entry in a leaderboard, representing the best
@@ -218,15 +223,14 @@ func (c *Client) GetSegment(segmentID int64) (*Segment, error) {
 	s.Distance = segment.Distance
 	s.ElevationLow = segment.ElevationLow
 	s.ElevationHigh = segment.ElevationHigh
+	s.MedianElevation = (s.ElevationHigh + s.ElevationLow) / 2
 
-	// BUG: this only works for climbs...
-	gain := s.ElevationHigh - s.ElevationLow
-	if segment.TotalElevationGain > gain {
+	s.TotalElevationGain = s.ElevationHigh - s.ElevationLow
+	s.AverageGrade = s.TotalElevationGain / s.Distance
+	if segment.AverageGrade < CLIMB_THRESHOLD {
 		s.TotalElevationGain = segment.TotalElevationGain
-	} else {
-		s.TotalElevationGain = gain
+		s.AverageGrade = segment.AverageGrade
 	}
-	s.AverageGrade = s.TotalElevationGain / s.Distance * 100.0
 
 	return s, nil
 }
@@ -367,6 +371,12 @@ func parseSegment(doc *goquery.Document) (*Segment, error) {
 	}
 	s.Distance = val * 1000
 
+	gr, err := parseStat(stats, 1)
+	if err != nil {
+		return nil, err
+	}
+	gr = gr / 100
+
 	val, err = parseStat(stats, 2)
 	if err != nil {
 		return nil, err
@@ -379,18 +389,19 @@ func parseSegment(doc *goquery.Document) (*Segment, error) {
 	}
 	s.ElevationHigh = val
 
-	val, err = parseStat(stats, 4)
+	gain, err := parseStat(stats, 4)
 	if err != nil {
 		return nil, err
 	}
 
-	gain := s.ElevationHigh - s.ElevationLow
-	if val > gain {
-		s.TotalElevationGain = val
-	} else {
+	s.TotalElevationGain = s.ElevationHigh - s.ElevationLow
+	if gr < CLIMB_THRESHOLD {
 		s.TotalElevationGain = gain
+		// NOTE: we never use gr itself because it has too few
+		// significant digits to be useful.
 	}
-	s.AverageGrade = s.TotalElevationGain / s.Distance * 100.0
+	s.AverageGrade = s.TotalElevationGain / s.Distance
+	s.MedianElevation = (s.ElevationHigh + s.ElevationLow) / 2
 
 	return s, nil
 }
