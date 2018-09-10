@@ -50,8 +50,8 @@ func main() {
 		exit(err)
 	}
 
-	fmt.Printf("%s (%d): %.2f km @ %.2f%%\n",
-		segment.Name, segment.ID, segment.Distance, segment.AverageGrade)
+	fmt.Printf("%s (%d): %.2f km @ %.3f%%\n",
+		segment.Name, segment.ID, segment.Distance, segment.AverageGrade*100)
 	for _, e := range leaderboard.Entries {
 		fmt.Printf("%d) %s: %v (%s)\n",
 			e.Rank,

@@ -15,6 +15,7 @@ import (
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/scheibo/geo"
 	"github.com/strava/go.strava"
 
 	"golang.org/x/net/publicsuffix"
@@ -66,15 +67,19 @@ type Athlete struct {
 // NOTE: The segment information stored in the frontend leaderboard page is
 // inherently less accurate than the information from the API.
 type Segment struct {
-	ID                 int64   `json:"id"`
-	Name               string  `json:"name"`
-	Location           string  `json:"location"`
-	Distance           float64 `json:"distance"`
-	AverageGrade       float64 `json:"average_grade"`
-	ElevationLow       float64 `json:"elevation_low"`
-	ElevationHigh      float64 `json:"elevation_high"`
-	TotalElevationGain float64 `json:"total_elevation_gain"`
-	MedianElevation    float64 `json:"median_elevation"`
+	ID                 int64      `json:"id"`
+	Name               string     `json:"name"`
+	Location           string     `json:"location"`
+	Distance           float64    `json:"distance"`
+	AverageGrade       float64    `json:"average_grade"`
+	ElevationLow       float64    `json:"elevation_low"`
+	ElevationHigh      float64    `json:"elevation_high"`
+	TotalElevationGain float64    `json:"total_elevation_gain"`
+	MedianElevation    float64    `json:"median_elevation"`
+	StartLocation      geo.LatLng `json:"start_location"`
+	EndLocation        geo.LatLng `json:"end_location"`
+	AverageLocation    geo.LatLng `json:"average_location,omitempty"`
+	AverageDirection   float64    `json:average_direction,omitempty"`
 }
 
 // LeaderboardEntry is a single entry in a leaderboard, representing the best
@@ -230,6 +235,15 @@ func (c *Client) GetSegment(segmentID int64) (*Segment, error) {
 	if segment.AverageGrade < CLIMB_THRESHOLD {
 		s.TotalElevationGain = segment.TotalElevationGain
 		s.AverageGrade = segment.AverageGrade
+	}
+
+	s.StartLocation = geo.LatLng{segment.StartLocation[0], segment.StartLocation[1]}
+	s.EndLocation = geo.LatLng{segment.EndLocation[0], segment.EndLocation[1]}
+
+	lls, err := geo.DecodePolyline(string(segment.Map.Polyline))
+	if err == nil {
+		s.AverageLocation = geo.Average(lls)
+		s.AverageDirection = geo.AverageDirection(lls)
 	}
 
 	return s, nil
