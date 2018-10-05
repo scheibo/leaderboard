@@ -15,8 +15,9 @@ import (
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/strava/go.strava"
+	"github.com/scheibo/strava"
 
+	"golang.org/x/net/context"
 	"golang.org/x/net/publicsuffix"
 )
 
@@ -113,7 +114,8 @@ type Client struct {
 	RequestCount int64
 	throttle     <-chan time.Time
 	httpClient   *http.Client
-	stravaClient *strava.Client
+	stravaClient *strava.APIClient
+	stravaCtx    context.Context
 }
 
 type transport struct{}
@@ -139,7 +141,10 @@ func NewClient(email, password string, accessToken ...string) (*Client, error) {
 		httpClient: httpClient,
 	}
 	if len(accessToken) > 0 && accessToken[0] != "" {
-		c.stravaClient = strava.NewClient(accessToken[0])
+		cfg := strava.NewConfiguration()
+		cfg.UserAgent = USER_AGENT
+		c.stravaClient = strava.NewAPIClient(cfg)
+		c.stravaCtx = context.WithValue(context.Background(), strava.ContextAccessToken, accessToken[0])
 	}
 
 	return c.login(email, password)
@@ -221,7 +226,7 @@ func NewStubClient(content ...string) *Client {
 // GetSegment returns the data for the segment identified by segmentID using the Strava API.
 func (c *Client) GetSegment(segmentID int64) (*Segment, error) {
 	c.request()
-	segment, err := strava.NewSegmentsService(c.stravaClient).Get(segmentID).Do()
+	segment, _, err := c.stravaClient.SegmentsApi.GetSegmentById(c.stravaCtx, segmentID)
 	if err != nil {
 		return nil, err
 	}
@@ -229,21 +234,21 @@ func (c *Client) GetSegment(segmentID int64) (*Segment, error) {
 	s := &Segment{ID: segmentID}
 	s.Name = segment.Name
 	s.Location = fmt.Sprintf("%s, %s", segment.City, segment.State)
-	s.Distance = segment.Distance
-	s.ElevationLow = segment.ElevationLow
-	s.ElevationHigh = segment.ElevationHigh
+	s.Distance = float64(segment.Distance)
+	s.ElevationLow = float64(segment.ElevationLow)
+	s.ElevationHigh = float64(segment.ElevationHigh)
 	s.MedianElevation = (s.ElevationHigh + s.ElevationLow) / 2
 
 	s.TotalElevationGain = s.ElevationHigh - s.ElevationLow
 	s.AverageGrade = s.TotalElevationGain / s.Distance
 	if segment.AverageGrade < CLIMB_THRESHOLD {
-		s.TotalElevationGain = segment.TotalElevationGain
-		s.AverageGrade = segment.AverageGrade
+		s.TotalElevationGain = float64(segment.TotalElevationGain)
+		s.AverageGrade = float64(segment.AverageGrade)
 	}
 
-	s.StartLocation = LatLng{segment.StartLocation[0], segment.StartLocation[1]}
-	s.EndLocation = LatLng{segment.EndLocation[0], segment.EndLocation[1]}
-	s.Map = string(segment.Map.Polyline)
+	s.StartLocation = LatLng{segment.StartLatlng[0], segment.StartLatlng[1]}
+	s.EndLocation = LatLng{segment.EndLatlng[0], segment.EndLatlng[1]}
+	s.Map = segment.Map_.Polyline
 
 	return s, nil
 }
